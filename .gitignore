@@ -1,0 +1,16 @@
+__pycache__/
+build_info
+.idea
+.idea/*
+pavement.pyc
+# for builds on Mac:
+**/.DS_Store
+.vscode
+*~
+*.bak
+*.orig
+\#*\#
+published
+build
+sphinx-enki-info.txt
+sphinx_settings.json
