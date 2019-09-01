@@ -2,7 +2,7 @@ From model to instances: One-entity shapes
 ::::::::::::::::::::::::::::::::::::::::::
 
 .. toctree::
-   :caption: One-entity shapes
+   :caption: Start with the basics
    :maxdepth: 2
 
    OneEntityShapes.rst

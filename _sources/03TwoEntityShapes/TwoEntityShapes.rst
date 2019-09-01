@@ -41,14 +41,27 @@ Here are some example sample instances of town.
    :language: sql
    :include: town_create
 
-    INSERT INTO town VALUES ('p', 'Philadelphia', 'PA', 'United States', 'Philly', 'Let brotherly love endure');
-    INSERT INTO town VALUES ('a', 'Anoka', 'MN', 'United States', 'Halloween Capital of the world', NULL);
-    INSERT INTO town VALUES ('be', 'Blue Earth', 'MN', 'United States', 'Beyond the Valley of the Jolly Grean Giant', 'Earth so rich the city grows!');
-    INSERT INTO town VALUES ('b', 'Bemidji', 'MN', 'United States', 'B-town', 'The first city on the Mississippi');
-    INSERT INTO town VALUES ('d', 'Duluth', 'MN', 'United States', 'Zenith City', NULL);
-    INSERT INTO town VALUES ('g', 'Greenville', 'MS', 'United States', 'The Heart & Soul of the Delta', 'The Best Food, Shopping, & Entertainment In The South');
+    -- order matches table creation:
+    -- id    name          state   country
+    -- nickname   motto
+    INSERT INTO town VALUES ('p', 'Philadelphia', 'PA', 'United States',
+                             'Philly', 'Let brotherly love endure');
+    INSERT INTO town VALUES ('a', 'Anoka', 'MN', 'United States',
+                             'Halloween Capital of the world', NULL);
+    INSERT INTO town VALUES ('be', 'Blue Earth', 'MN', 'United States',
+                             'Beyond the Valley of the Jolly Green Giant',
+                             'Earth so rich the city grows!');
+    INSERT INTO town VALUES ('b', 'Bemidji', 'MN', 'United States',
+                             'B-town', 'The first city on the Mississippi');
+    INSERT INTO town VALUES ('d', 'Duluth', 'MN', 'United States',
+                            'Zenith City', NULL);
+    INSERT INTO town VALUES ('g', 'Greenville', 'MS', 'United States',
+                             'The Heart & Soul of the Delta',
+                             'The Best Food, Shopping, & Entertainment In The South');
     INSERT INTO town VALUES ('t', 'Tokyo', 'Kanto', 'Japan', NULL, NULL);
-    INSERT INTO town VALUES ('as', 'Asgard', NULL, NULL, 'Home of Odin''s vault', 'Where magic and science are one in the same');
+    INSERT INTO town VALUES ('as', 'Asgard', NULL, NULL,
+                             'Home of Odin''s vault',
+                             'Where magic and science are one in the same');
 
 .. activecode:: town_retrieve
    :language: sql
@@ -83,7 +96,7 @@ Relating instances through data
 
 Note in the above creation of the creature table we now have a column called townId, and have said that this references the townId column in the town table. Now look at the new insert commands below for instances of creature data. Notice how the creature named Bannon is declared to have townId 'p', which we know from the town data table instances indicates a town named 'Philadelphia'.
 
-.. important:: In database terms, townId is a *foreign key* from creature into town. Notice that from the LDS data model shown above, foreign key mappings like this are made on the relationship for the **one-end opposite of the original entity called Creature**. We are adding a new column that did not appear as an attribute on the original LDS.
+.. important:: In database terms, townId is a *foreign key* from creature into town. Notice that from the LDS data model shown above, foreign key mappings like this are made on the relationship for the **one-end opposite of the original entity called Creature**. We are adding a new column to Creature that did not appear as an attribute on the original LDS. 
 
 Populate Creature table with data instances
 -------------------------------------------
@@ -125,7 +138,7 @@ Populate Creature table with data instances
 Peek ahead: natural join
 ------------------------
 
-We will explain the following query in more detail later. For now simply note that we can get creature and town data back together again. This is the whole purpose of relational databases.
+We will explain the following query in more detail later. For now simply note that we can get creature and town data back together again. This is the whole purpose of relational databases. We should never be afraid of creating a new entity from what was once a single attribute at some point during our conceptual modeling process.
 
 .. activecode:: creature_join_town
    :language: sql

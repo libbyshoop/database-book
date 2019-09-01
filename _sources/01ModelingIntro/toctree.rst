@@ -1,9 +1,8 @@
-Data Modeling
+Beyond Conceptual Data Modeling
 :::::::::::::::::::::::::::::::
 
 .. toctree::
-   :caption: Data Modeling
+   :caption: Beginning to add 'how' to the what
    :maxdepth: 2
 
    ModelingIntro.rst
-   
