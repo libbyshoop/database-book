@@ -24,6 +24,8 @@ This book is not a substitute for a good book about conceptual data modeling. Th
 
   *Mastering Data Modeling, A User-Driven Approach*, by John Carlis and Joseph Maguire. Addison-Wesley Professional, 2000. ISBN 9780134176536
 
+This book is not a full reference to the SQL standard or its implementation in SQLite. You should practice looking up additional details about the syntax presented here. If you are using another database system for your work, you will want to have useful references on hand for it. What you see here will be examples to get you started.
+
 This book is not a substitute for attempting more data creation and analysis of larger sets of data, using different database management systems. I strongly suggest that you practice the techniques you see here by attempting increasingly more sophisticated queries on larger databases using MySQL, Postgres, Oracle, or SQLite installed on a server, virtual machine, desktop, or laptop. This book presents the basics, and you should practice further with your own data.
 
 Part 1: From conceptual models to SQL data creation
@@ -47,7 +49,7 @@ Table of Contents
   02OneEntityShapes/toctree.rst
   03TwoEntityShapes/toctree.rst
   04ThreeEntityShapes/toctree.rst
-  05TempPart2Section/toctree.rst
+  05IntroQuerying/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::
@@ -68,6 +70,11 @@ I wish to extend thanks to Brad Miller and the `Runestone Interactive <http://ru
 Warning: A work in Progress
 :::::::::::::::::::::::::::
 
-The material you will read here is still under constant revision. You may find sections with little detail that are still in progress, and you may be surprised by new additions showing up at any time. There may still be errors in some of the examples as I publish new versions. Please bear with me.
+.. image:: https://upload.wikimedia.org/wikipedia/commons/2/2d/Wikidata_logo_under_construction_sign_square.svg
+    :width: 100px
+    :align: left
+    :alt: Under construction
 
-I am only using a small part of what Runestone interactive books can provide. Some links in the title bar don't yet work or don't seem to belong. Please bear with me as I work towards making this material more like the other fully interactive books like those found on `Runestone Academy <https://runestone.academy/runestone/default/user/login?_next=/runestone/default/index>`_.
+The material you will read here is still under constant revision. You may find sections with little detail that are still in progress (look for the construction sign above and to the left), and you may be surprised by new additions showing up at any time. There may still be errors in some of the examples as I publish new versions. Please bear with me.
+
+I am only using a small part of what Runestone interactive books can provide. Some links in the title bar don't yet work or don't seem to belong. Please bear with me as I work towards making this material more like the other fully interactive books found on `Runestone Academy <https://runestone.academy/runestone/default/user/login?_next=/runestone/default/index>`_.
