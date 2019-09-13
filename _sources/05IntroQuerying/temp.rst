@@ -4,3 +4,23 @@
     :alt: Under construction
 
 Stay tuned for more content to appear here.
+
+
+.. table:: **recipe-stuff**
+
+  ===========   ==== ===============  ================
+  *recipe_id*   rank recipe_category  recipe_name
+  ===========   ==== ===============  ================
+  9257643       8772 cookie           Oatmeal Crispies
+  60029738      NULL bread            Banana Bread
+  ===========   ==== ===============  ================
+
+.. table:: **recipe-stuff**
+
+  +------------+----+---------------+-----------------+
+  |*recipe_id* |rank|recipe_category|  recipe_name    |
+  +============+====+===============+=================+
+  |9257643     |8772|cookie         | Oatmeal Crispies|
+  +------------+----+---------------+-----------------+
+  |60029738    |NULL|bread          | Banana Bread    |
+  +------------+----+---------------+-----------------+

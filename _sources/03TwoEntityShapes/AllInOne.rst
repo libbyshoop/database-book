@@ -9,7 +9,7 @@ Here is a complete version of all of the SQL data creation statements in one pla
    DROP TABLE IF EXISTS town;
 
    CREATE TABLE town (
-   townId          VARCHAR(3)      PRIMARY KEY,
+   townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
    townName        VARCHAR(20),
    State           VARCHAR(20),
    Country         VARCHAR(20),
@@ -27,7 +27,7 @@ Here is a complete version of all of the SQL data creation statements in one pla
    INSERT INTO town VALUES ('as', 'Asgard', NULL, NULL, 'Home of Odin''s vault', 'Where magic and science are one in the same');
 
    CREATE TABLE creature (
-   creatureId          INTEGER      PRIMARY KEY,
+   creatureId          INTEGER      NOT NUll PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    townId VARCHAR(3) REFERENCES town(townId)     -- foreign key
@@ -64,4 +64,3 @@ And here are retrieval statements that you can try after you experiment.
 
   SELECT creatureName, townName
   FROM creature natural join town;
-  

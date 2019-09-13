@@ -22,7 +22,7 @@ Create the new Town Table
    DROP TABLE IF EXISTS town;
 
    CREATE TABLE town (
-   townId          VARCHAR(3)      PRIMARY KEY,
+   townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
    townName        VARCHAR(20),
    State           VARCHAR(20),
    Country         VARCHAR(20),
@@ -83,7 +83,7 @@ Re-create a new Creature table
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      PRIMARY KEY,
+   creatureId          INTEGER      NOT NUll PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    townId VARCHAR(3) REFERENCES town(townId)     -- foreign key
@@ -96,7 +96,7 @@ Relating instances through data
 
 Note in the above creation of the creature table we now have a column called townId, and have said that this references the townId column in the town table. Now look at the new insert commands below for instances of creature data. Notice how the creature named Bannon is declared to have townId 'p', which we know from the town data table instances indicates a town named 'Philadelphia'.
 
-.. important:: In database terms, townId is a *foreign key* from creature into town. Notice that from the LDS data model shown above, foreign key mappings like this are made on the relationship for the **one-end opposite of the original entity called Creature**. We are adding a new column to Creature that did not appear as an attribute on the original LDS. 
+.. important:: In database terms, townId is a *foreign key* from creature into town. Notice that from the LDS data model shown above, foreign key mappings like this are made on the relationship for the **one-end opposite of the original entity called Creature**. We are adding a new column to Creature that did not appear as an attribute on the original LDS.
 
 Populate Creature table with data instances
 -------------------------------------------

@@ -91,7 +91,7 @@ What names? Well, every result relation needs a name – no anonymous relations 
 The Big Picture Summary
 -----------------------
 
-Now that you have been introduced to the database realm, you are ready to read, as briefly stated as I can make it, the big picture of the context and purpose of this book:
+Now that you have been introduced to the database realm, you are ready to read, as briefly stated as I can make it, the big picture of the context and purpose of remainder of this book:
 
 **Context**: for users, an analyst stores and manages lots of data using a relational DBMS in a truly relational way: declaring precisely-named relations, and no other kind of structure. The analyst gains value by examining the data, working with users to formulate precise query narratives, and transforming them into relational algebra charts with precisely named result relations.  After this, the analyst compiles those commands into SQL for execution and studies the results. This process is repeated until users are satisfied.
 

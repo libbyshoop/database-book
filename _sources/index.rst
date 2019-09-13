@@ -50,6 +50,7 @@ Table of Contents
   03TwoEntityShapes/toctree.rst
   04ThreeEntityShapes/toctree.rst
   05IntroQuerying/toctree.rst
+  06Relations/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::

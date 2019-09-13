@@ -20,14 +20,14 @@ What is being depicted here once again is that each creature can achieve many sk
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      PRIMARY KEY,
+   creatureId          INTEGER      NOT NUll PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    creatureResideTown  VARCHAR(20)
@@ -36,7 +36,7 @@ What is being depicted here once again is that each creature can achieve many sk
    DROP TABLE IF EXISTS achievement;
 
    CREATE TABLE achievement (
-   achId              INTEGER PRIMARY KEY AUTOINCREMENT,
+   achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
    creatureId         INTEGER,
    skillCode          VARCHAR(3),
    proficiency        INTEGER,

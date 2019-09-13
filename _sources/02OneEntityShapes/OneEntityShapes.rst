@@ -50,7 +50,7 @@ Here is how we can create a table to hold data like the above instances. Study t
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      PRIMARY KEY,
+   creatureId          INTEGER      NOT NUll PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    creatureResideTown  VARCHAR(20)

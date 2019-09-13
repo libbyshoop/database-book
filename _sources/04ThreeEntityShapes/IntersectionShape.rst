@@ -48,14 +48,14 @@ Now let's create the data tables for this situation. We repeat the creature tabl
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      PRIMARY KEY,
+   creatureId          INTEGER      NOT NUll PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    creatureResideTown  VARCHAR(20)

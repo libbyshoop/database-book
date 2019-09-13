@@ -22,14 +22,14 @@ Implementing one-to-one relationships in SQL can be done by choosing one of the 
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    Drop TABLE IF EXISTS TeamSkill;
 
    CREATE TABLE teamSkill (
-   skillCode      VARCHAR(3)  PRIMARY KEY references skill (skillCode),
+   skillCode      VARCHAR(3)  NOT NUll PRIMARY KEY references skill (skillCode),
    teamSize       INTEGER
    );
 
