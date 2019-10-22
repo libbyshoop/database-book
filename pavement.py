@@ -21,7 +21,7 @@ if not master_url:
 # The root directory for ``runestone serve``.
 serving_dir = "./build/" + project_name
 # The destination directory for ``runestone deploy``.
-dest = "../../static"
+dest = "publish"
 
 options(
     sphinx = Bunch(docroot=".",),

@@ -51,6 +51,9 @@ Table of Contents
   04ThreeEntityShapes/toctree.rst
   05IntroQuerying/toctree.rst
   06Relations/toctree.rst
+  07OperatorFramework/toctree.rst
+  08TinyDB/toctree.rst
+  09UnaryOps/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::

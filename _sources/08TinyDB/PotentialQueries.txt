@@ -1,0 +1,273 @@
+Small database:
+  - show all data as tables in a pdf that can be downloaded.
+  - start with the LDS to show the full structure of what will be used for example queries.
+  - write out statements about the data tables, like comments in sql inserts, for portions involved in example queries.
+  - show portion of data involved in example queries.
+  - show LDS fragment involved in example queries.
+
+
+Unary
+
+ Filter
+ ======
+
+-- so far: achievement, creature
+
+ Find each achievement whose proficiency is greater than 3.
+ Find each achievement whose proficiency is greater than 3 and that was achieved prior to August 1, 2018.
+ // in sqlite: date(achDate) < date('2018-08-1')
+ // FIND OUT: what happens with null dates- presume they will be left out
+
+ Find each achievement whose proficiency is greater than 3 and not equal to 6.
+
+ Find each creature whose creatureType is not 'person'.
+ Find each superhero creature.
+
+ Find each person creature who lives in London.
+ More precisely using the creature relation:
+ Find each person creature whose reside_townId is 'le'.
+
+ Find each achievement whose skillCode is 'Z'.
+
+
+ Project
+ =======
+
+ -- so far: creature, achievement,  skill, (1 fragment)
+ --      teamSkill (on its own), role (on its own)
+
+ Find the creatureId and creatureName of each creature.
+ Find each skillCode and skillDescription of Skill.
+ Find each skillCode and teamSize of each teamSkill.
+ Find the roleName of Role.
+
+ // extra columns:
+ Find each skillCode, skillDescription of Skill, and the possible number of different values of proficiency that can be applied.
+
+ For each achievement, find each achId, proficiency, and total elapsed time (days?) since the achievement.
+
+// dates: now - achDate
+
+ Reduce
+ ======
+-- so far: creature, town, achievement
+ What are each of the creature types?
+ Find each country of town.
+ Find each creatureName of creature.
+
+------------------------------------------------------------
+ Find each Achieved skill of creature with its proficiency
+ (id: skillCode, creatureId, proficiency)
+ // danger- produce a table
+ -- find proficiency achieved regardless of date
+ -- (can ruduce but the remove duplicates and add primary key back to 3 cols:
+ --   creatureId, skillCode, proficiency)
+
+ -- Find each Achieved skill of creature with its proficiency,regardless of date
+ -- (id: skillCode, creatureId, proficiency)
+ -- // danger- produce a table  because Neff #3 would appear twice
+ --            with the same proficiency
+ --  would show need to eliminate duplicates, the choose all 3 columns
+ --  as new identifier.
+------------------------------------------------------------
+
+ Find each creatureId of creature who has achieved.
+
+ Find each creatureId, skillCode of achieved skill-creature pair.
+
+ Find each achieved skillCode.
+
+ Group over cols
+ ================
+
+-- so far: creature, skill, achievement
+
+ Find each creatureId of creature with its average proficiency of achievement.
+
+ Find each creatureId of creature with its average proficiencyGoal of aspiration.
+
+ Count each type of creature.
+
+ Count achieved skillCode of skills per tested town of achievement.
+ Count skillCode per originTownId of skill.
+ Count creatureId per resideTownId of creature.
+
+ Group over nothing
+ ======================
+
+-- so far: creature, skill, town
+
+ Find the count of the number of creatures.
+ Find the count of the number of skills.
+ Find the highest maximumProficiency of any of the skills.
+ !! danger, but happens to work, or is it not allowed to carry?:
+ Find the skillDescription and highest maximumProficiency of any of the skills.
+
+ How many towns are there?
+
+
+ Combo: Filter + Reduce
+ ======================
+ // 18.	a Filter followed by a Reduce
+Find each creatureName of each person creature.
+
+ Find each skill description whose minimum proficiency is < 0.
+
+// project followed by filter
+ // dates: within 6 months
+ Find each achievement that was accomplished within six months of Jan. 1, 2017.
+ (Note: it is fine to assume a 30-day month.)
+
+ /////// other types asked for in homework
+// 16.	a series of Groups (two is fine; more if you'd like)
+
+Find each creatureId of creature whose average proficiency of achievement is highest.
+
+// group over idolCreatureId and count, then group over
+// nothing and get max
+Find each most idolized creature
+
+
+// 17.	a Filter followed by a Project
+Find each achId and achDate of Achievement whose proficiency > 2.
+
+// Group + Filter
+Find each creatureId of creature whose average proficiency of achievement is > 4.
+
+// 19. a Group over columns [ followed by an optional filter] followed by a Reduce (this is a new notion- think dangerously!)
+///// don't have in book, since new idea for them to try
+
+----------- others
+-- this one is interesting because the answer is zero- can we produce that?
+How many Seattle origin town of skill are there?
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Set
+(have to have in combination with reduce)
+
+// creatureId, skillCode, and proficiency of Achievement
+// and of Aspiration
+// both achieved and aspired to with the same proficiency at
+// some time.
+
+// creatureId, skillCode, and proficiency of Aspiration
+// but not of Achievement
+// aspired to but did not achieve with the same proficiency
+
+// skillCode, creatureId of creature who has achieved skill whose skillCode is ''
+// or has achieved skill whose skillCode is ''
+
+// creatureId of creature who has achieved skill whose skillCode is ''
+// and has achieved skill whose skillCode is ''
+///// ask why we cannot include skillCode for intersection
+///// and minus below.
+
+// creatureId of creature who has achieved skill whose skillCode is ''
+// but not achieved skill whose skillCode is ''
+
+// creatureId of creature who has achieved skill whose skillCode is ''
+// but not aspired to achieve skill whose skillCode is ''
+// without proficiency this time
+
+
+
+
+Combo: project, filter, union
+==============================
+Find each skillCode, skillDescription of Skill, and the 'true' range difference between the maximum and minimum proficiency.
+
+To get the full possible range, because min can be less than zero:
+top = (0 - minProficiency) + maxProficiency
+low = 0
+So full range is the top, if min < 0
+If min >= 0, range is max - min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Binary
+
+Exact match join
+
+natural join
+=============
+many possibilities
+
+
+Achievement with its ...
+
+combination (NJ, 2 filters, reduce, intersection)
+=================================================
+
+skillCode, skillDescription of skill achieved by superhero creature and skill achieved by person creature
+[have data for this]
+
+same relation
+==============
+
+same-reside-town creature-creature pair
+
+same creatureId as idol creatureId creature-creature pair
+
+same-town gargling aspiration
+(creatures who might take a trip together to gargle)
+
+same base
+==========
+
+!!!!! side note: ask students the difference between using
+                 intersection (all columns compared) and MJ
+
+same-roleName, AspiredContribution - Contribution pair
+
+
+
+different base
+==============
+
+--One way of 'highest achievers'--
+Achievement with proficiency equal to the Skill's maxProficiency
+(what are deamons?)
+
+same-X, Aspiration - Achievement pair
+--- will have to worry about achievement and aspiration
+    technically not the same base. Need to remove date and
+    ensure when we reduce achievement to creature-skill-proficiency that the result is a relation.
+    Achieved skill of creature with proficiency as relation
+    (id: skillCode, creatureId, proficiency)
+
+same resideTownId as originTownId creature-skill pair
+(id: creatureId, skillCode)[all columns of each]
+
+possible ways to achieve easily but have not yet done so:
+start with above different base MJ:
+A) same resideTownId as originTownId skill-creature pair
+(id: creatureId, skillCode)[all columns of each]
+
+
+combination (different base MJ, then reduce --> minus <-- achieved skill-creature pair)
+=============
+A) creatureId, skillCode of same resideTownId as originTownId skill-creature pair
+(id: creatureId, skillCode)[obtained from a reduce of above]
+minus
+B) creatureId, skillCode of achieved skill-creature pair (id: creatureId, skillCode)[obtained from a reduce earlier]
+
+result:
+creatureId, skillCode of same resideTownId as originTownId skill-creature pair but not achieved skill-creature pair
+
+combination: NJ, project new column, filter
+===========================================
+-- query: who has achieved at 80% or above of the maximumProficiency
+--    fuzzy for 'who': creatureId or another NJ to get name and creatureId
+--  what team members have achieved at 80% or above of the maximumProficiency
+
+-- Find each creatureType of creature that has no aspirations.
+
+Compare join
+=============
+
+Achievement with proficiency not the same as maxProficiency
+
+//// compare join ideas
+//// vague: 1) aspires but has not achieved the aspired proficiency score
+////        2) achieved and surpassed their aspiration score
+///    each of the above is regardless of where, so can also consider
+////   achieving where they aspired to achieve, and not where.

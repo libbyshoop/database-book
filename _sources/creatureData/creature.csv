@@ -1,0 +1,14 @@
+creatureId,creatureName,creatureType,reside_townId,idol_creatureId
+1,"Bannon","person","p",10
+2,"Myers","person","a",9
+3,"Neff","person","be",NULL
+4,"Neff","person","b",3
+5,"Mieska","person","d",10
+6,"Carlis","person","p",9
+7,"Kermit","frog","g",8
+8,"Godzilla","monster","t",6
+9,"Thor","superhero","as",NULL
+10,"Elastigirl","superhero","mv",13
+11,"David Beckham","person","le",9
+12,"Harry Kane","person","le",11
+13,"Megan Rapinoe","person","sw",10

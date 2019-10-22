@@ -73,14 +73,14 @@ As an illustration of higher level planning, here is a Relational Algebra preced
 
 |
 
-.. image:: ../img/RA_filter_Ach.png
+.. image:: ../img/UnaryExamples/AchievementFilter.png
     :height: 200px
     :align: center
     :alt: Achievement filter operation chart
 
 |
 
-The result of applying the filter operation in this example is a new relation that we have named to express precisely what is in it. This graphical example is just part of what is usually a much larger plan, consisting of several operators working on both original relations in our database and intermediate relations such as the one named "Achievement of Creature whose creatureId = 1".
+The result of applying the filter operation in this example is a new relation that we have named to express precisely what is in it. This graphical example is just part of what is usually a much larger plan, consisting of several operators working on both original relations in our database and intermediate relations such as the one named "Achievement of Creature with creatureId = 1".
 
 Which operators comprise Relational Algebra? Well, there is no fixed collection established by some authoritative body, so you need to be open-minded. Some operators are given different names by different authors. For example, “Filter," the name I use for a certain operator, also can be called “Restrict” or “Select”. Different authors will choose somewhat different collections.
 
