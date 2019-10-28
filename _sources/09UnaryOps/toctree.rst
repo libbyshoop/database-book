@@ -7,3 +7,5 @@ The Unary Operators
 
    00UnaryIntro.rst
    01Filter.rst
+   02Project.rst
+   03Reduce.rst

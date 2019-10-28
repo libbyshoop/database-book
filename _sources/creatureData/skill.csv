@@ -1,7 +1,8 @@
+skillCode, skillDescription, maxProficiency, minProficiency, origin_townId
 "A","float",10,-1,"b"
 "B2","2-crew bobsledding",25,0,"d"
 "C2","2-person canoeing",12,1,"t"
-"D3","Australasia debating",10,1,\N
+"D3","Australasia debating",10,1,NULL
 "E","swim",5,0,"b"
 "O","sink",10,-1,"b"
 "PK","soccer penalty kick",10,1,"le"

@@ -306,14 +306,19 @@ Corresponding SQL:
                                    achDate, test_townId)
                           VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
 
-The Scope of Filter
-~~~~~~~~~~~~~~~~~~~~
+The Scope and Nature of Filter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. important::
     The scope of filter is one row. The filter condition is applied to each row, one at a time, when deciding if it qualifies for the result relation.
 
 The conditions in the previous query were applied to each row instance, so that only those instances where both conditions applied were kept, because of the boolean connector, AND. Keep this important idea in mind- it will show up in some more sophisticated queries later.
 
+.. important::
+    Filter is the only primitive operator that can perform comparisons
+    that are other than exactly matching ones.
+
+This crucial fact has significant consequences. Every other primitive operator in this chapter and the next exactly matches values or does no matching. Later we will consider other sophisticated operators: set operators and match join operators, which only use exact matching (equality comparison) in their conditions. We do not return to non-matching operators until we look at the advanced operator called compare join in a much later chapter.
 
 Date datatype in DBMS
 ~~~~~~~~~~~~~~~~~~~~~

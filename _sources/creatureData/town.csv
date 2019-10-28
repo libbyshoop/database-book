@@ -1,11 +1,12 @@
-"a","Anoka","MN","United States","Halloween Capital of the world",\N
-"as","Asgard",\N,\N,"Home of Odin's vault","Where magic and science are one in the same"
+townId, townName, State, Country, townNickname, townMotto
+"a","Anoka","MN","United States","Halloween Capital of the world",NULL
+"as","Asgard",NULL,NULL,"Home of Odin's vault","Where magic and science are one in the same"
 "b","Bemidji","MN","United States","B-town","The first city on the Mississippi"
 "be","Blue Earth","MN","United States","Beyond the Valley of the Jolly Green Giant","Earth so rich the city grows!"
-"d","Duluth","MN","United States","Zenith City",\N
+"d","Duluth","MN","United States","Zenith City",NULL
 "g","Greenville","MS","United States","The Heart & Soul of the Delta","The Best Food, Shopping, & Entertainment In The South"
 "le","London","England","United Kingdom","The Smoke","Domine dirige nos"
-"mv","Metroville",\N,\N,"Home of the Incredibles","Still Standing"
+"mv","Metroville",NULL,NULL,"Home of the Incredibles","Still Standing"
 "p","Philadelphia","PA","United States","Philly","Let brotherly love endure"
 "sw","Seattle","Washington","United States","The Emerald City","The City of Goodwill"
-"t","Tokyo","Kanto","Japan",\N,\N
+"t","Tokyo","Kanto","Japan",NULL,NULL
