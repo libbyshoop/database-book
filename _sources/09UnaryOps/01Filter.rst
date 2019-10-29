@@ -223,6 +223,15 @@ Corresponding SQL:
           INSERT INTO achievement (creatureId, skillCode, proficiency,
                                    achDate, test_townId)
                           VALUES (1, 'E', 3, datetime('2017-09-15 15:35'), 'd');
+          -- Bannon floats in Anoka (where he aspired)
+          INSERT INTO achievement (creatureId, skillCode, proficiency,
+                                   achDate, test_townId)
+                          VALUES (1, 'A', 3, datetime('2018-07-14 14:00'), 'a');
+
+          -- Bannon swims in Duluth (he aspired in Bemidji)
+          INSERT INTO achievement (creatureId, skillCode, proficiency,
+                                   achDate, test_townId)
+                          VALUES (1, 'E', 3, datetime('now'), 'd');
           -- Bannon doesn't gargle
           -- Mieska gargles in Tokyo (had no aspiration to)
           INSERT INTO achievement (creatureId, skillCode, proficiency,
@@ -344,3 +353,5 @@ Try creating the precedence charts for these queries. Use a drawing tool such as
   3. Find each superhero creature.
   4. Find each skill originating in a town whose townId is 'd'. (Hint: skill relation has a column called origin_townId, which is a foreign key into the town relation. You do not need town, only skill, to write the chart).
   5. Devise one of your own queries in English and draw the chart.
+
+|

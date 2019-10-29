@@ -9,3 +9,5 @@ The Unary Operators
    01Filter.rst
    02Project.rst
    03Reduce.rst
+   04Group.rst
+   05UnaryFramework.rst

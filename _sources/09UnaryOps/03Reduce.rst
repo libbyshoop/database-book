@@ -158,8 +158,8 @@ Draw this one for yourself.You might have been tempted to keep Creature as its b
 
 .. important:: Seeing the difference between bases is necessary for mastery. Beware, some students skim this crucial notion to get to the snazzier operators and never grasp the fundamental importance of choosing precise names. You need to become sensitive to language and, in particular, to internalize that Reduce yields a different base than the input relation, while Project yields the same base.
 
-Reduce is dangerous!
-~~~~~~~~~~~~~~~~~~~~~~~~
+Bad Case: Reduce is dangerous!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Consider what happens if you Reduce a relation and specify an identifying column with a NULL value in it. Let's use the town relation from our small database as an example. Here is what is currently in it.
 
@@ -239,7 +239,24 @@ English query:
                                 'The Emerald City',
                                 'The City of Goodwill');
 
-Computed columns in Reduce are dangerous.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Bad Case: Computed columns in Reduce are dangerous.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A Reduce, like a Project, can compute columns, although this is a convenience, not a necessity, because a Project preceding the Reduce can serve to compute columns. Such computed columns are dangerous, since they could have NULL, or non-singleton values. It is best to avoid this practice unless you are absolutely certain neither of these is the case. For most data, you never can be sure of that some value somewhere is NULL or that when you reduced you eliminated some duplicates, rendering a computation in error.
+
+Exercises
+~~~~~~~~~~
+
+Work on precedence charts for these. Decide which of these is bad.
+
+  1. Find each country of town.
+
+  2. Find each creatureName of creature.
+
+  3. Find each creatureId of creature who has achieved.
+
+  4. Find each achieved skillCode.
+
+  5. Find each Achieved skill of creature with its proficiency (id: skillCode, creatureId).
+
+|
