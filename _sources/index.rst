@@ -54,6 +54,7 @@ Table of Contents
   07OperatorFramework/toctree.rst
   08TinyDB/toctree.rst
   09UnaryOps/toctree.rst
+  10QueriesAfterUnary/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::

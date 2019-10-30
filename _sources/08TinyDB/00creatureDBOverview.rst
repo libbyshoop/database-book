@@ -152,6 +152,15 @@ What follows below is a somewhat long file of SQL code to create the relations f
    INSERT INTO achievement (creatureId, skillCode, proficiency,
                             achDate, test_townId)
                    VALUES (1, 'E', 3, datetime('2017-09-15 15:35'), 'd');
+   -- Bannon floats in Anoka (where he aspired)
+   INSERT INTO achievement (creatureId, skillCode, proficiency,
+                            achDate, test_townId)
+                   VALUES (1, 'A', 3, datetime('2018-07-14 14:00'), 'a');
+
+   -- Bannon swims in Duluth (he aspired in Bemidji)
+   INSERT INTO achievement (creatureId, skillCode, proficiency,
+                            achDate, test_townId)
+                   VALUES (1, 'E', 3, datetime('now'), 'd');
    -- Bannon doesn't gargle
    -- Mieska gargles in Tokyo (had no aspiration to)
    INSERT INTO achievement (creatureId, skillCode, proficiency,
