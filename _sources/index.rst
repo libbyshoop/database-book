@@ -55,11 +55,14 @@ Table of Contents
   08TinyDB/toctree.rst
   09UnaryOps/toctree.rst
   10QueriesAfterUnary/toctree.rst
+  11SetOps/toctree.rst
+  12QueryAfterSet/toctree.rst
+  13MatchJoin/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::
 
-A great deal of the material in part 2 was originally written by John Carlis for an audience that included a wide range of people, from undergraduate and graduate students to experienced computing professionals. His unpublished manuscript was entitled "*Mastering Database Querying and Analysis*". In 2015, three years before his death, he had given me permission to edit a copy of his material to make it approachable for undergraduate students. This online book is the result of my attempt at that task, most of which I am completing after his death. I have also changed the presentation to interleave data models and SQL in part 1 and relational algebra concepts and SQL querying in part 2. This work is therefore a derivative of Professor Carlis' original work.
+A great deal of the material in part 2 was originally written by John Carlis for an audience that included a wide range of people, from undergraduate and graduate students to experienced computing professionals. His unpublished manuscript was entitled "*Mastering Database Querying and Analysis*". Its primary focus was relational algebra precedence charts. In 2015, three years before his death, he had given me permission to edit a copy of his material to make it approachable for undergraduate students. This online book is the result of my attempt at that task, most of which I am completing after his death. I have also changed the presentation to interleave data models and SQL in part 1 and relational algebra concepts and SQL querying in part 2. This work is therefore a derivative of Professor Carlis' original work.
 
 Original unpublished work: Copyright |copy| 1999 - 2015, John V. Carlis.
 

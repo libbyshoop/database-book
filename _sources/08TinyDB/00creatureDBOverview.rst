@@ -8,7 +8,7 @@ Here is a conceptual schema for a database that we will use throughout the rest 
 .. image:: ./smallCreatureDB_LDS.png
     :width: 600px
     :align: center
-    :alt: Achievement and Filter operator example
+    :alt: Creature database conceptual schema
 
 |
 

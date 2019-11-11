@@ -1,0 +1,101 @@
+C1_creatureId	C1_creatureName	C1_creatureType	C1_reside_townId	C1_idol_creatureId	C2_creatureId	C2_creatureName	C2_creatureType	C2_reside_townId	C2_idol_creatureId
+1	Bannon	person	p	10	1	Bannon	person	p	10
+1	Bannon	person	p	10	2	Myers	person	a	9
+1	Bannon	person	p	10	3	Neff	person	be	null
+1	Bannon	person	p	10	4	Neff	person	b	3
+1	Bannon	person	p	10	5	Mieska	person	d	10
+1	Bannon	person	p	10	6	Carlis	person	p	9
+1	Bannon	person	p	10	7	Kermit	frog	g	8
+1	Bannon	person	p	10	8	Godzilla	monster	t	6
+1	Bannon	person	p	10	9	Thor	superhero	as	null
+1	Bannon	person	p	10	10	Elastigirl	superhero	mv	13
+1	Bannon	person	p	10	11	David Beckham	person	le	9
+1	Bannon	person	p	10	12	Harry Kane	person	le	11
+1	Bannon	person	p	10	13	Megan Rapinoe	person	sw	10
+2	Myers	person	a	9	1	Bannon	person	p	10
+2	Myers	person	a	9	2	Myers	person	a	9
+2	Myers	person	a	9	3	Neff	person	be	null
+2	Myers	person	a	9	4	Neff	person	b	3
+2	Myers	person	a	9	5	Mieska	person	d	10
+2	Myers	person	a	9	6	Carlis	person	p	9
+2	Myers	person	a	9	7	Kermit	frog	g	8
+2	Myers	person	a	9	8	Godzilla	monster	t	6
+2	Myers	person	a	9	9	Thor	superhero	as	null
+2	Myers	person	a	9	10	Elastigirl	superhero	mv	13
+2	Myers	person	a	9	11	David Beckham	person	le	9
+2	Myers	person	a	9	12	Harry Kane	person	le	11
+2	Myers	person	a	9	13	Megan Rapinoe	person	sw	10
+3	Neff	person	be	null	1	Bannon	person	p	10
+3	Neff	person	be	null	2	Myers	person	a	9
+3	Neff	person	be	null	3	Neff	person	be	null
+3	Neff	person	be	null	4	Neff	person	b	3
+3	Neff	person	be	null	5	Mieska	person	d	10
+3	Neff	person	be	null	6	Carlis	person	p	9
+3	Neff	person	be	null	7	Kermit	frog	g	8
+3	Neff	person	be	null	8	Godzilla	monster	t	6
+3	Neff	person	be	null	9	Thor	superhero	as	null
+3	Neff	person	be	null	10	Elastigirl	superhero	mv	13
+3	Neff	person	be	null	11	David Beckham	person	le	9
+3	Neff	person	be	null	12	Harry Kane	person	le	11
+3	Neff	person	be	null	13	Megan Rapinoe	person	sw	10
+4	Neff	person	b	3	1	Bannon	person	p	10
+4	Neff	person	b	3	2	Myers	person	a	9
+4	Neff	person	b	3	3	Neff	person	be	null
+4	Neff	person	b	3	4	Neff	person	b	3
+4	Neff	person	b	3	5	Mieska	person	d	10
+4	Neff	person	b	3	6	Carlis	person	p	9
+4	Neff	person	b	3	7	Kermit	frog	g	8
+4	Neff	person	b	3	8	Godzilla	monster	t	6
+4	Neff	person	b	3	9	Thor	superhero	as	null
+4	Neff	person	b	3	10	Elastigirl	superhero	mv	13
+4	Neff	person	b	3	11	David Beckham	person	le	9
+4	Neff	person	b	3	12	Harry Kane	person	le	11
+4	Neff	person	b	3	13	Megan Rapinoe	person	sw	10
+5	Mieska	person	d	10	1	Bannon	person	p	10
+5	Mieska	person	d	10	2	Myers	person	a	9
+5	Mieska	person	d	10	3	Neff	person	be	null
+5	Mieska	person	d	10	4	Neff	person	b	3
+5	Mieska	person	d	10	5	Mieska	person	d	10
+5	Mieska	person	d	10	6	Carlis	person	p	9
+5	Mieska	person	d	10	7	Kermit	frog	g	8
+5	Mieska	person	d	10	8	Godzilla	monster	t	6
+5	Mieska	person	d	10	9	Thor	superhero	as	null
+5	Mieska	person	d	10	10	Elastigirl	superhero	mv	13
+5	Mieska	person	d	10	11	David Beckham	person	le	9
+5	Mieska	person	d	10	12	Harry Kane	person	le	11
+5	Mieska	person	d	10	13	Megan Rapinoe	person	sw	10
+6	Carlis	person	p	9	1	Bannon	person	p	10
+6	Carlis	person	p	9	2	Myers	person	a	9
+6	Carlis	person	p	9	3	Neff	person	be	null
+6	Carlis	person	p	9	4	Neff	person	b	3
+6	Carlis	person	p	9	5	Mieska	person	d	10
+6	Carlis	person	p	9	6	Carlis	person	p	9
+6	Carlis	person	p	9	7	Kermit	frog	g	8
+6	Carlis	person	p	9	8	Godzilla	monster	t	6
+6	Carlis	person	p	9	9	Thor	superhero	as	null
+6	Carlis	person	p	9	10	Elastigirl	superhero	mv	13
+6	Carlis	person	p	9	11	David Beckham	person	le	9
+6	Carlis	person	p	9	12	Harry Kane	person	le	11
+6	Carlis	person	p	9	13	Megan Rapinoe	person	sw	10
+7	Kermit	frog	g	8	1	Bannon	person	p	10
+7	Kermit	frog	g	8	2	Myers	person	a	9
+7	Kermit	frog	g	8	3	Neff	person	be	null
+7	Kermit	frog	g	8	4	Neff	person	b	3
+7	Kermit	frog	g	8	5	Mieska	person	d	10
+7	Kermit	frog	g	8	6	Carlis	person	p	9
+7	Kermit	frog	g	8	7	Kermit	frog	g	8
+7	Kermit	frog	g	8	8	Godzilla	monster	t	6
+7	Kermit	frog	g	8	9	Thor	superhero	as	null
+7	Kermit	frog	g	8	10	Elastigirl	superhero	mv	13
+7	Kermit	frog	g	8	11	David Beckham	person	le	9
+7	Kermit	frog	g	8	12	Harry Kane	person	le	11
+7	Kermit	frog	g	8	13	Megan Rapinoe	person	sw	10
+8	Godzilla	monster	t	6	1	Bannon	person	p	10
+8	Godzilla	monster	t	6	2	Myers	person	a	9
+8	Godzilla	monster	t	6	3	Neff	person	be	null
+8	Godzilla	monster	t	6	4	Neff	person	b	3
+8	Godzilla	monster	t	6	5	Mieska	person	d	10
+8	Godzilla	monster	t	6	6	Carlis	person	p	9
+8	Godzilla	monster	t	6	7	Kermit	frog	g	8
+8	Godzilla	monster	t	6	8	Godzilla	monster	t	6
+8	Godzilla	monster	t	6	9	Thor	superhero	as	null
