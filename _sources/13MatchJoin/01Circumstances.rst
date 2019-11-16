@@ -24,7 +24,7 @@ Second, you need to understand the symmetry of the Match Join you are attempting
 The symmetry of the operator follows from these cases:
 
 - **M - 1 indicates Non-Symmetric-A**
-- **1 - 1 indicates Symmetric-Pair**
+- **1 - 1 indicates Symmetric-Either**
 - **M - M indicates Symmetric-Pair**
 
 Non-symmetric-A means that you should use the half-house and A should be the many end and go to the peak, and B should be the one end and go to the lower corner of the top, like this:
@@ -37,6 +37,19 @@ Non-symmetric-A means that you should use the half-house and A should be the man
     :alt: Non-Symmetric Match Join piece of a chart
 
 |
+
+Symmetric-either indicates that you should use the half-house and A and B should go to the peak (recall this was the case for Union and Intersect also). For Match Join, it looks like this:
+
+|
+
+.. image:: ../img/MatchJoin/Symmetric_Either_little.png
+    :width: 220px
+    :align: center
+    :alt: Non-Symmetric Match Join piece of a chart
+
+|
+
+
 
 Symmetric-Pair indicates that you should use the full house symbol and A and B should go to either side on the lower corners of the 'roof', like this:
 
