@@ -58,6 +58,8 @@ Table of Contents
   11SetOps/toctree.rst
   12QueryAfterSet/toctree.rst
   13MatchJoin/toctree.rst
+  14OuterJoin/toctree.rst
+  15Divide/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::
