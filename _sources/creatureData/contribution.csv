@@ -1,4 +1,4 @@
-creatureId, achId, skillCode, roleName 
+creatureId, achId, skillCode, roleName
 1,19,"TR4","anchor leg"
 2,18,"TR4","third leg"
 4,16,"TR4","first leg"

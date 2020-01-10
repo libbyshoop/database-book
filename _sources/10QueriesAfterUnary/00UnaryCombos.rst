@@ -75,7 +75,7 @@ We would do a bad group if we simply grouped over origin_townId and counted skil
 
         .. activecode:: skill_count_per_town
            :language: sql
-           :include: skill_filter_group_create
+           :include: skill_combo_create
 
            SELECT origin_townId,
                   count(skillCode) AS SkillCount

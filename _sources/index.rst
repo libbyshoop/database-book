@@ -60,6 +60,8 @@ Table of Contents
   13MatchJoin/toctree.rst
   14OuterJoin/toctree.rst
   15Divide/toctree.rst
+  16CompareJoin/toctree.rst
+  17CategoryRelations/toctree.rst
 
 Recognition and Thanks
 ::::::::::::::::::::::
