@@ -336,3 +336,29 @@ The SQL for this query again uses the data and intermediate relations from the U
   WHERE (A.creatureId)  NOT IN
   (SELECT B.creatureId from garglingCreature B)
   ;
+
+Exercises
+~~~~~~~~~~
+
+Try creating the precedence charts for these queries. Use a drawing tool such as draw.io.
+Try charts for these as practice:
+
+**English Query:**
+
+  1. Find each skillCode, test_townId of achievement but not skillCode, origin_townId of skill
+
+  2. Find each Skill originating in one town but not achieved in that town
+
+  3. Find each Skill originating in one town or achieved in any town
+
+  4. Skill that has not been achieved (find each unachieved skill)
+
+  5. Creature who has not achieved (find each non-achieving (or unskilled) creature)
+
+  6. Creature who has aspired to and achieved the same skill
+
+  7. Creature who has achieved swimming and gargling
+
+  8. Town with no achieved Skills
+
+  9. Town with no aspired to Skills

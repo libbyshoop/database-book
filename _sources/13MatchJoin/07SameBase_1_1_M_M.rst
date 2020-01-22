@@ -24,7 +24,7 @@ There are two key points to understanding this circumstance:
 
 Here is the English Query:
 
-    Find each Creature - Skill pair a where the Creature aspired to a Skill in the same town that the Skill originated in and is the same town that the creature resides in.
+    Find each Creature - Skill pair where the Creature aspired to a Skill in the same town that the Skill originated in and is the same town that the creature resides in.
 
 
 

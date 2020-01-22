@@ -400,3 +400,11 @@ The following code was used to create the data relations used as input relations
                     VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
 
     -- no 2-person canoeing achievements, but some have aspirations
+
+
+Other Queries to try:
+~~~~~~~~~~~~~~~~~~~~~~
+
+    Find each good swimmer (A proficiency achieved of >= 0 or <= 1 is a poor swim proficiency)
+
+    Find each {good, fair, poor} gargling creature (A proficiency achieved of >= 0 or <= 1 is a poor gargle proficiency)

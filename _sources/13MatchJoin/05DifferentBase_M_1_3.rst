@@ -39,6 +39,14 @@ Other Queries to try:
 
     Find each Aspiration where the creature resides in the same town that they desired/aspired to obtain the Skill.
 
+    Find each AspiredContribution plus its creature data.
+
+    Find each AspiredContribution plus its aspiration data.
+
+    Find each contribution plus its achievement data.
+
+    Find each contribution plus its creature data.
+
 Look at the orange-highlighted columns above and devise another Match Join query using them.
 
 

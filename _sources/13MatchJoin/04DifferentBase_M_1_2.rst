@@ -232,3 +232,12 @@ Let's look at the Skill data again:
 Notice that in one row, the origin_townId in Skill is a pesky NULL value. In databases, NULL cannot be matched to anything. It is important to understand that the Skill whose SkillCode is D3, Australasia debating, will never be able to appear in the result relation for this query.  There are not any NULL test_townId values in Achievement in this data, but if there were, those rows would not appear in the result relation either.
 
 |
+
+Exercises:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Try creating the precedence chart for this query.
+
+**English Query:**
+
+  Find each achievement with its same creatureId, same test_townId as reside_townId Creature data.

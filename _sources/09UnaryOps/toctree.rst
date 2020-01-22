@@ -11,3 +11,4 @@ The Unary Operators
    03Reduce.rst
    04Group.rst
    05UnaryFramework.rst
+   06UnaryExercises.rst

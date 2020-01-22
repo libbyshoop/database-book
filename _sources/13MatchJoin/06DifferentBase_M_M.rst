@@ -3,7 +3,7 @@ Different Base A and B, M - M match over cols Aid(D),Bid(D)
 
 English Query:
 
-    Find each Creature - Skill pair a where the Skill originated in
+    Find each Creature - Skill pair where the Skill originated in
     the same town that the creature resides in.
 
 LDS fragment pertaining to this query:
@@ -44,3 +44,17 @@ Precedence Chart:
     :width: 100px
     :align: left
     :alt: Under construction
+
+
+Other Queries to try:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Try creating the precedence charts for these queries.
+
+**English Query:**
+
+    Find each Skill - Aspiration pair where the Aspiration desired in the same town that the Skill originated in.
+
+    Find each Creature - Achievement pair where the Achievement tested in the same town that the creature resided in.
+
+    Find each Achievement - Skill pair where the Skill originated in the same town that the Achievement originated in.

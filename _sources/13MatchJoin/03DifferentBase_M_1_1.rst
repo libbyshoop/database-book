@@ -237,3 +237,29 @@ The third tab shows a syntax that works in only this special case of match join,
         INSERT INTO achievement (creatureId, skillCode, proficiency,
                                  achDate, test_townId)
                         VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
+
+
+Other Queries to try:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Try creating the precedence charts for these queries.
+
+**English Query:**
+
+                          Find each achievement plus its creature data.
+
+                          Find each achievement plus its town data.
+
+                          Find each gargling aspiration plus its skill data.
+
+                          Find each skill plus its town data.
+
+                          Find each creature plus its town data.
+
+                          Find each AspiredContribution plus its role data.
+
+                          Find each aspiration plus its town data.
+
+                          Find each contribution plus its role data.
+
+                          Find each contribution plus its skill data.

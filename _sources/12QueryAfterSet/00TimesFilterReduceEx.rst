@@ -193,3 +193,12 @@ In the following SQL code tabs, the creation of the intermediate relations is in
         INSERT INTO achievement (creatureId, skillCode, proficiency,
                                  achDate, test_townId)
                         VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
+
+
+Queries to try
+~~~~~~~~~~~~~~~~~~~~
+
+Try creating the precedence chart for the following query. 
+
+**English Query:**
+  How does each creature’s achieved skill proficiency compared to other creatures who have achieved the lowest proficiency at that skill?

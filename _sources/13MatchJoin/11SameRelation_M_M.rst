@@ -90,3 +90,15 @@ Note how this is an ordered creature pair.
     :width: 100px
     :align: left
     :alt: Under construction
+
+
+Other Queries to try:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Try creating the precedence charts for these queries.
+
+**English Query:**
+
+    Find each ordered pair of skills that resides in the same town.
+    
+    Find each ordered pair of achievements that tested in the same town.

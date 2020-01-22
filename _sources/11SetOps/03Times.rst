@@ -227,3 +227,15 @@ The identifying columns of the new result relation are the combination of the id
 However, the naming becomes more difficult when the inputs are longer intermediate relations from other operations. Go to the next section to see an interesting combination of the operators we have seen so far where this becomes apparent.
 
 |
+
+Exercises
+~~~~~~~~~~
+Try creating the precedence charts for these queries. Use a drawing tool such as draw.io.
+
+**English Query:**
+
+  1. Ordered creature – skill pair where each creature has achieved the same skill
+
+  2. Ordered creature – town pair
+
+  3. Ordered skill – town pair

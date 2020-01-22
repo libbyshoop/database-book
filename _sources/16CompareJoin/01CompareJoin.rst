@@ -500,3 +500,15 @@ The following code was used to create the data relations used as input relations
    INSERT INTO aspiredContribution VALUES (13, 'D3', 'team captain');
 
    -- Elastigirl, others not aspiring to contribute to anything
+
+
+
+Queries to try
+~~~~~~~~~~~~~~
+
+Try creating the precedence charts for these queries. Use a drawing tool such as draw.io.
+
+**English Query:**
+
+   Find each unordered pair of skills that resides in the same town.
+   Find each unordered pair of achievements that tested in the same town.

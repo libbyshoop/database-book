@@ -655,3 +655,17 @@ If you are curious or need a refresher, the following code block contains the da
                    VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
 
    -- no 2-person canoeing achievements, but some have aspirations
+
+
+Exercises
+~~~~~~~~~~
+
+Try creating the precedence charts for these queries.
+
+**English Query:**
+
+   Find each Creature who is a superman because they can do all of the skills.
+
+   Find each Creature who can at least float, swim, sink, 4x100 meter track relay, and three-legged race.
+
+   Find each creature who has achieved exactly the skill whose description is ‘float, swim’ and ‘sink’.

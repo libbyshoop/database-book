@@ -429,3 +429,19 @@ The following code was used to create the data relations used as input relations
                     VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
 
     -- no 2-person canoeing achievements, but some have aspirations
+
+
+Other Queries to try:
+~~~~~~~~~~~~~~~~~~~~~
+
+Try charts for these as practice:
+
+    Find each Skill with its possibly null Achievement data.
+
+    Find each same skillCode and same reside_townId as origin_townId Skill with its possibly null Achievement data.
+
+    Creature with its possibly null contribution data
+
+    Creature with its possibly null aspiration data
+
+    Town with its possibly null Skill data (Find each town that are not origin towns of any skills)

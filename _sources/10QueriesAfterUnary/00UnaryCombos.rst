@@ -317,3 +317,91 @@ Avoid non-useful work
 
 
 For two reasons you cannot Group over the input relation’s identifying columns. First, it is a misuse of Reduce. Remember, a Reduce to the same identifier as the input relation is bad because it really is a Project. Second, an aggregate function cannot yield anything of value. There is exactly one Creature with each creatureId. Of course! Aggregate functions aggregate values contained in rows (plural), but Grouping over the identifier means that functions must aggregate a (single) value contained in one row. That is, such a Group can never yield anything new – the 'aggregate' function doesn't mean anything. In the above cases the count is 1.
+
+Exercises
+~~~~~~~~~~
+
+Try creating the precedence charts for these queries.
+
+**English Query:**
+
+  1. Find each skillDescription of Skill achieved by creature whose creatureId is 2.
+
+  2. How many Creatures achieve skill(s)?
+
+  3. Find the skillDescription of of any skill whose minProficiency is 2.
+
+  4. How many Towns in which Creatures resided?
+
+  5. Find each skillCode of Skill achieved in town whose test_townId is ‘t’.
+
+  6. How many Roles in which Creatures contributed?
+
+  7. Find the count of Towns in which the creatures who have resided.
+
+  8. Find the count of Towns by the creatures who have achieved the least skills.
+
+  9. Find the creatureName, creatureType, and skillCodeCount where the creature has achieved more than 3 skills.
+
+  10.
+
+  |
+
+  .. image:: ../img/UnaryExercises/UnaryComb.png
+
+  |
+
+
+.. fillintheblank:: c-ex1
+  :casei:
+
+  Please fill in the blanks in the following sentence:
+
+  The identifier of the result relation, Achieved creature with skillCode = 'TR4', is  ``|blank|``.
+
+  The base of the first result relation, Achieved creature with skillCode = 'TR4', is ``|blank|``.
+  
+
+  -   :creatureId, SkillCode: Correct.
+      :SkillCode, creatureId: Correct.
+      :creatureId and SkillCode: Correct.
+      :SkillCode and creatureId: Correct.
+      :x: Incorrect. Should be 'creatureId, SkillCode'.
+  -   :achievement: Correct.
+      :x: Incorrect. Should be 'achievement'.
+
+
+.. shortanswer:: c-ex2
+
+  The result relation name A for the longer version using skillCode is
+
+
+The correct answer:
+  .. reveal:: c-ex6
+
+      CreatureId of Achieved creature with skillCode = 'TR4'
+
+
+
+.. shortanswer:: c-ex3
+
+  Please rename the longer version of the result relation using skillDescription:
+
+The correct answer:
+  .. reveal:: c-ex4
+
+      CreatureId of 4x100 relay Creature
+
+
+   .. fillintheblank:: c-ex5
+      :casei:
+
+      Please fill in the blanks in the following sentence:
+
+      The identifier of the result relation is  ``|blank|``.
+      The base of the result relation is ``|blank|``.
+
+      -   :creatureId: Correct.
+          :x: Incorrect. Should be 'creatureId'.
+      -   :creature: Correct.
+          :x: Incorrect. Should be 'creature'.

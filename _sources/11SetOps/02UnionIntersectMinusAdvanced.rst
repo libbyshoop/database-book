@@ -306,8 +306,24 @@ Here is SQL for this query:
 
 Use the above code area to try these queries:
 
-  Find each creatureId and skillCode of Creature who has achieved OR aspired to achieve that Skill.
+  Find each creatureId and skillCode of Creature who has achieved OR aspired to achieve that Skill
 
-  Find each creatureId and skillCode of Creature who has achieved BUT NOT aspired to achieve that Skill.
+  Find each creatureId and skillCode of Creature who has achieved BUT NOT aspired to achieve that Skill
 
-  Find each creatureId and skillCode of Creature who has aspired to achieve BUT NOT achieved that Skill.
+  Find each creatureId and skillCode of Creature who has aspired to achieve BUT NOT achieved that Skill
+
+  Find each skillCode of skill that is neither achieved nor aspired to
+
+  Find each skillCode of skill that is is not both achieved and aspired to
+
+  Find each unachieved skill by frog creatures
+
+  Find each creature who has achieved more than one skill
+
+  Find each creature whose average skill level is greater than 1
+
+  Find each creature whose minimum skill level achieved is >=2
+
+  Find creatureId of each creature who has achieved floating and gargling
+
+  Find creatureId of each creature who has achieved floating but not gargling
