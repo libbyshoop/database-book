@@ -17,21 +17,25 @@ When you analyze, you query, study the results, and follow with more querying, r
 
 2. People who analyze increase their knowledge, becoming more valuable. You can often acquire an in-depth, nuanced understanding of the database and of the organizational context of your analyses.
 
-3. As part of analysis, people ask two kinds of queries. They ask what I call “thin” queries, where “thin” connotes that they access or change little of the data. For example:
+3. As part of analysis, people ask two kinds of queries. 
 
-   -  How much does Carlis owe?
+   a. They ask what I call “thin” queries, where “thin” connotes that they access or change little of the data. For example:
 
-   Thin queries are helpful for small decisions, such as:
+      -  How much does Carlis owe?
 
-   -  No, do not loan money to Carlis (and you may or may not record that decision).
+      Thin queries are helpful for small decisions, such as:
 
-   People also ask “fat” queries that involve more extensive analyses, such as:
+      -  No, do not loan money to Carlis (and you may or may not record that decision).
 
-   -  Compare the debt load of customers by their employment status and credit history.
+   |
 
-   These type of analyses support larger decisions, such as:
+   b. People also ask “fat” queries that involve more extensive analyses, such as:
 
-   -  Creating a revised schedule of income thresholds for loan applicants.
+      -  Compare the debt load of customers by their employment status and credit history.
+
+      These type of analyses support larger decisions, such as:
+
+      -  Creating a revised schedule of income thresholds for loan applicants.
 
 
 The Role of SQL: the end product, not the initial tool

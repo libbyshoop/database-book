@@ -22,20 +22,19 @@ Let's concentrate on a very prevalent 2-entity shape in database schemas, a many
 |
 
 .. image:: ../img/MatchJoin/Ach_Skill_LDS_frag.png
-    :width: 220px
+    :width: 320px
     :align: center
     :alt: Creature database Achievement - Skill many to one shape
 
 |
 
-Next let's recall the columns of each of the two relations that were created from these entities. In the following image, we have emphasized the foreign key column in Achievement that matches the identifying column of Skill, namely skillCode.
+Next let's recall the columns of each of the two relations that were created from these entities. In the following image, we have emphasized the foreign key column in Achievement that matches the identifying column of Skill, namely skillCode, by highlighting it in green. 
 
 |
 
 .. image:: ../img/MatchJoin/Skill_Ach_columns.png
-    :width: 520px
     :align: center
-    :alt: Creature database Achievement - Skill many to one shape
+    :alt: columns of Skill and Achievement
 
 |
 
@@ -44,6 +43,8 @@ A very useful and common practice when we have a many-one relationship like this
 |
 
 .. image:: ../img/MatchJoin/Ach_w_Skill_columns.png
+    :align: center
+    :alt: columns of both achievement and skill side by side
 
 |
 
@@ -54,7 +55,7 @@ To obtain this result using the operators we have explored so far, we can create
 |
 
 .. image:: ../img/MatchJoin/TFR_Ach_Skill.png
-    :height: 480px
+    :height: 680px
     :align: center
     :alt: Long version of Match Join example
 
@@ -69,7 +70,7 @@ This type of query on this particular set of two relations that form the many-on
 |
 
 .. image:: ../img/MatchJoin/Ach_Skill_MJ.png
-    :width: 340px
+    :width: 440px
     :align: center
     :alt: Match Join example
 
@@ -99,7 +100,7 @@ Let's consider the new third point first. We can characterize the columns of eac
     +---------+------------+---------------------------------------------+
     | M       |More        |more than its id (id +)                      |
     +---------+------------+---------------------------------------------+
-    | S       |Some        |some of its id columns, but not all          |
+    | S       |Some        |some of its id columns, but not all (fewer)  |
     +---------+------------+---------------------------------------------+
     | O       |Overlapping |some of its id columns, + some non-id columns|
     +---------+------------+---------------------------------------------+

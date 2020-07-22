@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS town;
 
 CREATE TABLE town (
-townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
+townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
 townName        VARCHAR(20),
 State           VARCHAR(20),
 Country         VARCHAR(20),
@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS creature;
 
 
 CREATE TABLE creature (
-creatureId          INTEGER      NOT NUll PRIMARY KEY,
+creatureId          INTEGER      NOT NULL PRIMARY KEY,
 creatureName        VARCHAR(20),
 creatureType        VARCHAR(20),
 reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -73,7 +73,7 @@ INSERT INTO creature VALUES (13,'Megan Rapinoe','person','sw',10);
 DROP TABLE IF EXISTS skill;
 
 CREATE TABLE skill (
-skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
 skillDescription   VARCHAR(40),
 maxProficiency     INTEGER,     -- max score that can be achieved for this skill
 minProficiency     INTEGER,     -- min score that can be achieved for this skill
@@ -97,7 +97,7 @@ INSERT INTO skill VALUES ('PK', 'soccer penalty kick', 10, 1, 'le');
 DROP TABLE IF EXISTS teamSkill;
 
 CREATE TABLE teamSkill (
-skillCode      VARCHAR(3)  NOT NUll PRIMARY KEY references skill (skillCode),
+skillCode      VARCHAR(3)  NOT NULL PRIMARY KEY references skill (skillCode),
 teamSize       INTEGER
 );
 
@@ -111,7 +111,7 @@ INSERT INTO teamSkill VALUES ('D3', 3);
 DROP TABLE IF EXISTS achievement;
 
 CREATE TABLE achievement (
-achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 creatureId         INTEGER,
 skillCode          VARCHAR(3),
 proficiency        INTEGER,
@@ -167,7 +167,7 @@ INSERT INTO achievement (creatureId, skillCode, proficiency,
 INSERT INTO achievement (creatureId, skillCode, proficiency,
                          achDate, test_townId)
                 VALUES (13, 'PK', 10, datetime('2012-08-06'), 'le');
--- Godizilla achieves PK in Tokyo poorly with no date
+-- Godzilla achieves PK in Tokyo poorly with no date
 -- had not aspiration to do so- did it on a dare ;)
 INSERT INTO achievement (creatureId, skillCode, proficiency,
                          achDate, test_townId)
@@ -291,7 +291,7 @@ INSERT INTO aspiration VALUES (1,'C2',9,'b');
 DROP TABLE IF EXISTS role;
 CREATE TABLE role
 (
-  roleName VARCHAR(20)   NOT NUll PRIMARY KEY
+  roleName VARCHAR(20)   NOT NULL PRIMARY KEY
 );
 
 INSERT INTO role VALUES ('first leg');   -- 4x100 track
@@ -313,8 +313,8 @@ INSERT INTO role VALUES ('team captain');  -- Australasia debating
 DROP TABLE IF EXISTS contribution;
 CREATE TABLE contribution (
     creatureId         INTEGER     NOT NULL REFERENCES creature(creatureId),
-    achId              INTEGER     NOT NUll REFERENCES achievement(achId),
-    skillCode          VARCHAR(3)  NOT NUll REFERENCES skill(skillCode),
+    achId              INTEGER     NOT NULL REFERENCES achievement(achId),
+    skillCode          VARCHAR(3)  NOT NULL REFERENCES skill(skillCode),
     roleName           VARCHAR(20) REFERENCES role(roleName),
     PRIMARY KEY (creatureId, achId)
 );
@@ -346,7 +346,7 @@ INSERT INTO contribution VALUES (13, 21, 'D3', 'team captain');
 DROP TABLE IF EXISTS aspiredContribution;
 CREATE TABLE aspiredContribution (
     creatureId         INTEGER     NOT NULL REFERENCES creature(creatureId),
-    skillCode          VARCHAR(3)  NOT NUll REFERENCES skill(skillCode),
+    skillCode          VARCHAR(3)  NOT NULL REFERENCES skill(skillCode),
     roleName           VARCHAR(20) REFERENCES role(roleName),
     PRIMARY KEY (creatureId, skillCode)
 );

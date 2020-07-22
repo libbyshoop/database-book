@@ -1,4 +1,4 @@
-townId, townName, State, Country, townNickname, townMotto
+*townId*, townName, State, Country, townNickname, townMotto
 "a","Anoka","MN","United States","Halloween Capital of the world",NULL
 "as","Asgard",NULL,NULL,"Home of Odin's vault","Where magic and science are one in the same"
 "b","Bemidji","MN","United States","B-town","The first city on the Mississippi"

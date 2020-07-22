@@ -27,38 +27,41 @@ The symmetry of the operator follows from these cases:
 - **1 - 1 indicates Symmetric-Either**
 - **M - M indicates Symmetric-Pair**
 
-Non-symmetric-A means that you should use the half-house and A should be the many end and go to the peak, and B should be the one end and go to the lower corner of the top, like this:
+**Non-symmetric-A** means that you should use the half-house and A should be the many end and go to the peak, and B should be the one end and go to the lower corner of the top, like this:
 
 |
 
-.. image:: ../img/MatchJoin/M_1_NonSymmetricMJ_portion.png
-    :width: 220px
+.. figure:: ../img/MatchJoin/M_1_NonSymmetricMJ_portion.png
     :align: center
     :alt: Non-Symmetric Match Join piece of a chart
 
-|
-
-Symmetric-either indicates that you should use the half-house and A and B should go to the peak (recall this was the case for Union and Intersect also). For Match Join, it looks like this:
+    The M-1 non-symmetric case, where A is the many end and goes to the peak.
 
 |
 
-.. image:: ../img/MatchJoin/Symmetric_Either_little.png
-    :width: 220px
+**Symmetric-either** indicates that you should use the half-house and A and B should go to the peak (recall this was the case for Union and Intersect also). For Match Join, it looks like this:
+
+|
+
+.. figure:: ../img/MatchJoin/Symmetric_Either_little.png
     :align: center
     :alt: Non-Symmetric Match Join piece of a chart
 
-|
-
-
-
-Symmetric-Pair indicates that you should use the full house symbol and A and B should go to either side on the lower corners of the 'roof', like this:
+    The 1-1 symmetric-either case.
 
 |
 
-.. image:: ../img/MatchJoin/SymmetricMJ_little.png
-    :width: 220px
+
+
+**Symmetric-Pair** indicates that you should use the full house symbol and A and B should go to either side on the lower corners of the 'roof', like this:
+
+|
+
+.. figure:: ../img/MatchJoin/SymmetricMJ_little.png
     :align: center
     :alt: Non-Symmetric Match Join piece of a chart
+
+    The M-M symmetric-pair case.
 
 |
 
@@ -78,20 +81,29 @@ Third, you should know the nature of the columns from the inputs, A and B, that 
     +---------+------------+---------------------------------------------+
     | M       |More        |more than its id (id +)                      |
     +---------+------------+---------------------------------------------+
-    | S       |Some        |some of its id columns, but not all          |
+    | S       |Some        |some of its id columns, but not all (fewer)  |
     +---------+------------+---------------------------------------------+
     | O       |Overlapping |some of its id columns, + some non-id columns|
     +---------+------------+---------------------------------------------+
     | D       |Disjoint    |disjoint from id columns (no id columns)     |
     +---------+------------+---------------------------------------------+
 
-Inside the operator we use the tags Aid(X): and Bid(Y): before the list of columns to be matched, where X and Y are one of the above letters, E, M, S, O, D.
+.. important::
+
+    Inside the operator we use the tags Aid(X): and Bid(Y): before the list of columns to be matched, where X and Y are one of the above letters, E, M, S, O, D. For example, Aid(D) indicates that the columns listed are not A's identifying columns (disjoint), and Bid(E) means that exactly all of B's identifying columns will be matched. Here is the example from the previous section again, illustrating this:
+
+    .. image:: ../img/MatchJoin/Ach_Skill_MJ.png
+        :width: 440px
+        :align: center
+        :alt: Match Join example
+    
+    Recall that the relationship from Achievement to Skill is many-1 and that skillCode is exactly Skill's identifying columns (Skill is relation B in this binary Match Join operator). Achievement's identifier is an arbitrary column called achId, so when we match on skillCode data values between Achievement and Skill on this column, we will be matching on a column that is disjoint from Achievement's identifier.
 
 
 How to consider the Symmetry Aspect
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is the data in the 2 relations named Creature and Skill.
+Let's consider the above important notion further with a different example. This is the data in the 2 relations named Creature and Skill.
 
 .. csv-table:: **Creature**
    :file: ../creatureData/creature.csv
@@ -176,7 +188,7 @@ As you can see, the origin town of skill whose skillCode is 'PK' is the reside t
 
           DROP TABLE IF EXISTS creature;
           CREATE TABLE creature (
-          creatureId          INTEGER      NOT NUll PRIMARY KEY,
+          creatureId          INTEGER      NOT NULL PRIMARY KEY,
           creatureName        VARCHAR(20),
           creatureType        VARCHAR(20),
           reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -201,7 +213,7 @@ As you can see, the origin town of skill whose skillCode is 'PK' is the reside t
           DROP TABLE IF EXISTS skill;
 
           CREATE TABLE skill (
-          skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+          skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
           skillDescription   VARCHAR(40),
           maxProficiency     INTEGER,     -- max score that can be achieved for this skill
           minProficiency     INTEGER,     -- min score that can be achieved for this skill
@@ -224,10 +236,49 @@ Now go to the second tab from the left to see the complete Match Join result, wh
 
     Find each Creature - Skill Pair where the reside Town of the Creature is the same as the origin Town of the Skill.
 
-The circumstance is that through the common townId found in each relation, there are reside_townId values in Creature with many origin_townId values in Skill, and there are origin_townId values in Skill with many reside_townId values in Creature. This makes the connection between Creature and Skill through matching reside_townId to origin_townId a **Many and Many, or M - M** connection. We will use the full house symbol for this Match Join query.
+.. note::
+
+    The second tab showing the match join is different in how we need to eliminate the duplicate column representing the exactly matching townId values from each relation. Study how we needed to explicitly write out the columns we want to take from Skill, and how we used a shortcut alias to name that relation as 'S'. 
+
+**Let's review the circumstances of this example.**
+
+The two relations, Creature and Skill, each have a **Different Base**.
+
+Through the common townId found in each relation, there are reside_townId values in Creature with many origin_townId values in Skill, and there are origin_townId values in Skill with many reside_townId values in Creature. This makes the connection between Creature and Skill through matching reside_townId to origin_townId a **Many and Many, or M - M** connection. We will use the full house symbol for this Match Join query.
 
 Luckily, as we look at more cases in the following pages, you will begin to see how the conceptual schema provides you with enough information to decide whether A matched to B is M-1, 1-1, or M-M. Read on to find out how.
 
-The input relations in this case are **Different Base**. The works-on columns are **Aid(D): reside_townId and Bid(D): origin_townId**.
+The works-on columns (those being matched through their data values, as given in the where clause in the SQL) are **Aid(D): reside_townId and Bid(D): origin_townId**.
 
-We will next outline the most common good circumstances that are used, followed by examples of each one.
+After these decisions, the precedence chart for this example looks like this:
+
+|
+
+.. image:: ../img/MatchJoin/Cr_Skill_MJ.png
+
+|
+
+
+Recap
+~~~~~~~~
+
+There are circumstances we must always consider when trying to use Match Join over a set of columns or one column between two input relations.
+
+1. Consider the bases of each of the two relations:
+    - A, B have different bases
+    - A, B have the same base
+    - A, B are the same relation
+
+2. Determine the shape of the Match Join symbol to be used in the precedence chart by understanding the symmetry from A to B for the column(s) to be matched, or 'worked on':
+    - M - 1
+    - 1 - 1
+    - M - M
+
+3. For each of the two input relations, decide the nature of those columns to be 'worked on':
+    - E, exactly the relation's identifier (all identifying columns)
+    - M, more than its identifier (id + at least one more column)
+    - S, some of its id columns, but not all (fewer than its id columns)
+    - O, overlap with some of its id column(s), but also additional column(s)
+    - D, disjoint from its id columns (none of it id columns)
+
+We will next outline the most common good circumstances that are used for Match Join, followed by examples of each one.

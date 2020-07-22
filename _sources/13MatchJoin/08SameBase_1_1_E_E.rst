@@ -24,14 +24,14 @@ The following code shows the SQL to create Skill and Team Skill data. Note how t
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    Drop TABLE IF EXISTS TeamSkill;
 
    CREATE TABLE teamSkill (
-   skillCode      VARCHAR(3)  NOT NUll PRIMARY KEY references skill (skillCode),
+   skillCode      VARCHAR(3)  NOT NULL PRIMARY KEY references skill (skillCode),
    teamSize       INTEGER
    );
 

@@ -65,4 +65,4 @@ The nine total examples we will present in detail are as follows in this table:
 
 The first three are the Different Base, M -1, but the works-on columns are different. The other cases are other circumstances.
 
-The following sections will proceed to the nine actual cases using the small creature database. You have already gotten a taste for two of them.  The Different Base, M - 1, Non-Symmetric-A example was what we used in the previous section (creating Achievement with its Skill data). We used the Different-Base, M - M, Symmetric Pair example (creating Creature-Skill Pair) to motivate how to think about symmetry.
+The following sections will proceed to the nine actual cases using the small creature database. You have already gotten a taste for two of them.  The Different Base, M - 1, Non-Symmetric-A example was what we used in the first section (creating Achievement with its Skill data). We just used the Different-Base, M - M, Symmetric Pair example (creating Creature-Skill Pair) to motivate how to think about symmetry in the previous section.

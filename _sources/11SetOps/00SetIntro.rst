@@ -41,7 +41,7 @@ Some very important aspects of these three operators and their input relations a
 
 - The input relations are rarely, if ever, original relations in your database. You most often use these operators on relations that were created by using other operators first.
 
-- Intersect and Union are **symmetric**, meaning that the order of the input relations named A and B above does not matter- the result relation will be the same. The way that both arrows point to the upper corner of the half-house shape indicate the non-symmetry. Because of this symmetry, you might for convenience want to draw them with the upper corner on the right, like this:
+- Intersect and Union are **symmetric**, meaning that the order of the input relations named A and B above does not matter- the result relation will be the same. The way that both arrows point to the upper corner of the half-house shape indicate the symmetry. Because of this symmetry, you might for convenience want to draw them with the upper corner on the right, like this:
 
 .. image:: ../img/SetOps/GenericUnionIntersectRight.png
 

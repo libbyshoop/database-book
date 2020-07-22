@@ -76,7 +76,7 @@ The SQL query examples change in two ways: we eliminate one more column in the r
         DROP TABLE IF EXISTS skill;
 
         CREATE TABLE skill (
-        skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+        skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
         skillDescription   VARCHAR(40),
         maxProficiency     INTEGER,     -- max score that can be achieved for this skill
         minProficiency     INTEGER,     -- min score that can be achieved for this skill
@@ -98,7 +98,7 @@ The SQL query examples change in two ways: we eliminate one more column in the r
         DROP TABLE IF EXISTS achievement;
 
         CREATE TABLE achievement (
-        achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+        achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         creatureId         INTEGER,
         skillCode          VARCHAR(3),
         proficiency        INTEGER,

@@ -22,7 +22,7 @@ Create the new Town Table
    DROP TABLE IF EXISTS town;
 
    CREATE TABLE town (
-   townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
    townName        VARCHAR(20),
    State           VARCHAR(20),
    Country         VARCHAR(20),
@@ -83,7 +83,7 @@ Re-create a new Creature table
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      NOT NUll PRIMARY KEY,
+   creatureId          INTEGER      NOT NULL PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    townId VARCHAR(3) REFERENCES town(townId)     -- foreign key

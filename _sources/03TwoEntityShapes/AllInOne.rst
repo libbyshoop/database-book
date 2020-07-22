@@ -9,7 +9,7 @@ Here is a complete version of all of the SQL data creation statements in one pla
    DROP TABLE IF EXISTS town;
 
    CREATE TABLE town (
-   townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
    townName        VARCHAR(20),
    State           VARCHAR(20),
    Country         VARCHAR(20),
@@ -27,7 +27,7 @@ Here is a complete version of all of the SQL data creation statements in one pla
    INSERT INTO town VALUES ('as', 'Asgard', NULL, NULL, 'Home of Odin''s vault', 'Where magic and science are one in the same');
 
    CREATE TABLE creature (
-   creatureId          INTEGER      NOT NUll PRIMARY KEY,
+   creatureId          INTEGER      NOT NULL PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    townId VARCHAR(3) REFERENCES town(townId)     -- foreign key

@@ -1,4 +1,4 @@
-achId,creatureId,skillCode,proficiency,achDate,test_townId
+*achId*,creatureId,skillCode,proficiency,achDate,test_townId
 1,1,"A",3,"2019-10-28 00:00:00","a"
 2,1,"E",3,"2017-09-15 15:35:00","d"
 3,1,"A",3,"2018-07-14 14:00:00","a"

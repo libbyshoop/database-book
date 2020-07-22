@@ -105,7 +105,7 @@ The SQL for this query is:
 
           DROP TABLE IF EXISTS achievement;
           CREATE TABLE achievement (
-          achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+          achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
           creatureId         INTEGER,
           skillCode          VARCHAR(3),
           proficiency        INTEGER,
@@ -340,25 +340,43 @@ The SQL for this query again uses the data and intermediate relations from the U
 Exercises
 ~~~~~~~~~~
 
-Try creating the precedence charts for these queries. Use a drawing tool such as draw.io.
-Try charts for these as practice:
+Try creating the precedence charts for these queries. Use a drawing tool such as draw.net.
+Try charts for these below as practice. 
+
+.. tip:: 
+   Before sending two relations into the set operation, you will first need to use other unary operators that you have already practiced. You will need to ensure that the two input relations to Union, Intersect, and Minus each have the same number an type of columns.
+
+   Recall this summary from the beginning of this chapter for which operations go with words used in the queries:
+
+   +---------+------------+--------+----------------+
+   | Input   | Operator   | Input  | Generic Phrase |
+   +=========+============+========+================+
+   | A       |Union       |  B     | A or B         |
+   +---------+------------+--------+----------------+
+   | A       |Intersect   |  B     | A and B        |
+   +---------+------------+--------+----------------+
+   | A       |Minus       |  B     | A but not B    |
+   +---------+------------+--------+----------------+
+   | B       |Minus       |  A     | B but not A    |
+   +---------+------------+--------+----------------+
+
+   Not every English query below has these words- you can practice re-wording those to help guide you.
+
+`This drawio operator template <https://drive.google.com/file/d/1AduoHhvr7ve4gVrcl-9nnoHR1Yne4WQH/view?usp=sharing>`_ has an additional tab for binary set ops that can serve as a template for drawing the precedence charts. If you dowloaded this and used it already, you just have to go find the extra tab with a new drawing.
+
 
 **English Query:**
 
-  1. Find each skillCode, test_townId of achievement but not skillCode, origin_townId of skill
+  1. Find each skillCode, test_townId of achievement but not skillCode, origin_townId of skill.
 
-  2. Find each Skill originating in one town but not achieved in that town
+  2. Find each Skill originating in one town but not achieved in that town.
 
-  3. Find each Skill originating in one town or achieved in any town
+  3. Find each Skill originating in one town or achieved in any town.
 
-  4. Skill that has not been achieved (find each unachieved skill)
+  4. Find each Skill that has not been achieved (find each unachieved skill).
 
-  5. Creature who has not achieved (find each non-achieving (or unskilled) creature)
+  5. Find each Creature who has not achieved (find each non-achieving creature).
 
-  6. Creature who has aspired to and achieved the same skill
+  6. Find each Town with no achieved Skills.
 
-  7. Creature who has achieved swimming and gargling
-
-  8. Town with no achieved Skills
-
-  9. Town with no aspired to Skills
+  7. Find each Town with no aspired to Skills.

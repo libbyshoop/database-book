@@ -14,7 +14,11 @@ Here is a conceptual schema for a database that we will use throughout the rest 
 
 You do not heed to completely familiarize yourself with it now- we will be delving into portions of it as we learn about the different operators and practice applying them to relations in the database.
 
+You can download :download:`This Small Creature Database Schema<smallCreatureDB_LDS.pdf>` and keep a copy for your own reference. You may find it useful to have it to refer to as you are reading about the relational operators and example charts that refer to the entities in this diagram, which match the relational tables created below.
+
 What follows below is a somewhat long file of SQL code to create the relations for a database matching the above schema (entities are mapped to relations and foreign keys are used for relationships). There are also commands to insert sample data for the database. As we study each operation in the rest of this book, we will use portions of this database. At that time, as we use them, we will provide more insights about the instances, or rows of data that are in each relation.
+
+If you wish to try this data in your own database system, you can download :download:`CreatureDB.sql<CreatureDB.sql>`
 
 
 .. activecode:: all_creature_create
@@ -25,7 +29,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS town;
 
    CREATE TABLE town (
-   townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
    townName        VARCHAR(20),
    State           VARCHAR(20),
    Country         VARCHAR(20),
@@ -69,7 +73,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
 
 
    CREATE TABLE creature (
-   creatureId          INTEGER      NOT NUll PRIMARY KEY,
+   creatureId          INTEGER      NOT NULL PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -95,7 +99,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
    skillDescription   VARCHAR(40),
    maxProficiency     INTEGER,     -- max score that can be achieved for this skill
    minProficiency     INTEGER,     -- min score that can be achieved for this skill
@@ -119,7 +123,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS teamSkill;
 
    CREATE TABLE teamSkill (
-   skillCode      VARCHAR(3)  NOT NUll PRIMARY KEY references skill (skillCode),
+   skillCode      VARCHAR(3)  NOT NULL PRIMARY KEY references skill (skillCode),
    teamSize       INTEGER
    );
 
@@ -133,7 +137,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS achievement;
 
    CREATE TABLE achievement (
-   achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+   achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
    creatureId         INTEGER,
    skillCode          VARCHAR(3),
    proficiency        INTEGER,
@@ -189,7 +193,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    INSERT INTO achievement (creatureId, skillCode, proficiency,
                             achDate, test_townId)
                    VALUES (13, 'PK', 10, datetime('2012-08-06'), 'le');
-   -- Godizilla achieves PK in Tokyo poorly with no date
+   -- Godzilla achieves PK in Tokyo poorly with no date
    -- had not aspiration to do so- did it on a dare ;)
    INSERT INTO achievement (creatureId, skillCode, proficiency,
                             achDate, test_townId)
@@ -313,7 +317,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS role;
    CREATE TABLE role
    (
-     roleName VARCHAR(20)   NOT NUll PRIMARY KEY
+     roleName VARCHAR(20)   NOT NULL PRIMARY KEY
    );
 
    INSERT INTO role VALUES ('first leg');   -- 4x100 track
@@ -335,8 +339,8 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS contribution;
    CREATE TABLE contribution (
        creatureId         INTEGER     NOT NULL REFERENCES creature(creatureId),
-       achId              INTEGER     NOT NUll REFERENCES achievement(achId),
-       skillCode          VARCHAR(3)  NOT NUll REFERENCES skill(skillCode),
+       achId              INTEGER     NOT NULL REFERENCES achievement(achId),
+       skillCode          VARCHAR(3)  NOT NULL REFERENCES skill(skillCode),
        roleName           VARCHAR(20) REFERENCES role(roleName),
        PRIMARY KEY (creatureId, achId)
    );
@@ -368,7 +372,7 @@ What follows below is a somewhat long file of SQL code to create the relations f
    DROP TABLE IF EXISTS aspiredContribution;
    CREATE TABLE aspiredContribution (
        creatureId         INTEGER     NOT NULL REFERENCES creature(creatureId),
-       skillCode          VARCHAR(3)  NOT NUll REFERENCES skill(skillCode),
+       skillCode          VARCHAR(3)  NOT NULL REFERENCES skill(skillCode),
        roleName           VARCHAR(20) REFERENCES role(roleName),
        PRIMARY KEY (creatureId, skillCode)
    );
@@ -402,6 +406,6 @@ For starters, let's just examine one of the relations that is central to this da
    :widths: 10, 25, 25, 20, 20
    :header-rows: 1
 
-Note how we carefully use a singular name for the relation. This convention is important to understanding how the relational algebra operations work and we believe makes it easier to master relational data analysis. We will use this convention throughout this book. The way we think of this is that each row represents one creature, and the name of a relation is for one of these instances.
+.. important:: Note how we carefully use a singular name for the relation. This convention is important to understanding how the relational algebra operations work and we believe makes it easier to master relational data analysis. We will use this convention throughout this book. The way we think of this is that each row represents one creature, and the name of a relation is for one of these instances.
 
 In the next chapter we will begin our exploration of relational algebra and precedence charts by starting with the unary operators.

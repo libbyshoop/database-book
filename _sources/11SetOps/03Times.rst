@@ -85,7 +85,7 @@ The SQL to complete the times is also quite simple:
 
           DROP TABLE IF EXISTS creature;
           CREATE TABLE creature (
-          creatureId          INTEGER      NOT NUll PRIMARY KEY,
+          creatureId          INTEGER      NOT NULL PRIMARY KEY,
           creatureName        VARCHAR(20),
           creatureType        VARCHAR(20),
           reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -110,7 +110,7 @@ The SQL to complete the times is also quite simple:
           DROP TABLE IF EXISTS skill;
 
           CREATE TABLE skill (
-          skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+          skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
           skillDescription   VARCHAR(40),
           maxProficiency     INTEGER,     -- max score that can be achieved for this skill
           minProficiency     INTEGER,     -- min score that can be achieved for this skill
@@ -230,7 +230,7 @@ However, the naming becomes more difficult when the inputs are longer intermedia
 
 Exercises
 ~~~~~~~~~~
-Try creating the precedence charts for these queries. Use a drawing tool such as draw.io.
+Try creating the precedence charts for these queries. Use a drawing tool such as draw.net.
 
 **English Query:**
 

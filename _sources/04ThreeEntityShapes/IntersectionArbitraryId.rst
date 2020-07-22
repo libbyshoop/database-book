@@ -12,7 +12,7 @@ Next let's consider the following fragment that represents an evolution of the p
 
 |
 
-What is being depicted here once again is that each creature can achieve many skills and each skill can be achieved by many creatures, so this many-many relationship was automatically changed in the conceptual model to contain an intermediate intersection entity called Achievement. Here an Achievement is still a pairing of a Creature and a Skill, but we can remember more than one occurrence of a creature achieving a particular skill, so a date attribute was added. Because some achievements may not have a date associated with them, this cannot be used as a tiebreaker and is not part of the identifier. Instead, we need to introduce an arbitrary value to identify one achievement from another.
+What is being depicted here once again is that each creature can achieve many skills and each skill can be achieved by many creatures, so this many-many relationship was automatically changed in the conceptual model to contain an intermediate intersection entity called Achievement. Here an Achievement is still a pairing of a Creature and a Skill, but we can remember more than one occurrence of a creature achieving a particular skill, so a date attribute was added, called achDate. Because some achievements may not have a date associated with them or a creature can achieve a skill more than once on the same date, the achDate attribute cannot be used as a tiebreaker and is not part of the identifier. Instead, we need to introduce an arbitrary value to identify one achievement from another.
 
 .. activecode:: cr_ach_arbid_skill_create
    :language: sql
@@ -20,14 +20,14 @@ What is being depicted here once again is that each creature can achieve many sk
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      NOT NUll PRIMARY KEY,
+   creatureId          INTEGER      NOT NULL PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    creatureResideTown  VARCHAR(20)
@@ -36,7 +36,7 @@ What is being depicted here once again is that each creature can achieve many sk
    DROP TABLE IF EXISTS achievement;
 
    CREATE TABLE achievement (
-   achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+   achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
    creatureId         INTEGER,
    skillCode          VARCHAR(3),
    proficiency        INTEGER,
@@ -45,7 +45,7 @@ What is being depicted here once again is that each creature can achieve many sk
    FOREIGN KEY (skillCode) REFERENCES skill (skillCode)
    );
 
-Notice how when creating achievement we have declared that the primary key identifier will be an integer that the system will automatically increment as instances are added to the database table. This syntax for the automatically incremented integer for use as a primary key will vary a bit from database system to database system. We show it above for SQLite.
+Notice on line 20 how when creating achievement we have used the keyword AUTOINCREMENT to declare that the primary key identifier will be an integer that the system will automatically increment as instances are added to the database table. This syntax for the automatically incremented integer for use as a primary key will vary from database system to database system. We show it above for SQLite.
 
 Similarly, date and time data is represented differently in almost every database system you will encounter. In SQLite, we define a date as shown above by declaring it as a 'text' datatype. Below we show how data can then be inserted using functions that convert date and time into text strings, as shown in this next example, where we use the *datetime* function.
 
@@ -76,7 +76,7 @@ Similarly, date and time data is represented differently in almost every databas
   SELECT *
   FROM creature natural join achievement natural join skill;
 
-.. important:: Because we have introduced an arbitrary identifier that will be automatically added by the system, we have to treat the inserts a bit differently. In other examples, we had taken a short cut and not included the names of the columns for the data we are entering in the insert command, because we were inserting them in the same order as we created them. Note that for inserting the data into the achievement table in this case, we added which columns/attributes of data we were inserting, letting the system insert the arbitrary achId value.
+.. important:: Because we have introduced an arbitrary identifier that will be automatically added by the system, we have to treat the inserts a bit differently, starting at line 11. In other examples, we had taken a short cut and not included the names of the columns for the data we are entering in the insert command, because we were inserting them in the same order as we created them. Note that for inserting the data into the achievement table in this case, we added which columns/attributes of data we were inserting, letting the system insert the arbitrary achId value.
 
 Summary of Concepts Introduced
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

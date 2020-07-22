@@ -12,7 +12,7 @@ from runestone import get_master_url
 sys.path.append(os.getcwd())
 
 # The project name, for use below.
-project_name = 'DatabaseBook'
+project_name = 'MasteringDatabases'
 
 master_url = 'http://127.0.0.1:8000'
 if not master_url:

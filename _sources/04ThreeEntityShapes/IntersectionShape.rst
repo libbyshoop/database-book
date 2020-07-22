@@ -38,7 +38,16 @@ creatureId   skillCode      proficiency
 3            Z              1
 ==========   =============  ===========
 
-We read the first instance of the above table as: "the creature with creatureId of 1 has achieved the skill whose skillCode is A with proficiency of 1." The conceptual model fragment and the data indicate that an Achievement is identified by the combination of its creatureId and skillCode.
+We read the first instance of the above table as: "the creature with creatureId of 1 has achieved the skill whose skillCode is A with proficiency of 1." The conceptual model fragment and the data indicate that an Achievement is identified by the combination of its creatureId and skillCode. 
+
+.. Important:: Stop to make sure that you understand the last sentence above. Answer the following question:
+
+.. shortanswer:: short_3_entitiy1
+   :optional:
+
+   What about the given data indicates the both attributes must contribute to the identifier?
+   
+
 
 Now let's create the data tables for this situation. We repeat the creature table from earlier examples.
 
@@ -48,14 +57,14 @@ Now let's create the data tables for this situation. We repeat the creature tabl
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    DROP TABLE IF EXISTS creature;
 
    CREATE TABLE creature (
-   creatureId          INTEGER      NOT NUll PRIMARY KEY,
+   creatureId          INTEGER      NOT NULL PRIMARY KEY,
    creatureName        VARCHAR(20),
    creatureType        VARCHAR(20),
    creatureResideTown  VARCHAR(20)
@@ -72,7 +81,9 @@ Now let's create the data tables for this situation. We repeat the creature tabl
    FOREIGN KEY (skillCode) REFERENCES skill (skillCode)
    );
 
-Note how we represent the identifier of Achievement using the *primary key* keywords as a separate declaration in the create table statement. Note also how we depict the alternative way to declare that creatureId and skillCode are foreign keys into creature and skill respectively.
+Note how we represent the identifier of Achievement using the *PRIMARY KEY* keywords as a separate declaration in the create table statement (line 23). Further note that when a column or column is declared to be a primary key, each value in an instance must be unique and by default not null. To illustrate this, we have removed the keywords *NOT NULL* from the two primary key, or identifying columns. (Other non-identifying columns that should never have null values can still use the *NOT NULL* keywords after them. For example, perhaps we would always want to make sure some proficiency value was entered for an achievement; if so, we could add these keywords after that column.)
+
+Note also how we depict the alternative way to declare that creatureId and skillCode are foreign keys into creature and skill respectively (lines 24 and 25). 
 
 Inserting data for these is just as before in other examples:
 

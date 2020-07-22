@@ -96,7 +96,7 @@ The third tab shows a syntax that works in only this special case of match join,
         DROP TABLE IF EXISTS skill;
 
         CREATE TABLE skill (
-        skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+        skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
         skillDescription   VARCHAR(40),
         maxProficiency     INTEGER,     -- max score that can be achieved for this skill
         minProficiency     INTEGER,     -- min score that can be achieved for this skill
@@ -118,7 +118,7 @@ The third tab shows a syntax that works in only this special case of match join,
         DROP TABLE IF EXISTS achievement;
 
         CREATE TABLE achievement (
-        achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+        achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         creatureId         INTEGER,
         skillCode          VARCHAR(3),
         proficiency        INTEGER,
@@ -239,27 +239,36 @@ The third tab shows a syntax that works in only this special case of match join,
                         VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
 
 
-Other Queries to try:
+Other Queries to try
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Try creating the precedence charts for these queries.
+Try creating the precedence charts for some of these queries. These are all different-base, M-1 (non-symmetric) circumstances. You should focus on two things:
 
-**English Query:**
+- Which relation is the A, many end, and therefore points to the higher peak of the Match Join half-house symbol for non-symmetric case, and
+- for each in put relation, the 'works on' columns that should be matched, choosing between E, M, S, O, or D for Aid(): and Bid(): inside the operator shape. 
 
-                          Find each achievement plus its creature data.
+.. tip:: If you haven't yet written down the table describing these 5 letters, E, M, S, O, and D shown in sections 13.1 and 13.2, you should do it now as you practice. I ask you to write it out because it will help you remember them and you should have it accessible as you work.
 
-                          Find each achievement plus its town data.
+`This drawio operator template <https://drive.google.com/file/d/1AduoHhvr7ve4gVrcl-9nnoHR1Yne4WQH/view?usp=sharing>`_ also contains a tab for the Match Join operators that you can use as a guide as you try to draw them in diagrams.net. If you dowloaded this and used it already, you just have to go find the extra tab called Match Join with a new drawing showing the different circumstances.
 
-                          Find each gargling aspiration plus its skill data.
+One of these below is different than the others. Can you spot it and determine what else you will need to do?
 
-                          Find each skill plus its town data.
+**English Queries:**
 
-                          Find each creature plus its town data.
+    1. Find each achievement with its creature data.
 
-                          Find each AspiredContribution plus its role data.
+    2. Find each achievement with its town data.
 
-                          Find each aspiration plus its town data.
+    3. Find each gargling aspiration with its skill data.
 
-                          Find each contribution plus its role data.
+    4. Find each skill with its town data.
 
-                          Find each contribution plus its skill data.
+    5. Find each creature with its town data.
+
+    6. Find each AspiredContribution with its role data.
+
+    7. Find each aspiration with its town data.
+
+    8. Find each contribution with its role data.
+
+    9. Find each contribution with its skill data.

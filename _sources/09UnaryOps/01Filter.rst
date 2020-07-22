@@ -31,7 +31,7 @@ Let's start with the creature relation that we saw earlier when we introduced th
    :widths: 10, 25, 25, 20, 20
    :header-rows: 1
 
-Note that creatureId is the identifier of Creature.
+Note that creatureId is the identifier of Creature (the column name of the relation is italicized).
 
 A simple condition
 ********************
@@ -78,7 +78,7 @@ Now let's see what the SQL will look like for this. You can look at the second t
 
           DROP TABLE IF EXISTS creature;
           CREATE TABLE creature (
-          creatureId          INTEGER      NOT NUll PRIMARY KEY,
+          creatureId          INTEGER      NOT NULL PRIMARY KEY,
           creatureName        VARCHAR(20),
           creatureType        VARCHAR(20),
           reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -204,7 +204,7 @@ Corresponding SQL:
 
           DROP TABLE IF EXISTS achievement;
           CREATE TABLE achievement (
-          achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+          achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
           creatureId         INTEGER,
           skillCode          VARCHAR(3),
           proficiency        INTEGER,
@@ -346,7 +346,8 @@ The result relation name, like the input name, is singular in this book. The Eng
 Exercises
 ~~~~~~~~~~
 
-Try creating the precedence charts for these queries. Use a drawing tool such as draw.io.
+Try creating the precedence charts for these queries. Use a drawing tool such as diagrams.net. If you haven't yet, try making a copy of 
+`this drawio unary operator template <https://drive.google.com/file/d/1AduoHhvr7ve4gVrcl-9nnoHR1Yne4WQH/view?usp=sharing>`_ in your browser. To do this, you will need to access this Google Drive file and make a copy in your own Google Drive space. You can use it in a free web-based drawing tool called diagrams.net.
 
   1. Find each achievement whose proficiency is greater than 3 and not equal to 6.
   2. Find each achievement whose skillCode is 'Z'.

@@ -1,4 +1,4 @@
-C1_creatureId	C1_creatureName	C1_creatureType	C1_reside_townId	C1_idol_creatureId	C2_creatureId	C2_creatureName	C2_creatureType	C2_reside_townId	C2_idol_creatureId
+*C1_creatureId*	C1_creatureName	C1_creatureType	C1_reside_townId	C1_idol_creatureId	*C2_creatureId*	C2_creatureName	C2_creatureType	C2_reside_townId	C2_idol_creatureId
 1	Bannon	person	p	10	1	Bannon	person	p	10
 1	Bannon	person	p	10	2	Myers	person	a	9
 1	Bannon	person	p	10	3	Neff	person	be	null

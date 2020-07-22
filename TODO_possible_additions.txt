@@ -1,0 +1,45 @@
+
+This not-quite correct example was in 12.1 as a possible exercise. I think right now I might not want an exercise there at all- just illustrate an interesting advanced times example as prelude to later.
+
+Queries to try
+~~~~~~~~~~~~~~~~~~~~
+
+Try creating the precedence chart for the following query. 
+
+**English Query:**
+
+  How does each creature’s achieved skill proficiency compare to other creatures who have achieved the lowest proficiency at that skill?
+
+After getting server set up, switch to this type of thing:
+
+.. tabbed:: Asp_Creature_MJ_1
+
+    .. tab:: SQL Times-Filter-Reduce MJ query
+
+      .. activecode:: asp_cr_MJ_S_E
+        :language: sql
+        :include: all_creature_create
+
+        -- Aspiration with its Creature data
+                    -- reduce by removing B.creatureId
+        SELECT A.*, B.creatureName, B.creatureType, 
+                    B.reside_townId, B.idol_creatureId
+        FROM Aspiration A, Creature B       -- times
+        WHERE A.creatureId = B.creatureId   -- equality match filter
+        ;
+
+
+    .. tab:: SQL Inner Join MJ query
+
+      .. activecode:: asp_cr_MJ_S_E_inner
+        :language: sql
+        :include: all_creature_create
+
+        -- Aspiration with its Creature data
+                    -- reduce by removing B.creatureId, B.origin_townId
+        SELECT A.*, B.creatureName, B.creatureType, 
+                    B.reside_townId, B.idol_creatureId
+        FROM Aspiration A
+        INNER JOIN Creature B            -- like MJ operator symbol
+        ON A.creatureId = B.creatureId   -- match filter over cols
+        ;

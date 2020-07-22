@@ -1,7 +1,7 @@
 Project
 --------
 
-Project (the verb, pronounced /prəˈjekt/, stemming from the word projection) is the simplest operator. It takes as input one relation, and a list of columns. It forms a result relation with *all* of the input relation’s rows, but just the specified columns. That relation must contain **all of the input relation’s identifying columns** with *some*, *none* or *all* of its non-identifying columns, and, perhaps, some computed columns. *One* result relation row corresponds to *one* input relation row.
+Project (the verb, pronounced /prəˈjekt/, stemming from the word projection) is the simplest operator. It takes as input one relation, and a list of columns. It forms a result relation with *all* of the input relation’s rows, but just the specified columns. That relation **must contain all of the input relation’s identifying columns** with *some*, *none* or *all* of its non-identifying columns, and, perhaps, some computed columns. *One* result relation row corresponds to *one* input relation row.
 
 A Project’s result relation has these notable name and structure characteristics:
 
@@ -21,7 +21,7 @@ Structure characteristics:
 
 -  It is exactly as tall as the original relation
 
-.. important:: Masters know how each operator’s result relation base relates to the base of the input relation’s base. For Project the bases and identifiers are the same.
+.. important:: Masters know how each operator’s result relation base relates to the base of the input relation’s base. For Project the bases and identifiers are the same, because we must include the identifying columns for this operator.
 
 Examples
 ~~~~~~~~
@@ -73,7 +73,7 @@ Corresponding SQL:
 
           DROP TABLE IF EXISTS creature;
           CREATE TABLE creature (
-          creatureId          INTEGER      NOT NUll PRIMARY KEY,
+          creatureId          INTEGER      NOT NULL PRIMARY KEY,
           creatureName        VARCHAR(20),
           creatureType        VARCHAR(20),
           reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -126,7 +126,8 @@ Corresponding SQL:
          :include: achievement_create_project
 
          SELECT achId, skillCode, proficiency,
-                julianday('now') - julianday(achDate)
+                julianday('now') - julianday(achDate) AS 
+                  totalElapsedTimeSinceAchieved
          FROM achievement;
 
     .. tab:: SQL data
@@ -136,7 +137,7 @@ Corresponding SQL:
 
           DROP TABLE IF EXISTS achievement;
           CREATE TABLE achievement (
-          achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+          achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
           creatureId         INTEGER,
           skillCode          VARCHAR(3),
           proficiency        INTEGER,
@@ -250,7 +251,19 @@ Corresponding SQL:
 
 **Explanation of the SQL query (first tab):**
 
-The columns we wish to keep in the result are in a comma-separated list after the keyword SELECT, as is a new column that gets computed. In this case, in SQLite the function julianday() applied to each of two dates represented as text and used with the minus operator will compute the number of days between the two dates. As mentioned in the previous section, other databases will do this differently. The input relation, in this case achievement, is shown after the keyword FROM.
+The input relation, in this case achievement, is shown after the keyword FROM. The columns we wish to keep in the result are in a comma-separated list after the keyword SELECT, as is a new column that gets computed. In this case, in SQLite the function julianday() applied to each of two dates represented as text and used with the minus operator will compute the number of days between the two dates. As mentioned in the previous section, other databases will do this differently. Note the keyword *AS* following the date computation: this enables us to rename the column. You could experiment with removing the AS and the new column name to see what results.
+
+.. note:: Remember that if you try changing the query above and re-run it, you can always get back to the original by re-loading this page in your browser.
+
+.. shortanswer:: project_short_1
+   :optional:
+
+   After running the above project SQL query, can you explain why there is no value for the total elapsed time since achieved for the achievement whose id is 11?  (Hint: look at the data inserted for this achievement on line 61-63 of the SQL data tab.)
+
+.. shortanswer:: project_short_2
+   :optional:
+
+   What might you want to do next to follow on from this result to make the data more appealing for your users? You could even try some simple things in the SQL Query tab above. Hopefully you will see that handling dates in a useful way can be tricky.
 
 .. important::
     **The scope of computing columns in Project is one row.**

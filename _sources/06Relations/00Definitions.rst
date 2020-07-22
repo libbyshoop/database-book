@@ -33,7 +33,7 @@ A **relation** is a particular structure of data values in cells, generally depi
 
 Briefly, a relation such as this has these features:
 
-- *one* name (recipe-stuff);
+- *one* name (Recipe);
 - a *set* (size 4) of columns, each with *one* name (recipe_id, rank, recipe_category, & recipe_name);
 - a *set* (size 2) of distinct rows;
 - *one* *set* (size 1) of identifying columns (recipe_id), each of which is denoted in some way, with italics, or perhaps underlined;
@@ -58,7 +58,7 @@ Let's add some detail to this definition. A relation has:
 
 -  **A perhaps-empty set of rows.**
 
-   Each row is about one instance of the relation name, and is comprised of a *set* of values, one for each column of the relation. So, while the elements of a set can be heterogeneous, the rows in a relation are homogeneous in the sense that they are all about the same type of thing. Likewise the values in a cell are homogeneous – about the same kind of thing and encoded (integer, character, etc.) the same way.
+   Each row is about one instance of the relation name, and is comprised of a *set* of values, one for each column of the relation. So, while the elements of a set can be heterogeneous, the rows in a relation are homogeneous in the sense that they are all about the same type of thing. Likewise the values in each cell of a row are homogeneous – about the same kind of thing and encoded (integer, character, etc.) the same way.
 
 .. note:: Instead of row the terms instance, tuple, or record might be used.
 
@@ -76,7 +76,7 @@ Let's add some detail to this definition. A relation has:
 
 -  **Exactly one, unique, short, internal (DBMS) name.**
 
-   The relational DBMS enforces the restriction that every (saved) relation is named and no two relations in the database (or in just your view of the database) have the same name – a *set* of names. A relation’s name can never be NULL, that is, there are no anonymous relations. A relation cannot have more than one name, although in querying you can (and sometimes must) use temporary aliases. This DBMS name is limited to a few dozen keystrokes.
+   The relational DBMS enforces the restriction that every (saved) relation is named and no two relations in the database (or in just your view of the database) have the same name – a *set* of names. A relation’s name can never be NULL, that is, there are no anonymous relations. A relation cannot have more than one name, although in querying you can (and sometimes must) use temporary aliases. This DBMS relation name is limited to a few dozen keystrokes (it varies for each system).
 
    While the DBMS just requires unique names, humans need something else:
 
@@ -87,3 +87,11 @@ Let's add some detail to this definition. A relation has:
 .. warning:: Beware! Some students fail to appreciate the importance of relation names, not even trying to become skilled namers, and thus never progress to mastery.
 
 A relation that comes directly from users is called a “\ **raw**\ ” or “raw data” relation, while one that results from a Relational Algebra operator is called a “\ **derived**\ ” relation. A “\ **view**\ ” is a derived relation that is not materialized until execution time. All three kinds are still relations for planning purposes.
+
+Summary
+~~~~~~~~
+
+Here is a video summarizing the above details. Playback faster if you feel like I'm going to slow; 1.5 speed is just fine, I think.
+
+.. youtube:: JsnH_5fa8oA
+

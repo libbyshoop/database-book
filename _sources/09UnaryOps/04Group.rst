@@ -70,7 +70,7 @@ Corresponding SQL:
 
           DROP TABLE IF EXISTS achievement;
           CREATE TABLE achievement (
-          achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+          achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
           creatureId         INTEGER,
           skillCode          VARCHAR(3),
           proficiency        INTEGER,
@@ -346,7 +346,7 @@ There are two ways in which a *bad group* can arise.
 
          DROP TABLE IF EXISTS creature;
          CREATE TABLE creature (
-         creatureId          INTEGER      NOT NUll PRIMARY KEY,
+         creatureId          INTEGER      NOT NULL PRIMARY KEY,
          creatureName        VARCHAR(20),
          creatureType        VARCHAR(20),
          reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -436,7 +436,7 @@ Once you have a chart, try some SQL for 7 - 9 above. Here is what the Skill rela
         DROP TABLE IF EXISTS skill;
 
         CREATE TABLE skill (
-        skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+        skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
         skillDescription   VARCHAR(40),
         maxProficiency     INTEGER,     -- max score that can be achieved for this skill
         minProficiency     INTEGER,     -- min score that can be achieved for this skill

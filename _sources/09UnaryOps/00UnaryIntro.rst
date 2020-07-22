@@ -7,24 +7,43 @@ Here are each of the operators (we will explain the conditions in each one as we
 
 1. **Filter**. The result relation is usually shorter than the input relation, as long as the condition supplied makes this so. The result's base does not change. In precedence charts, the filter operator looks like this:
 
-.. image:: ../img/UnaryOps/Filter.png
+|
+
+.. image:: ../img/UnaryOps/Filter.png 
+
+|
 
 2. **Project**. The result relation has fewer or more columns. The number of rows remains the same. The result's base does not change.
 
-.. image:: ../img/UnaryOps/Project.png
+|
+
+.. image:: ../img/UnaryOps/Project.png 
+
+|
 
 3. **Reduce**. The result relation has fewer columns. The number of rows remains the same. The result's base **does change**, so we use another shape to help us remember that:
 
-.. image:: ../img/UnaryOps/Reduce.png
+
+.. image:: ../img/UnaryOps/Reduce.png 
+
+|
 
 4. **Group**. The result relation usually has fewer rows and fewer columns (if it doesn't the choice you used was probably wrong). The result's base **does change**, so we use the same shape as for Reduce. Group has two forms-- you will see the difference later. For now, here is what they look like:
 
-.. image:: ../img/UnaryOps/Group.png
+|
+
+.. image:: ../img/UnaryOps/Group.png 
 
 |
 
-.. image:: ../img/UnaryOps/Group_over_nothing.png
+.. image:: ../img/UnaryOps/Group_over_nothing.png 
 
 |
+
+Drawing Charts
+~~~~~~~~~~~~~~
+
+In the rest of this chapter, you will be encouraged to try drawing charts like those above in the exercises. To help with this, try making a copy of 
+`this drawio unary operator template <https://drive.google.com/file/d/1AduoHhvr7ve4gVrcl-9nnoHR1Yne4WQH/view?usp=sharing>`_ in your browser. To do this, you will need to access this Google Drive file and make a copy in your own Google Drive space. You can use it in a free web-based drawing tool called diagrams.net.
 
 Let's dive in and start using these operators!

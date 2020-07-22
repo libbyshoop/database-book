@@ -1,4 +1,4 @@
-skillCode, skillDescription, maxProficiency, minProficiency, origin_townId
+*skillCode*, skillDescription, maxProficiency, minProficiency, origin_townId
 "A","float",10,-1,"b"
 "B2","2-crew bobsledding",25,0,"d"
 "C2","2-person canoeing",12,1,"t"

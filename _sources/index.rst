@@ -3,8 +3,10 @@ Mastering Relational Databases: from Models to Querying
 ==========================================================
 
 Libby Shoop
+Macalester College
+Saint Paul, MN, USA
 
-2019
+2019-2020
 
 What this book is for
 :::::::::::::::::::::
@@ -31,12 +33,12 @@ This book is not a substitute for attempting more data creation and analysis of 
 Part 1: From conceptual models to SQL data creation
 ---------------------------------------------------
 
-The first several chapters linked below will guide you through the basic mechanisms typically used to implement tables in relational databases and to generate data instances and store them in tables. Basic querying is include just to verify the data has been created. This material is not exhaustive, but rather illustrative of basic features of SQL. As you practice, you will want to consult other more detailed references for the database system you are using in practice.
+The first four chapters linked below will guide you through the basic mechanisms typically used to implement tables in relational databases and to generate data instances and store them in tables. Basic querying is included just to verify the data has been created. This material is not exhaustive, but rather illustrative of basic features of SQL. As you practice, you will want to consult other more detailed references for the database system you are using in practice.
 
 Part 2: Mastering Database Querying with Relational Algebra and SQL
 --------------------------------------------------------------------
 
-Beginning with the 'Databases and Querying' chapter, we will go through how to design queries using a graphical notation based on relational database theory that helps you think clearly about what data results you can expect from operations on data relations (a special form of data tables). With a design in hand, you will then be able to create correct queries using SQL-- we guide you through that process with simple examples.
+Beginning with Chapter 5, 'Relational Databases, Querying and Analysis', we will go through how to design queries using a graphical notation based on relational database theory that helps you think clearly about what data results you can expect from operations on data relations (a special form of data tables). With a design in hand, you will then be able to create correct queries using SQL-- we guide you through that process with simple examples.
 
 Table of Contents
 :::::::::::::::::
@@ -70,7 +72,7 @@ A great deal of the material in part 2 was originally written by John Carlis for
 
 Original unpublished work: Copyright |copy| 1999 - 2015, John V. Carlis.
 
-This work: Copyright |copy| 2019, Elizabeth G. Shoop |---| all rights reserved.
+This work: Copyright |copy| 2019-2020, Elizabeth G. Shoop |---| all rights reserved.
 
 .. |copy| unicode:: 0xA9 .. copyright sign
 .. |---| unicode:: U+02014 .. em dash
@@ -79,14 +81,15 @@ This work: Copyright |copy| 2019, Elizabeth G. Shoop |---| all rights reserved.
 
 I wish to extend thanks to Brad Miller and the `Runestone Interactive <http://runestoneinteractive.org/>`_ team, whose software platform enabled me to create this interactive book. John Carlis always believed in learning by practicing and being active; this technology enables you to do that, and I believe he would be happy with what we are trying to do here.
 
+I also wish to thank Yiyi Yuan, a student a Macalester College, who helped me develop many of the exercises in the second part of this book.
+
 Warning: A work in Progress
 :::::::::::::::::::::::::::
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/2/2d/Wikidata_logo_under_construction_sign_square.svg
     :width: 100px
-    :align: left
+    :align: center
     :alt: Under construction
 
-The material you will read here is still under constant revision. You may find sections with little detail that are still in progress (look for the construction sign above and to the left), and you may be surprised by new additions showing up at any time. There may still be errors in some of the examples as I publish new versions. Please bear with me.
+The material you will read here is still under some revision (beware when you see the construction sign above).
 
-I am only using a small part of what Runestone interactive books can provide. Some links in the title bar don't yet work or don't seem to belong. Please bear with me as I work towards making this material more like the other fully interactive books found on `Runestone Academy <https://runestone.academy/runestone/default/user/login?_next=/runestone/default/index>`_.

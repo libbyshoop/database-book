@@ -1,4 +1,4 @@
-creatureId, skillCode, aspiredProficiency, desired_townId
+*creatureId*, *skillCode*, aspiredProficiency, desired_townId
 1,"A",3,"a"
 1,"C2",9,"b"
 1,"E",4,"b"

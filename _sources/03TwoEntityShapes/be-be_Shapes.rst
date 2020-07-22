@@ -22,14 +22,14 @@ Implementing one-to-one relationships in SQL can be done by choosing one of the 
    DROP TABLE IF EXISTS skill;
 
    CREATE TABLE skill (
-   skillCode          VARCHAR(3)      NOT NUll PRIMARY KEY,
+   skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
    skillDescription   VARCHAR(20)
    );
 
    Drop TABLE IF EXISTS TeamSkill;
 
    CREATE TABLE teamSkill (
-   skillCode      VARCHAR(3)  NOT NUll PRIMARY KEY references skill (skillCode),
+   skillCode      VARCHAR(3)  NOT NULL PRIMARY KEY references skill (skillCode),
    teamSize       INTEGER
    );
 
@@ -58,4 +58,4 @@ Some Notes about shape and data
 
 We've shown implementing teamSkill as a table, but are choosing at this time not to implement individualSkill as a separate table. You could try it as an exercise. However, it is sometimes the case when there are only 2 sub groups and you do not wish to remember anything else about individual skills, you may choose to delay implementing the separate individualSkill table. As we will see later, when we know the instances in these two subgroups do not overlap and all skills are either individual skills or team skills, there will be a way to determine which skills are individual skills from the data that we created above.
 
-.. note:: Other one-to-one shapes that are not be-be and whose entities only have attributes as identifiers (not relationships) are interesting when it comes to implementation. In this case, you can create a foreign key from one table to another, but it is the implementer's choice which way to do it.
+.. note:: Other one-to-one shapes that are not be-be and whose entities only have attributes as identifiers (not relationships; i.e. no bar on either end of relationship) are interesting when it comes to implementation. In this case, you can create a foreign key from one table to another, but it is the implementer's choice which way to do it.

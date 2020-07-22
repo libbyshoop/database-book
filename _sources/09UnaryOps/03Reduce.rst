@@ -86,7 +86,7 @@ Corresponding SQL:
 
         DROP TABLE IF EXISTS creature;
         CREATE TABLE creature (
-        creatureId          INTEGER      NOT NUll PRIMARY KEY,
+        creatureId          INTEGER      NOT NULL PRIMARY KEY,
         creatureName        VARCHAR(20),
         creatureType        VARCHAR(20),
         reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
@@ -153,7 +153,7 @@ Here is another reduce query:
 
   Find each creatureName of one or more creatures
 
-Draw this one for yourself.You might have been tempted to keep Creature as its base but can not because creatureName is *not* Creature’s identifier.
+Draw this one for yourself.You might have been tempted to keep Creature as its base but cannot because creatureName is *not* Creature’s identifier.
 
 
 .. important:: Seeing the difference between bases is necessary for mastery. Beware, some students skim this crucial notion to get to the snazzier operators and never grasp the fundamental importance of choosing precise names. You need to become sensitive to language and, in particular, to internalize that Reduce yields a different base than the input relation, while Project yields the same base.
@@ -200,7 +200,7 @@ English query:
         DROP TABLE IF EXISTS town;
 
         CREATE TABLE town (
-        townId          VARCHAR(3)      NOT NUll PRIMARY KEY,
+        townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
         townName        VARCHAR(20),
         State           VARCHAR(20),
         Country         VARCHAR(20),
@@ -247,7 +247,11 @@ A Reduce, like a Project, can compute columns, although this is a convenience, n
 Exercises
 ~~~~~~~~~~
 
-Work on precedence charts for these. Decide which of these is bad.
+Work on precedence charts for these. Decide which of these is bad. Note that for each one of these, there will be one input relation and one result relation from the Reduce operator.  
+
+**Beware:** though you may be tempted to just write SQL, show some restraint and simply draw the charts. To help with this, try making a copy of 
+`this drawio operator template <https://drive.google.com/file/d/1AduoHhvr7ve4gVrcl-9nnoHR1Yne4WQH/view?usp=sharing>`_ in your browser. To do this, you will need to access this Google Drive file and make a copy in your own Google Drive space. You can use it in diagrams.net.
+
 
   1. Find each country of town.
 
@@ -259,4 +263,4 @@ Work on precedence charts for these. Decide which of these is bad.
 
   5. Find each Achieved skill of creature with its proficiency (id: skillCode, creatureId).
 
-|
+If you haven't yet, you can download :download:`This Small Creature Database Schema<../08TinyDB/smallCreatureDB_LDS.pdf>` and keep a copy for your own reference as you work on the precedence charts.

@@ -1,4 +1,4 @@
-creatureId, skillCode, roleName
+*creatureId*, *skillCode*, roleName
 1,"C2","bow paddler"
 1,"TR4","anchor leg"
 5,"TR4","third leg"

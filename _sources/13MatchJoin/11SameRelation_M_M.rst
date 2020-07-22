@@ -63,7 +63,7 @@ Note how this is an ordered creature pair.
 
             DROP TABLE IF EXISTS creature;
             CREATE TABLE creature (
-            creatureId          INTEGER      NOT NUll PRIMARY KEY,
+            creatureId          INTEGER      NOT NULL PRIMARY KEY,
             creatureName        VARCHAR(20),
             creatureType        VARCHAR(20),
             reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key

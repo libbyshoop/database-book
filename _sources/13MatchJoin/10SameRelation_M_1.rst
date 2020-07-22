@@ -76,7 +76,7 @@ In the example below, I chose to make the query look similar to the times from t
 
             DROP TABLE IF EXISTS creature;
             CREATE TABLE creature (
-            creatureId          INTEGER      NOT NUll PRIMARY KEY,
+            creatureId          INTEGER      NOT NULL PRIMARY KEY,
             creatureName        VARCHAR(20),
             creatureType        VARCHAR(20),
             reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key

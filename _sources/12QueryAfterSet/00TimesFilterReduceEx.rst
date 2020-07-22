@@ -25,7 +25,7 @@ In this chart, I chose to show achievement twice at the top. It could be include
 
 **The longer SQL query with intermediate relations:**
 
-In the following SQL code tabs, the creation of the intermediate relations is in the second tab. **Study this code carefully and compare it to the chart above.**
+In the following SQL code tabs, the creation of the intermediate relations is in the second tab. **Study this code carefully and compare it to the chart above.** You could do this by downloading the SQL Intermediate code as a text file and viewing it your favorite editor.
 
 .. tip:: The use of intermediate relations to complete a longer query like this makes the result possible to attain with fewer errors. It is sometimes possible to create single long complex SQL queries for some charts, but debugging them and reading them later is very hard. The use of intermediate relations that match points in the precedence chart like we have done here makes producing correct results the first time much easier.
 
@@ -46,6 +46,7 @@ In the following SQL code tabs, the creation of the intermediate relations is in
      .. activecode:: after_set_intermediate
         :language: sql
         :include: achievement_after_set_create
+        :enabledownload:
 
         -- top left side of chart
         DROP TABLE IF EXISTS AchievedSkillWithProficiency;
@@ -82,7 +83,7 @@ In the following SQL code tabs, the creation of the intermediate relations is in
 
         DROP TABLE IF EXISTS achievement;
         CREATE TABLE achievement (
-        achId              INTEGER NOT NUll PRIMARY KEY AUTOINCREMENT,
+        achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         creatureId         INTEGER,
         skillCode          VARCHAR(3),
         proficiency        INTEGER,
@@ -195,10 +196,4 @@ In the following SQL code tabs, the creation of the intermediate relations is in
                         VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
 
 
-Queries to try
-~~~~~~~~~~~~~~~~~~~~
 
-Try creating the precedence chart for the following query. 
-
-**English Query:**
-  How does each creature’s achieved skill proficiency compared to other creatures who have achieved the lowest proficiency at that skill?
