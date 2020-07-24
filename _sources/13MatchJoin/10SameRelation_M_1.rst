@@ -97,3 +97,10 @@ In the example below, I chose to make the query look similar to the times from t
             INSERT INTO creature VALUES (11,'David Beckham','person','le',9);
             INSERT INTO creature VALUES (12,'Harry Kane','person','le',11);
             INSERT INTO creature VALUES (13,'Megan Rapinoe','person','sw',10);
+
+
+Note that in the above example, you need to scroll to the right to see all of the columns when paring each Creature with its idol. 
+
+.. shortanswer:: same_relation_sa_1
+
+    Which creatures are missing from the result? Why?

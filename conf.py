@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Runestone Interactive Overview'
+project = 'Mastering Relational Databases'
 copyright = '2019-2020 Libby Shoop'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -211,10 +211,10 @@ html_theme_path = [pkg_resources.resource_filename('runestone', 'common/project_
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Runestone Interactive Overview'
+html_title = 'Mastering Relational Databases'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title ='Runestone Interactive Overview'
+html_short_title ='Mastering Databases'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -297,3 +297,5 @@ htmlhelp_basename = 'PythonCoursewareProjectdoc'
 #shortanswer_optional_div_class = 'journal alert alert-success'
 #showeval_div_class = 'runestone explainer alert alert-warning'
 #tabbed_div_class = 'alert alert-warning'
+
+wasm_uri = '/runestone/books/published/MasteringDatabases/_static/'

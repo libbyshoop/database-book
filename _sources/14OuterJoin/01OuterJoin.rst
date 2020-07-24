@@ -16,20 +16,22 @@ What this means is that there can be, and very often are in most databases, inst
 
 .. activecode:: creature_ach_nj
    :language: sql
-   :include: all_creature_create_oj
+   :include: all_creature_create
 
    DROP TABLE IF EXISTS CreatureNJAchievement;
 
    CREATE TABLE CreatureNJAchievement AS
-   select C.*, A.proficiency, A.skillCode, A.achDate
-   from creature C
-   inner join achievement A on C.creatureId = A.creatureId;
+   SELECT C.*, A.proficiency, A.skillCode, A.achDate
+   FROM creature C
+   INNER JOIN achievement A 
+   ON C.creatureId = A.creatureId;
 
-   SELECT * FROM CreatureNJAchievement;
+   SELECT * FROM CreatureNJAchievement
+   ORDER BY creatureId;
 
+Note the convenience for display purposes of the ORDER BY keywords in SQL. The result relation called CreatureNJAchievement is not stored in the order being displayed- there is no guarantee of order of the rows in a relation in databases. This clause just lets us display the results in a convenient way. It can never be used when creating the relation in the first place, when using the CREATE TABLE ... AS nomenclature.
 
-
-Indeed, Carlis, who is the creature whose creatureId is 6, is missing. If we wanted to count the skills of each creature using this result relation from the natural join, also called inner join, we would be unable to easily add a zero count for him.
+Indeed, when you run this code above you see that Carlis, who is the creature whose creatureId is 6, is missing. If we wanted to count the skills of each creature using this result relation from the natural join, also called inner join, we would be unable to easily add a zero count for him.
 
 Our first Example: Outer Join to the Rescue
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,14 +69,15 @@ Now let's look at the SQL code in action. First, create the result table:
 
 .. activecode:: creature_ach_oj
    :language: sql
-   :include: all_creature_create_oj
+   :include: all_creature_create
 
    DROP TABLE IF EXISTS CreatureLOJAchievement;
 
    CREATE TABLE CreatureLOJAchievement AS
-   select C.*, A.proficiency, A.skillCode, A.achDate
-   from creature C
-   left outer join achievement A on C.creatureId = A.creatureId;
+   SELECT C.*, A.proficiency, A.skillCode, A.achDate
+   FROM creature C
+   LEFT OUTER JOIN achievement A 
+   ON C.creatureId = A.creatureId;
    -- creature is the left relation whose rows will be kept
    -- when the 'on' condition is not satisfied
 
@@ -82,29 +85,32 @@ Now display what is in the result table:
 
 .. activecode:: creature_ach_oj_display
   :language: sql
-  :include: all_creature_create_oj, creature_ach_oj
+  :include: all_creature_create, creature_ach_oj
 
-  select * from CreatureLOJAchievement;
+  select * from CreatureLOJAchievement
+  ORDER BY creatureId;
 
 Note how Carlis is now in this result table. This table can now be used to count the number of achievements per each creatureId. The NULL values for columns from Achievement are now an indictor that a count of zero should be used in the case of creaureId 6.
 
 .. activecode:: creature_ach_oj_count
   :language: sql
-  :include: all_creature_create_oj, creature_ach_oj
+  :include: all_creature_create, creature_ach_oj
 
-  select creatureId, count(skillCode)
-  from CreatureLOJAchievement
-  group by creatureId;
+  SELECT creatureId, count(skillCode)
+  FROM CreatureLOJAchievement
+  GROUP BY creatureId;
+  
+Note in the above code there is no ORDER BY clause. A consequence of the GROUP BY clause on most systems is that the results are ordered by the column(s) that are grouped over.
 
 Suppose we want distinct skill code counts per creature, not counting every time they tried to achieve. It turns out to be quite easy to add after the outer join is performed. Note the addition of just one keyword to accomplish this in this next example.
 
 .. activecode:: creature_ach_oj_count_distinct
   :language: sql
-  :include: all_creature_create_oj, creature_ach_oj
+  :include: all_creature_create, creature_ach_oj
 
-  select creatureId, count( distinct skillCode)
-  from CreatureLOJAchievement
-  group by creatureId;
+  SELECT creatureId, count( distinct skillCode)
+  FROM CreatureLOJAchievement
+  GROUP BY creatureId;
 
 
 A second Example: over extra columns
@@ -130,14 +136,15 @@ Here is the SQL code to create the result table:
 
 .. activecode:: creature_ach_oj_w
    :language: sql
-   :include: all_creature_create_oj
+   :include: all_creature_create
 
    DROP TABLE IF EXISTS CreatureLOJAchievement_w;
 
    CREATE TABLE CreatureLOJAchievement_w AS
-   select C.*, A.proficiency, A.skillCode, A.achDate
-   from creature C
-   left outer join achievement A on
+   SELECT C.*, A.proficiency, A.skillCode, A.achDate
+   FROM creature C
+   LEFT OUTER JOIN achievement A 
+   ON
    (C.creatureId = A.creatureId and C.reside_townId = A.test_townId)
    ;
    -- creature is the left relation whose rows will be kept
@@ -147,11 +154,13 @@ And to display the result table:
 
 .. activecode:: creature_ach_oj_w_display
    :language: sql
-   :include: all_creature_create_oj, creature_ach_oj_w
+   :include: all_creature_create, creature_ach_oj_w
 
-   select * from CreatureLOJAchievement_w;
+   SELECT * 
+   FROM CreatureLOJAchievement_w
+   ORDER BY creatureId;
 
-What we often really want to do with this table is ask this:
+Notice in the above result table how many more null values there are for achievement data, representing when a creature resides in a different town than the town the achievement was tested in. What we often really want to do with this table is ask this:
 
     How many skills have been achieved by a creature in the same achievement test town as the reside town of the creature?
 
@@ -159,289 +168,109 @@ Here is how we get this result: Group over creatureId and reside_townId and coun
 
 .. activecode:: creature_ach_oj_count_w
   :language: sql
-  :include: all_creature_create_oj, creature_ach_oj_w
+  :include: all_creature_create, creature_ach_oj_w
 
-  select creatureId, reside_townId, count(skillCode)
-  from CreatureLOJAchievement_w
-  group by creatureId, reside_townId;
+  SELECT creatureId, reside_townId, count(skillCode) AS skillcount
+  FROM CreatureLOJAchievement_w
+  GROUP BY creatureId, reside_townId;
+
+.. note:: 
+    Notice how we keep the intermediate table from the outer join, in this case we called it CreatureLOJAchievement_w. Then we used it to get the result we were after by doing a Group operation on it. This follows the precedence chart for this, which is shown next. This is an unusual case with Outer Join that we can perform the Group operator on an input table instead of a relation. This is what we were doing in the examples above also.
+
+|
+
+.. image:: ../img/OuterJoin/OJ_group_count.png
+    :align: center
+    :alt: left outer join followed by group
+
+|
+
 
 Hopefully you can see the utility of the Outer Join operation, especially when we would like to count how many are on the many end of a relationship, including if there are zero.
 
+Right Outer Join
+~~~~~~~~~~~~~~~~
+
+Many database systems will support an operator called right outer join as a convenience. SQLite does not provide this. If it was available, we could for convenience draw a chart that looked like the following, where it is the relation on the right, Skill, whose values are kept even if no creature has achieved that skill.
+
+|
+
+.. image:: ../img/OuterJoin/Ach-Sk-ROJ.png
+    :align: center
+    :alt: Right Outer Join of Achievement, Skill 
+
+|
+
+This chart matches the way this fragment of the schema appears:
+
+|
+
+.. image:: ../img/OuterJoin/Creature-Ach-Skill.png
+    :align: center
+    :alt: Creature, Achievement, Skill LDS fragment
+
+|
+
+However, this is simply happenstance that the schema has Skill to the right of Achievement and Creature to its left. Because of this, we still could and in SQLite must convert it to look like this:
+
+|
+
+.. image:: ../img/OuterJoin/Ach-Sk-LOJ.png
+    :align: center
+    :alt: Lefy Outer Join of Achievement, Skill 
+
+|
+
 
 Both Outer Join
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following shows how we might do an outer join on both sides of an intersection entity. In this case, including not only creatures who have not yet achieved, but skills that have not yet been achieved.
+Where the vision of a Right Outer Join and a Left Outer Join become useful is when we consider using these together to perform what I am calling Both Outer Join. (This is different from another operation often found in database systems literature called Full Outer Join, which I am not covering in this book. This both outer join is essentially 2 full outer joins.)
+
+To consider how this should work, we have seen how we can obtain the following two tables:
+
+1. Creature with its possibly null achievement data.
+2. Skill with its possibly null achievement data.
+
+What we might want to do is combine this information so that we have this:
+
+Creature with its possibly null achievement and skill data or Skill with its possibly null achievement and creature data.
+
+The following shows how we might do this special outer join on both sides of an intersection entity. In this case, including not only creatures who have not yet achieved, but skills that have not yet been achieved all in one result table.
+
+Study the following example and note what columns are kept from the two separate outer joins so that each of the two result tables can be unioned together. Then run it and study the result to see that columns of information from creature and skill are missing.
 
 .. activecode:: creature_ach_skill_oj
    :language: sql
-   :include: all_creature_create_oj
+   :include: all_creature_create
 
-   -- not available in this book, but usually in SQLite
-   -- select C.*, A.proficiency, S.skillCode, S.skillDescription
-   -- from creature C
-   -- full outer join achievement A on C.creatureId = A.creatureId
-   -- full outer join skill S on A.skillCode = S.skillCode;
-
-   -- This version is possible, using only LEFT OUTER JOIN and UNION ALL
+   -- This version is possible in SQLite, using 
+   -- only LEFT OUTER JOIN and UNION ALL
     SELECT C.creatureId,
         A.achId, A.skillCode, A.proficiency, A.test_townid
     FROM creature C LEFT JOIN achievement A
     ON C.creatureId=A.creatureId
     UNION ALL
-    select A.creatureId,
+    SELECT A.creatureId,
            A.achId, B.skillCode, A.proficiency, A.test_townId
-    from  skill B LEFT JOIN achievement A
-    on A.skillCode = B.skillCode
+    FROM  skill B LEFT JOIN achievement A
+    ON A.skillCode = B.skillCode
     ;
+    
 
-Data Used for these examples
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In this example, we use the special UNION ALL keywords of SQL to keep all rows of the two tables, not eliminating any duplicates. The result is an interesting table that is combining the left and right outer joins involving an intersection entity (Achievement in this case) in the middle of a chicken-feet-in shape. Since this intersection entity shape is so common, this type of query is something you should consider when you see this shape.
 
-The following code was used to create the data relations used as input relations for this example. It is the same as what has been used in the other examples in this book. It is hidden, but you can show it if you want to.
+.. note::
+    Be sure to keep in mind here that in this chapter most of the results we were creating were tables, not relations. We showed how a table could be an input to the Group operator, but there are very few other cases where tables, as opposed to relations, can be used further as inputs in subsequent precedence charts.
 
-.. activecode:: all_creature_create_oj
-   :language: sql
-   :hidecode:
+What might be available in other systems, including other versions of SQlite, is this different way of doing it, which also keeps all columns from creature and skill:
 
-    -- ------------------   town -- -------------------------------
+.. code-block:: sql
 
-    DROP TABLE IF EXISTS town;
+    -- not available in this book, but usually in SQLite
+    select C.*, A.proficiency, S.skillCode, S.skillDescription
+    from creature C
+    full outer join achievement A on C.creatureId = A.creatureId
+    full outer join skill S on A.skillCode = S.skillCode;
 
-    CREATE TABLE town (
-    townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
-    townName        VARCHAR(20),
-    State           VARCHAR(20),
-    Country         VARCHAR(20),
-    townNickname    VARCHAR(80),
-    townMotto       VARCHAR(80)
-    );
-
-    -- order matches table creation:
-    -- id    name          state   country
-    -- nickname   motto
-    INSERT INTO town VALUES ('p', 'Philadelphia', 'PA', 'United States',
-                             'Philly', 'Let brotherly love endure');
-    INSERT INTO town VALUES ('a', 'Anoka', 'MN', 'United States',
-                             'Halloween Capital of the world', NULL);
-    INSERT INTO town VALUES ('be', 'Blue Earth', 'MN', 'United States',
-                             'Beyond the Valley of the Jolly Green Giant',
-                             'Earth so rich the city grows!');
-    INSERT INTO town VALUES ('b', 'Bemidji', 'MN', 'United States',
-                             'B-town', 'The first city on the Mississippi');
-    INSERT INTO town VALUES ('d', 'Duluth', 'MN', 'United States',
-                            'Zenith City', NULL);
-    INSERT INTO town VALUES ('g', 'Greenville', 'MS', 'United States',
-                             'The Heart & Soul of the Delta',
-                             'The Best Food, Shopping, & Entertainment In The South');
-    INSERT INTO town VALUES ('t', 'Tokyo', 'Kanto', 'Japan', NULL, NULL);
-    INSERT INTO town VALUES ('as', 'Asgard', NULL, NULL,
-                             'Home of Odin''s vault',
-                             'Where magic and science are one in the same');
-    INSERT INTO town VALUES ('mv', 'Metroville', NULL, NULL,
-                            'Home of the Incredibles',
-                            'Still Standing');
-    INSERT INTO town VALUES ('le', 'London', 'England', 'United Kingdom',
-                            'The Smoke',
-                            'Domine dirige nos');
-    INSERT INTO town VALUES ('sw', 'Seattle', 'Washington', 'United States',
-                            'The Emerald City',
-                            'The City of Goodwill');
-
-    -- ------------------   creature -- -------------------------------
-    DROP TABLE IF EXISTS creature;
-
-
-    CREATE TABLE creature (
-    creatureId          INTEGER      NOT NULL PRIMARY KEY,
-    creatureName        VARCHAR(20),
-    creatureType        VARCHAR(20),
-    reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
-    idol_creatureId     INTEGER,
-    FOREIGN KEY(idol_creatureId) REFERENCES creature(creatureId)
-    );
-
-    INSERT INTO creature VALUES (1,'Bannon','person','p',10);
-    INSERT INTO creature VALUES (2,'Myers','person','a',9);
-    INSERT INTO creature VALUES (3,'Neff','person','be',NULL);
-    INSERT INTO creature VALUES (4,'Neff','person','b',3);
-    INSERT INTO creature VALUES (5,'Mieska','person','d', 10);
-    INSERT INTO creature VALUES (6,'Carlis','person','p',9);
-    INSERT INTO creature VALUES (7,'Kermit','frog','g',8);
-    INSERT INTO creature VALUES (8,'Godzilla','monster','t',6);
-    INSERT INTO creature VALUES (9,'Thor','superhero','as',NULL);
-    INSERT INTO creature VALUES (10,'Elastigirl','superhero','mv',13);
-    INSERT INTO creature VALUES (11,'David Beckham','person','le',9);
-    INSERT INTO creature VALUES (12,'Harry Kane','person','le',11);
-    INSERT INTO creature VALUES (13,'Megan Rapinoe','person','sw',10);
-
-    -- ------------------   skill -- -------------------------------
-    DROP TABLE IF EXISTS skill;
-
-    CREATE TABLE skill (
-    skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
-    skillDescription   VARCHAR(40),
-    maxProficiency     INTEGER,     -- max score that can be achieved for this skill
-    minProficiency     INTEGER,     -- min score that can be achieved for this skill
-    origin_townId      VARCHAR(3)     REFERENCES town(townId)     -- foreign key
-    );
-
-    INSERT INTO skill VALUES ('A', 'float', 10, -1,'b');
-    INSERT INTO skill VALUES ('E', 'swim', 5, 0,'b');
-    INSERT INTO skill VALUES ('O', 'sink', 10, -1,'b');
-    INSERT INTO skill VALUES ('U', 'walk on water', 5, 1,'d');
-    INSERT INTO skill VALUES ('Z', 'gargle', 5, 1,'a');
-    INSERT INTO skill VALUES ('B2', '2-crew bobsledding', 25, 0,'d');
-    INSERT INTO skill VALUES ('TR4', '4x100 meter track relay', 100, 0,'be');
-    INSERT INTO skill VALUES ('C2', '2-person canoeing', 12, 1,'t');
-    INSERT INTO skill VALUES ('THR', 'three-legged race', 10, 0,'g');
-    INSERT INTO skill VALUES ('D3', 'Australasia debating', 10, 1,NULL);
-    INSERT INTO skill VALUES ('PK', 'soccer penalty kick', 10, 1, 'le');
-    -- Note that no skill originates in Philly or Metroville or Asgaard
-
-    -- ------------------  teamSkill  -- -------------------------------
-    DROP TABLE IF EXISTS teamSkill;
-
-    CREATE TABLE teamSkill (
-    skillCode      VARCHAR(3)  NOT NULL PRIMARY KEY references skill (skillCode),
-    teamSize       INTEGER
-    );
-
-    INSERT INTO teamSkill VALUES ('B2', 2);
-    INSERT INTO teamSkill VALUES ('TR4', 4);
-    INSERT INTO teamSkill VALUES ('C2', 2);
-    INSERT INTO teamSkill VALUES ('THR', 2);
-    INSERT INTO teamSkill VALUES ('D3', 3);
-
-    -- ------------------  achievement  -- -------------------------------
-    DROP TABLE IF EXISTS achievement;
-
-    CREATE TABLE achievement (
-    achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    creatureId         INTEGER,
-    skillCode          VARCHAR(3),
-    proficiency        INTEGER,
-    achDate            TEXT,
-    test_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
-    FOREIGN KEY (creatureId) REFERENCES creature (creatureId),
-    FOREIGN KEY (skillCode) REFERENCES skill (skillCode)
-    );
-
-    -- Bannon floats in Anoka (where he aspired)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (1, 'A', 3, datetime('now'), 'a');
-
-    -- Bannon swims in Duluth (he aspired in Bemidji)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (1, 'E', 3, datetime('2017-09-15 15:35'), 'd');
-    -- Bannon floats in Anoka (where he aspired)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (1, 'A', 3, datetime('2018-07-14 14:00'), 'a');
-
-    -- Bannon swims in Duluth (he aspired in Bemidji)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (1, 'E', 3, datetime('now'), 'd');
-    -- Bannon doesn't gargle
-    -- Mieska gargles in Tokyo (had no aspiration to)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (5, 'Z', 6, datetime('2016-04-12 15:42:30'), 't');
-
-    -- Neff #3 gargles in Blue Earth (but not to his aspired proficiency)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
-    -- Neff #3 gargles in Blue Earth (but not to his aspired proficiency)
-    -- on same day at same proficiency, signifying need for arbitrary id
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
-
-    -- Beckham achieves PK in London
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (11, 'PK', 10, datetime('1998-08-15'), 'le');
-    -- Kane achieves PK in London
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (12, 'PK', 10, datetime('2016-05-24'), 'le');
-    -- Rapinoe achieves PK in London
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (13, 'PK', 10, datetime('2012-08-06'), 'le');
-    -- Godizilla achieves PK in Tokyo poorly with no date
-    -- had not aspiration to do so- did it on a dare ;)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (8, 'PK', 1, NULL, 't');
-
-
-    -- -------------------- -------------------- -------------------
-    -- Thor achieves three-legged race in Metroville (with Elastigirl)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (9, 'THR', 10, datetime('2018-08-12 14:30'), 'mv');
-    -- Elastigirl achieves three-legged race in Metroville (with Thor)
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (10, 'THR', 10, datetime('2018-08-12 14:30'), 'mv');
-
-    -- Kermit 'pilots' 2-person bobsledding  (pilot goes into contribution)
-    --       with Thor as brakeman (brakeman goes into contribution) in Duluth,
-    --    achieve at 76% of maxProficiency
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (7, 'B2', 19, datetime('2017-01-10 16:30'), 'd');
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (9, 'B2', 19, datetime('2017-01-10 16:30'), 'd');
-
-    -- 4 people form track realy team in London:
-    --   Neff #4, Mieska, Myers, Bannon
-    --    achieve at 85% of maxProficiency
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (4, 'TR4', 85, datetime('2012-07-30'), 'le');
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (5, 'TR4', 85, datetime('2012-07-30'), 'le');
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (2, 'TR4', 85, datetime('2012-07-30'), 'le');
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (1, 'TR4', 85, datetime('2012-07-30'), 'le');
-
-    -- Thor, Rapinoe, and Kermit form debate team in Seattle, WA and
-    -- achieve at 80% of maxProficiency
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (9, 'D3', 8, datetime('now', 'localtime'), 'sw');
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (13, 'D3', 8, datetime('now', 'localtime'), 'sw');
-    INSERT INTO achievement (creatureId, skillCode, proficiency,
-                             achDate, test_townId)
-                    VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
-
-    -- no 2-person canoeing achievements, but some have aspirations
-
-
-Other Queries to try:
-~~~~~~~~~~~~~~~~~~~~~
-
-Try charts for these as practice:
-
-    Find each Skill with its possibly null Achievement data.
-
-    Find each same skillCode and same reside_townId as origin_townId Skill with its possibly null Achievement data.
-
-    Creature with its possibly null contribution data
-
-    Creature with its possibly null aspiration data
-
-    Town with its possibly null Skill data (Find each town that are not origin towns of any skills)
+As an exercise if you are curious, you can look up what the full outer join between two input relations gives you. 

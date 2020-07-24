@@ -304,7 +304,7 @@ Try charts for these as practice:
 
   4. Find each skillCode, skillDescription of Skill, and the possible number of different values of proficiency that can be applied.
 
-For the last one, here is a suggestion: Knowing proficiency values are integers, how can you compute the total number of possible integer values that could be used? Recall that the Skill relation is this (id is skillCode):
+For the last one, here is a suggestion: Knowing proficiency values are integers and have a minimum and maximum value, how can you compute the total number of possible integer values that could be used for each particular skill? Recall that the Skill relation is this (id is skillCode):
 
 .. csv-table:: **Skill**
    :file: ../creatureData/skill.csv

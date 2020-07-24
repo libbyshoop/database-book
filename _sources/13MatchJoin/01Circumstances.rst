@@ -246,7 +246,7 @@ The two relations, Creature and Skill, each have a **Different Base**.
 
 Through the common townId found in each relation, there are reside_townId values in Creature with many origin_townId values in Skill, and there are origin_townId values in Skill with many reside_townId values in Creature. This makes the connection between Creature and Skill through matching reside_townId to origin_townId a **Many and Many, or M - M** connection. We will use the full house symbol for this Match Join query.
 
-Luckily, as we look at more cases in the following pages, you will begin to see how the conceptual schema provides you with enough information to decide whether A matched to B is M-1, 1-1, or M-M. Read on to find out how.
+Luckily, as we look at more cases in the following pages, you will begin to see how the conceptual schema provides you with enough information to decide whether A matched to B is M-1, 1-1, or M-M. Read on to see if you can discern how by studying the schema and the examples.
 
 The works-on columns (those being matched through their data values, as given in the where clause in the SQL) are **Aid(D): reside_townId and Bid(D): origin_townId**.
 
@@ -270,9 +270,9 @@ There are circumstances we must always consider when trying to use Match Join ov
     - A, B are the same relation
 
 2. Determine the shape of the Match Join symbol to be used in the precedence chart by understanding the symmetry from A to B for the column(s) to be matched, or 'worked on':
-    - M - 1
-    - 1 - 1
-    - M - M
+    - M - 1  (non-symmetric, half house, many end at the peak, one end at the lower side)
+    - 1 - 1  (symmetric-either, half house, both arrows to the peak)
+    - M - M  (symmetric-pair, full house)
 
 3. For each of the two input relations, decide the nature of those columns to be 'worked on':
     - E, exactly the relation's identifier (all identifying columns)
@@ -280,5 +280,10 @@ There are circumstances we must always consider when trying to use Match Join ov
     - S, some of its id columns, but not all (fewer than its id columns)
     - O, overlap with some of its id column(s), but also additional column(s)
     - D, disjoint from its id columns (none of it id columns)
+
+.. important::
+    It is important to keep in mind that the Match Join symbol, represented by different shapes depending on the symmetry conditions, is a replacement for a longer set of operators: **Times followed by a filter using only equality, followed by a reduce or project.** This helps you determine the SQL for the query after you have drawn the chart.
+
+    Becoming good at this and getting your queries right the first time can be done fairly easily if you use the above three steps to help you make decisions about the circumstances.
 
 We will next outline the most common good circumstances that are used for Match Join, followed by examples of each one.

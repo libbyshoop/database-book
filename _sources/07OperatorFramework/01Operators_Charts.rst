@@ -48,4 +48,4 @@ A precedence chart has several notable characteristics.
 
 -  A precedence chart is a directed acyclic graph; it is declarative (non-procedural), and, therefore, it **excludes notions** such as loops, conditional elements, or state. Adding such notions would turn relational algebra into a very different kind of language.
 
-Notice that I call each precedence chart a "Fragment." Fragment implies that what is shown could be only a portion of a larger precedence chart, or be complete.
+Notice that I call each precedence chart a "Fragment." Fragment implies that what is shown could be only a portion of a larger precedence chart, or be incomplete.

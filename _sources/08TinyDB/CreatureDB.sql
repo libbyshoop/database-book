@@ -154,6 +154,15 @@ INSERT INTO achievement (creatureId, skillCode, proficiency,
 INSERT INTO achievement (creatureId, skillCode, proficiency,
                          achDate, test_townId)
                 VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
+-- Neff #3 keeps trying to gargle on the same day, with varying results
+    INSERT INTO achievement (creatureId, skillCode, proficiency,
+                             achDate, test_townId)
+                    VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
+
+-- Neff #4 gargles in Anoka
+INSERT INTO achievement (creatureId, skillCode, proficiency,
+                          achDate, test_townId)
+                VALUES (4, 'Z', 3, datetime('2018-06-10'), 'a');
 
 -- Beckham achieves PK in London
 INSERT INTO achievement (creatureId, skillCode, proficiency,

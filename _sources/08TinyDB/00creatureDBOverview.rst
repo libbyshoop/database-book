@@ -1,7 +1,7 @@
 A small example database
 -------------------------
 
-Here is a conceptual schema for a database that we will use throughout the rest of this book.
+Here is a conceptual schema for a database that we will use throughout the rest of this book. It is expanded from the examples used in Chapters 2-4 that were for simpler illustrations mapping of schema fragments to SQL creation and population statements.
 
 |
 
@@ -14,11 +14,11 @@ Here is a conceptual schema for a database that we will use throughout the rest 
 
 You do not heed to completely familiarize yourself with it now- we will be delving into portions of it as we learn about the different operators and practice applying them to relations in the database.
 
-You can download :download:`This Small Creature Database Schema<smallCreatureDB_LDS.pdf>` and keep a copy for your own reference. You may find it useful to have it to refer to as you are reading about the relational operators and example charts that refer to the entities in this diagram, which match the relational tables created below.
+You can and should download :download:`This Small Creature Database Schema<smallCreatureDB_LDS.pdf>` and keep a copy for your own reference. You may find it useful to have it to refer to as you are reading about the relational operators and example charts that refer to the entities in this diagram, which match the relational tables created below.
 
 What follows below is a somewhat long file of SQL code to create the relations for a database matching the above schema (entities are mapped to relations and foreign keys are used for relationships). There are also commands to insert sample data for the database. As we study each operation in the rest of this book, we will use portions of this database. At that time, as we use them, we will provide more insights about the instances, or rows of data that are in each relation.
 
-If you wish to try this data in your own database system, you can download :download:`CreatureDB.sql<CreatureDB.sql>`
+If you wish to try this data in your own SQLite database system, you can download :download:`CreatureDB.sql<CreatureDB.sql>`
 
 
 .. activecode:: all_creature_create
@@ -180,6 +180,16 @@ If you wish to try this data in your own database system, you can download :down
    INSERT INTO achievement (creatureId, skillCode, proficiency,
                             achDate, test_townId)
                    VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
+
+   -- Neff #3 keeps trying to gargle on the same day, with varying results
+    INSERT INTO achievement (creatureId, skillCode, proficiency,
+                             achDate, test_townId)
+                    VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
+
+   -- Neff #4 gargles in Anoka
+    INSERT INTO achievement (creatureId, skillCode, proficiency,
+                             achDate, test_townId)
+                    VALUES (4, 'Z', 3, datetime('2018-06-10'), 'a');
 
    -- Beckham achieves PK in London
    INSERT INTO achievement (creatureId, skillCode, proficiency,

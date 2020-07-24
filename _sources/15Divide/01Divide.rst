@@ -64,7 +64,7 @@ We will start with a compact, yet somewhat complex version of the SQL code. Run 
 
 .. activecode:: survivor
    :language: sql
-   :include: all_creature_create_divide
+   :include: all_creature_create
 
    drop table if exists skillCode_of_survivor_Skill;
 
@@ -139,7 +139,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
 
       .. activecode:: survivor_input
         :language: sql
-        :include: all_creature_create_divide
+        :include: all_creature_create
 
         -- First create the PATTERN relation (B) of survivor skill
         drop table if exists skillCode_of_survivor_Skill;
@@ -164,7 +164,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
 
       .. activecode:: survivor_times
         :language: sql
-        :include: all_creature_create_divide, survivor_input
+        :include: all_creature_create, survivor_input
 
         --------------------------------------------------------
         -- The times
@@ -188,7 +188,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
 
       .. activecode:: survivor_missing
         :language: sql
-        :include: all_creature_create_divide, survivor_input, survivor_times
+        :include: all_creature_create, survivor_input, survivor_times
 
         --------------------------------------------------------
         -- The minus to get missing survivor skills
@@ -224,7 +224,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
 
       .. activecode:: survivor_at_least
         :language: sql
-        :include: all_creature_create_divide, survivor_input, survivor_times, survivor_missing
+        :include: all_creature_create, survivor_input, survivor_times, survivor_missing
 
         --------------------------------------------------------
         -- The second minus at the bottom of the chart
@@ -301,11 +301,22 @@ Let's examine this by comparing it to the previous "at least" version. Here are 
 
 .. note:: When it is one skill such as this example, we might have also said "find each creature who has achieved only the skill whose description is 'three-legged race'."
 
-First, we need to make the 'pattern' relation with one column (and in this simple case one skill).
+Here is a precedence chart for this, where we use filter and project to get the three-legged race skill for the Pattern relation called 'skillCode of three-legged race', Have the same input relation shown in green as before, and change the operator symbol in one minor way, which is to add the word exactly after divide. We also change the result relation name accordingly.
+
+|
+
+.. image:: ../img/Divide/Divide_exactly.png
+    :align: center
+    :height: 600px
+    :alt:  Divide exactly chart
+
+|
+
+Now let's go through the complex SQL for this sophisticated example. First, we need to make the 'pattern' relation with one column (and in this simple case one skill).
 
 .. activecode:: THR_Skill
    :language: sql
-   :include: all_creature_create_divide
+   :include: all_creature_create
 
    drop table if exists ThreeLeggedRaceSkill;
    -- 'the pattern' to look for
@@ -318,7 +329,7 @@ Now the at least divide as we presented before:
 
 .. activecode:: THR_Skill_divide
   :language: sql
-  :include: all_creature_create_divide, THR_Skill
+  :include: all_creature_create, THR_Skill
 
   SELECT DISTINCT creatureId
   FROM Achievement AS IN1
@@ -335,7 +346,7 @@ And next the 'exactly' three-legged race, no more no less.
 
 .. activecode:: THR_Skill_divide_exact
   :language: sql
-  :include: all_creature_create_divide, THR_Skill
+  :include: all_creature_create, THR_Skill
 
     SELECT IN1.creatureId
       FROM Achievement AS IN1
@@ -389,13 +400,15 @@ Suppose it is useful to have debating skills along with being accomplished as a 
 
     Who has achieved exactly 'soccer penalty kick' and 'Australasia debating' skills?
 
+Use this code block to complete the query from the generic template above by filling in where it says 'fill here' below.
+
 .. activecode:: exactly_PK_debate
    :language: sql
-   :include: all_creature_create_divide
+   :include: all_creature_create
 
-   drop table if exists PK_debate;
+   DROP TABLE IF EXISTS PK_debate;
    -- 'the pattern' to look for
-   CREATE TABLE PK_debat AS
+   CREATE TABLE PK_debate AS
    SELECT skillCode from skill
    WHERE skillCode = 'PK' or skillCode = "D3"
    ;
@@ -403,7 +416,7 @@ Suppose it is useful to have debating skills along with being accomplished as a 
    -- Finish the code here for finding out who has achieved
    -- exactly penalty kick and debate.
    --
-   drop table if exists creature_exactly_debate_pk;
+   DROP TABLE IF EXISTS creature_exactly_debate_pk;
 
    create table creature_exactly_debate_pk as
    -- fill here
@@ -423,249 +436,18 @@ Note that things change more for these- the first still returns creatureId from 
 
 If you are enjoying the complexity of this Divide operation, you might find `this article by Joe Celko about divide <https://www.red-gate.com/simple-talk/sql/t-sql-programming/divided-we-stand-the-sql-of-relational-division/>`_ quite interesting. He describes a few even more complex examples, along with an explanation of what I have shown here with a different example.
 
-----------------------------------------------------------------------
 
-If you are curious or need a refresher, the following code block contains the data creation statements for part of the small creature database. This was used for these examples.
-
-.. activecode:: all_creature_create_divide
-   :language: sql
-
-   -- ------------------   town -- -------------------------------
-
-   DROP TABLE IF EXISTS town;
-
-   CREATE TABLE town (
-   townId          VARCHAR(3)      NOT NULL PRIMARY KEY,
-   townName        VARCHAR(20),
-   State           VARCHAR(20),
-   Country         VARCHAR(20),
-   townNickname    VARCHAR(80),
-   townMotto       VARCHAR(80)
-   );
-
-   -- order matches table creation:
-   -- id    name          state   country
-   -- nickname   motto
-   INSERT INTO town VALUES ('p', 'Philadelphia', 'PA', 'United States',
-                            'Philly', 'Let brotherly love endure');
-   INSERT INTO town VALUES ('a', 'Anoka', 'MN', 'United States',
-                            'Halloween Capital of the world', NULL);
-   INSERT INTO town VALUES ('be', 'Blue Earth', 'MN', 'United States',
-                            'Beyond the Valley of the Jolly Green Giant',
-                            'Earth so rich the city grows!');
-   INSERT INTO town VALUES ('b', 'Bemidji', 'MN', 'United States',
-                            'B-town', 'The first city on the Mississippi');
-   INSERT INTO town VALUES ('d', 'Duluth', 'MN', 'United States',
-                           'Zenith City', NULL);
-   INSERT INTO town VALUES ('g', 'Greenville', 'MS', 'United States',
-                            'The Heart & Soul of the Delta',
-                            'The Best Food, Shopping, & Entertainment In The South');
-   INSERT INTO town VALUES ('t', 'Tokyo', 'Kanto', 'Japan', NULL, NULL);
-   INSERT INTO town VALUES ('as', 'Asgard', NULL, NULL,
-                            'Home of Odin''s vault',
-                            'Where magic and science are one in the same');
-   INSERT INTO town VALUES ('mv', 'Metroville', NULL, NULL,
-                           'Home of the Incredibles',
-                           'Still Standing');
-   INSERT INTO town VALUES ('le', 'London', 'England', 'United Kingdom',
-                           'The Smoke',
-                           'Domine dirige nos');
-   INSERT INTO town VALUES ('sw', 'Seattle', 'Washington', 'United States',
-                           'The Emerald City',
-                           'The City of Goodwill');
-
-   -- ------------------   creature -- -------------------------------
-   DROP TABLE IF EXISTS creature;
-
-
-   CREATE TABLE creature (
-   creatureId          INTEGER      NOT NULL PRIMARY KEY,
-   creatureName        VARCHAR(20),
-   creatureType        VARCHAR(20),
-   reside_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
-   idol_creatureId     INTEGER,
-   FOREIGN KEY(idol_creatureId) REFERENCES creature(creatureId)
-   );
-
-   INSERT INTO creature VALUES (1,'Bannon','person','p',10);
-   INSERT INTO creature VALUES (2,'Myers','person','a',9);
-   INSERT INTO creature VALUES (3,'Neff','person','be',NULL);
-   INSERT INTO creature VALUES (4,'Neff','person','b',3);
-   INSERT INTO creature VALUES (5,'Mieska','person','d', 10);
-   INSERT INTO creature VALUES (6,'Carlis','person','p',9);
-   INSERT INTO creature VALUES (7,'Kermit','frog','g',8);
-   INSERT INTO creature VALUES (8,'Godzilla','monster','t',6);
-   INSERT INTO creature VALUES (9,'Thor','superhero','as',NULL);
-   INSERT INTO creature VALUES (10,'Elastigirl','superhero','mv',13);
-   INSERT INTO creature VALUES (11,'David Beckham','person','le',9);
-   INSERT INTO creature VALUES (12,'Harry Kane','person','le',11);
-   INSERT INTO creature VALUES (13,'Megan Rapinoe','person','sw',10);
-
-   -- ------------------   skill -- -------------------------------
-   DROP TABLE IF EXISTS skill;
-
-   CREATE TABLE skill (
-   skillCode          VARCHAR(3)      NOT NULL PRIMARY KEY,
-   skillDescription   VARCHAR(40),
-   maxProficiency     INTEGER,     -- max score that can be achieved for this skill
-   minProficiency     INTEGER,     -- min score that can be achieved for this skill
-   origin_townId      VARCHAR(3)     REFERENCES town(townId)     -- foreign key
-   );
-
-   INSERT INTO skill VALUES ('A', 'float', 10, -1,'b');
-   INSERT INTO skill VALUES ('E', 'swim', 5, 0,'b');
-   INSERT INTO skill VALUES ('O', 'sink', 10, -1,'b');
-   INSERT INTO skill VALUES ('U', 'walk on water', 5, 1,'d');
-   INSERT INTO skill VALUES ('Z', 'gargle', 5, 1,'a');
-   INSERT INTO skill VALUES ('B2', '2-crew bobsledding', 25, 0,'d');
-   INSERT INTO skill VALUES ('TR4', '4x100 meter track relay', 100, 0,'be');
-   INSERT INTO skill VALUES ('C2', '2-person canoeing', 12, 1,'t');
-   INSERT INTO skill VALUES ('THR', 'three-legged race', 10, 0,'g');
-   INSERT INTO skill VALUES ('D3', 'Australasia debating', 10, 1,NULL);
-   INSERT INTO skill VALUES ('PK', 'soccer penalty kick', 10, 1, 'le');
-   -- Note that no skill originates in Philly or Metroville or Asgaard
-
-   -- ------------------  teamSkill  -- -------------------------------
-   DROP TABLE IF EXISTS teamSkill;
-
-   CREATE TABLE teamSkill (
-   skillCode      VARCHAR(3)  NOT NULL PRIMARY KEY references skill (skillCode),
-   teamSize       INTEGER
-   );
-
-   INSERT INTO teamSkill VALUES ('B2', 2);
-   INSERT INTO teamSkill VALUES ('TR4', 4);
-   INSERT INTO teamSkill VALUES ('C2', 2);
-   INSERT INTO teamSkill VALUES ('THR', 2);
-   INSERT INTO teamSkill VALUES ('D3', 3);
-
-   -- ------------------  achievement  -- -------------------------------
-   DROP TABLE IF EXISTS achievement;
-
-   CREATE TABLE achievement (
-   achId              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-   creatureId         INTEGER,
-   skillCode          VARCHAR(3),
-   proficiency        INTEGER,
-   achDate            TEXT,
-   test_townId VARCHAR(3) REFERENCES town(townId),     -- foreign key
-   FOREIGN KEY (creatureId) REFERENCES creature (creatureId),
-   FOREIGN KEY (skillCode) REFERENCES skill (skillCode)
-   );
-
-   -- Bannon floats in Anoka (where he aspired)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (1, 'A', 3, datetime('now'), 'a');
-
-   -- Bannon swims in Duluth (he aspired in Bemidji)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (1, 'E', 3, datetime('2017-09-15 15:35'), 'd');
-   -- Bannon floats in Anoka (where he aspired)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (1, 'A', 3, datetime('2018-07-14 14:00'), 'a');
-
-   -- Bannon swims in Duluth (he aspired in Bemidji)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (1, 'E', 3, datetime('now'), 'd');
-   -- Bannon doesn't gargle
-   -- Mieska gargles in Tokyo (had no aspiration to)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (5, 'Z', 6, datetime('2016-04-12 15:42:30'), 't');
-
-   -- Neff #3 gargles in Blue Earth (but not to his aspired proficiency)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
-   -- Neff #3 gargles in Blue Earth (but not to his aspired proficiency)
-   -- on same day at same proficiency, signifying need for arbitrary id
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (3, 'Z', 4, datetime('2018-07-15'), 'be');
-
-   -- Beckham achieves PK in London
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (11, 'PK', 10, datetime('1998-08-15'), 'le');
-   -- Kane achieves PK in London
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (12, 'PK', 10, datetime('2016-05-24'), 'le');
-   -- Rapinoe achieves PK in London
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (13, 'PK', 10, datetime('2012-08-06'), 'le');
-   -- Godizilla achieves PK in Tokyo poorly with no date
-   -- had not aspiration to do so- did it on a dare ;)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (8, 'PK', 1, NULL, 't');
-
-
-   -- -------------------- -------------------- -------------------
-   -- Thor achieves three-legged race in Metroville (with Elastigirl)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (9, 'THR', 10, datetime('2018-08-12 14:30'), 'mv');
-   -- Elastigirl achieves three-legged race in Metroville (with Thor)
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (10, 'THR', 10, datetime('2018-08-12 14:30'), 'mv');
-
-   -- Kermit 'pilots' 2-person bobsledding  (pilot goes into contribution)
-   --       with Thor as brakeman (brakeman goes into contribution) in Duluth,
-   --    achieve at 76% of maxProficiency
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (7, 'B2', 19, datetime('2017-01-10 16:30'), 'd');
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (9, 'B2', 19, datetime('2017-01-10 16:30'), 'd');
-
-   -- 4 people form track realy team in London:
-   --   Neff #4, Mieska, Myers, Bannon
-   --    achieve at 85% of maxProficiency
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (4, 'TR4', 85, datetime('2012-07-30'), 'le');
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (5, 'TR4', 85, datetime('2012-07-30'), 'le');
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (2, 'TR4', 85, datetime('2012-07-30'), 'le');
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (1, 'TR4', 85, datetime('2012-07-30'), 'le');
-
-   -- Thor, Rapinoe, and Kermit form debate team in Seattle, WA and
-   -- achieve at 80% of maxProficiency
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (9, 'D3', 8, datetime('now', 'localtime'), 'sw');
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (13, 'D3', 8, datetime('now', 'localtime'), 'sw');
-   INSERT INTO achievement (creatureId, skillCode, proficiency,
-                            achDate, test_townId)
-                   VALUES (7, 'D3', 8, datetime('now', 'localtime'), 'sw');
-
-   -- no 2-person canoeing achievements, but some have aspirations
 
 
 Exercises
 ~~~~~~~~~~
 
-Try creating the precedence charts for these queries.
+Try creating the precedence charts for these queries. Use the simple version with the triangle-shaped divide (exactly) operator.
 
 **English Query:**
 
-   Find each Creature who is a superman because they can do all of the skills.
+   1. Find each Creature who is a superman because they can do all of the skills.
 
-   Find each Creature who can at least float, swim, sink, 4x100 meter track relay, and three-legged race.
+   2. Find each Creature who has achieved at least float, swim, and run 4x100 meter track relay.
 
-   Find each creature who has achieved exactly the skill whose description is ‘float, swim’ and ‘sink’.
+   3. Find each creature who aspires to exactly gargle and 2-person canoeing skills.

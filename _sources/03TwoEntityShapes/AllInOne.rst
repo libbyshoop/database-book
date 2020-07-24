@@ -1,10 +1,11 @@
 What we have seen so far
 ------------------------
 
-Here is a complete version of all of the SQL data creation statements in one place so that you can download it as one file and so you can try more things if you would like.
+Here is a complete version of all of the SQL data creation statements from this chapter in one place so that you can download it as one file and so you can try more things if you would like.
 
-.. activecode:: all_creature_1
+.. activecode:: creature_town
    :language: sql
+   :enabledownload:
 
    DROP TABLE IF EXISTS town;
 

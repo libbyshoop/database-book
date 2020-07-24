@@ -38,7 +38,7 @@ The first four chapters linked below will guide you through the basic mechanisms
 Part 2: Mastering Database Querying with Relational Algebra and SQL
 --------------------------------------------------------------------
 
-Beginning with Chapter 5, 'Relational Databases, Querying and Analysis', we will go through how to design queries using a graphical notation based on relational database theory that helps you think clearly about what data results you can expect from operations on data relations (a special form of data tables). With a design in hand, you will then be able to create correct queries using SQL-- we guide you through that process with simple examples.
+Beginning with Chapter 5, 'Relational Databases, Querying and Analysis', we will go through how to design queries using a graphical notation based on relational database theory that helps you think clearly about what data results you can expect from operations on data relations (a special form of data tables). With a design in hand, you will then be able to create correct queries using SQL-- we guide you through that process with simple examples to begin with, and increase the complexity as you progress through the book.
 
 Table of Contents
 :::::::::::::::::
@@ -65,6 +65,8 @@ Table of Contents
   16CompareJoin/toctree.rst
   17CategoryRelations/toctree.rst
 
+Note that chapters 14 - 17 are somewhat advanced material. Instructors, I've included them because I typically am able to cover these topics in a semester course when I am concentrating on mastering querying. If you want to include different topics, such as NoSQL databases, you may want to drop some of these later chapters.
+
 Recognition and Thanks
 ::::::::::::::::::::::
 
@@ -83,13 +85,6 @@ I wish to extend thanks to Brad Miller and the `Runestone Interactive <http://ru
 
 I also wish to thank Yiyi Yuan, a student a Macalester College, who helped me develop many of the exercises in the second part of this book.
 
-Warning: A work in Progress
-:::::::::::::::::::::::::::
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/2/2d/Wikidata_logo_under_construction_sign_square.svg
-    :width: 100px
-    :align: center
-    :alt: Under construction
 
-The material you will read here is still under some revision (beware when you see the construction sign above).
 

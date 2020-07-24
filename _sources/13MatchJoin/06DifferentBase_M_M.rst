@@ -29,7 +29,9 @@ Columns of the three relations in the fragment:
 
 |
 
-Precedence Chart:
+Note that the columns highlighted in yellow are the ones that potentially can be matched between any two of these three entities using a Match Join.
+
+Precedence Chart for the above English Query:
 
 |
 
@@ -37,24 +39,64 @@ Precedence Chart:
 
 |
 
+Note that the M-M nature led us to the symmetric-pair case, needing the full house. By examining the column we were matching over, we see that it is different than the identifier for each of the two input relations, so we have Aid(D) and Bid(D) in the Match Join house operator. 
+
+**Naming the result relation:** this example shows a new choice we have to make for determining the base of this result. The M-M symmetry between the two inputs means that we will always name it A-B pair, so in this case it became Creature-Skill pair. Note also that because of this, the new identifier is the combination of the identifiers of the two input relations (in this case creatureId, skillCode).
+
+Now here is the SQL implementation for this query.
+
+.. tabbed:: DifferentBase3_MJ_M_M
+
+    .. tab:: SQL Times-Filter-Reduce MJ query
+
+      .. activecode:: same_town_cr_sk_pair
+        :language: sql
+        :include: all_creature_create
+
+        -- same reside_townId as origin_townId Creature-Skill Pair
+                    -- reduce by removing B.townId
+        SELECT A.*, B.skillCode, B.skillDescription, 
+                    B.maxProficiency, B.minProficiency
+        FROM Creature A, Skill B       -- times
+        WHERE A.reside_townId = B.origin_townId   -- equality match filter
+        ;
+
+    .. tab:: SQL Inner Join MJ  query
+
+      .. activecode:: same_town_cr_sk_pair_inner
+        :language: sql
+        :include: all_creature_create
+
+        -- same reside_townId as origin_townId Creature-Skill Pair
+                    -- reduce by removing B.townId
+        SELECT A.*, B.skillCode, B.skillDescription, 
+                    B.maxProficiency, B.minProficiency
+        FROM Creature A 
+        INNER JOIN Skill B       -- like MJ operator symbol
+        ON A.reside_townId = B.origin_townId   -- equality match filter
+        ;
+    
 
 
+.. note::
+    This example is different in that we are not matching on a foreign key column. Because of this, this is not the prevalent "natural join" that applied for the previous example. Yet we can use the INNER JOIN keywords as shown in the second tab.
+ 
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/2/2d/Wikidata_logo_under_construction_sign_square.svg
-    :width: 100px
-    :align: left
-    :alt: Under construction
 
 
 Other Queries to try:
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Try creating the precedence charts for these queries.
+Try creating the precedence charts for these queries. As suggested before, pay attention to the circumstances : 
+
+a. What are the bases of the two input relations. (different or same?)
+b. Is it a M-M relationship like the example in this section?
+c. What are the 'works on' columns and which letter (EMSOD) applies to each of the two relations.
 
 **English Query:**
 
-    Find each Skill - Aspiration pair where the Aspiration desired in the same town that the Skill originated in.
+    1. Find each Skill - Creature pair where the creature *aspires* to obtain the skill in the same town that the Skill originated in.
 
-    Find each Creature - Achievement pair where the Achievement tested in the same town that the creature resided in.
+    2. Find each same-creatureId Contribution - AspiredContribution pair where the Achievement tested in the same town that the creature resided in.
 
-    Find each Achievement - Skill pair where the Skill originated in the same town that the Achievement originated in.
+    3. Find each same-creatureId and same test town as desired town Achievement-Aspiration pair.

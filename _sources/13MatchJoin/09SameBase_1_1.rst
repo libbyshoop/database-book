@@ -12,7 +12,7 @@ It is important to realize when relations have the same base. It is because they
 
 |
 
-Though there are several chicken-feet-out shapes involving Town, what we want to focus on is the *two parallel chicken-feet-in shapes* whose intersection entities are Achievement and Aspiration. This set of two different chicken-feet-in shapes involving entities like Creature and Skill is relatively common in  databases.
+Though there are several chicken-feet-out shapes involving Town, what we want to focus on is the *two parallel chicken-feet-in shapes* whose intersection entities are Achievement and Aspiration, respectively, between Creature and Skill. This set of two different chicken-feet-in shapes involving entities like Creature and Skill is relatively common in  databases.
 
 In this database, there can be more than one of the same Skill achieved by a creature, i.e. there can be more than one pair of the same creatureId, skillCode data values in Achievement. (A creature can achieve the same skill more than once.) However, the data for Aspiration contains one creatureId, skillCode pair of data values, because those two columns form its identifier.
 
@@ -35,11 +35,69 @@ To perform this match of Aspiration data with Achievement data we must be carefu
 
 After the Reduce, the Match Join is a same base (Creature-Skill Pair), 1 - 1 case and therefore Symmetric-either.
 
+.. mchoice:: mc-mj-sb-1-1
+   :answer_a: creatureId
+   :answer_b: skillCode
+   :answer_c: skillCode, creatureId
+   :correct: c
+   :feedback_a: The same-base, symmetric-either 1-1 case means the base of the result relations stays the same as the two same input relation bases. What is the base, which implies its identifier?
+   :feedback_b: The same-base, symmetric-either 1-1 case means the base of the result relations stays the same as the two same input relation bases. What is the base, which implies its identifier?
+   :feedback_c: Correct! The same-base, symmetric-either 1-1 case means the base of the result relations stays the same as the two same input relation bases.
+
+   Which of these is the identifier for the result relation?
+
+The SQL for this chart then becomes:
+
+.. tabbed:: SameBase_1_1
+
+    .. tab:: SQL Times-Filter-Reduce MJ query
+
+      .. activecode:: ach_aspired_cr_sk_pair
+        :language: sql
+        :include: all_creature_create
+
+        DROP TABLE IF EXISTS achievingCreatureSkillPair;
+
+        -- achieving Creature-Skill Pair
+        CREATE TABLE achievingCreatureSkillPair AS
+        SELECT distinct creatureId, skillCode
+        FROM Achievement
+        ;
+
+        SELECT A.*, B.aspiredProficiency, 
+                    B.desired_townId
+        FROM achievingCreatureSkillPair A, Aspiration B
+        WHERE A.creatureId = B.creatureId
+        AND   A. skillCode = B.skillCode
+        ;
+
+    .. tab:: SQL Inner Join MJ  query
+
+      .. activecode:: ach_aspired_cr_sk_pair_inner
+        :language: sql
+        :include: all_creature_create
+
+        DROP TABLE IF EXISTS achievingCreatureSkillPair;
+
+        -- achieving Creature-Skill Pair
+        CREATE TABLE achievingCreatureSkillPair AS
+        SELECT distinct creatureId, skillCode
+        FROM Achievement
+        ;
+
+        SELECT A.*, B.aspiredProficiency, 
+                    B.desired_townId
+        FROM achievingCreatureSkillPair A
+        INNER JOIN Aspiration B
+        ON A.creatureId = B.creatureId
+        AND   A. skillCode = B.skillCode
+        ;
+
 
 A Different Interpretation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Another way to consider the posed query is to maintain the M - 1 correspondence between Achievement and Aspiration by not first doing the Reduce shown above. In this case we can state that what we want to get back is every Achievement matched to Aspiration through creatureId and skillCode.
+Another way to consider the posed query is to maintain the M - 1 correspondence between Achievement as A and Aspiration as B by not first doing the Reduce shown above. In this case we can state that what we want to get back is every Achievement matched to Aspiration through creatureId and skillCode.
 
 
 .. mchoice:: mc-mj-09a
@@ -77,7 +135,4 @@ Another way to consider the posed query is to maintain the M - 1 correspondence 
 
   What is are the bases of A (Achievement) and B (Aspiration) in this situation?
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/2/2d/Wikidata_logo_under_construction_sign_square.svg
-    :width: 100px
-    :align: left
-    :alt: Under construction
+If you would like, try the chart for this different case, now that you have answered these questions.
