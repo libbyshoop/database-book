@@ -183,7 +183,7 @@ In case it would help, here are Aspiration and Achievement again:
 
 Here is a space where you can try to develop the SQL queries, with a start on the swimming categories from above.
 
-.. activecode:: gargling_category_compare_good
+.. activecode:: category_compare_ex
   :language: sql
   :include: all_creature_create
 

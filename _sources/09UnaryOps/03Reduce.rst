@@ -263,4 +263,4 @@ Work on precedence charts for these. Decide which of these is bad. Note that for
 
   5. Find each Achieved skill of creature with its proficiency (id: skillCode, creatureId).
 
-If you haven't yet, you can download :download:`This Small Creature Database Schema<../08TinyDB/smallCreatureDB_LDS.pdf>` and keep a copy for your own reference as you work on the precedence charts.
+If you haven't yet, you can download :download:`This Small Creature Database Schema<../img/smallCreatureDB_LDS.pdf>` and keep a copy for your own reference as you work on the precedence charts.

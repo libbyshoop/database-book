@@ -7,8 +7,8 @@ Suppose now we look at  two different relations that we can derive as result rel
 
 |
 
-.. image:: ../08tinyDB/smallCreatureDB_LDS.png
-    :width: 600px
+.. image:: ../img/smallCreatureDB_LDS.png
+    :width: 610px
     :align: center
     :alt: Creature database conceptual schema
 

@@ -10,7 +10,7 @@ Let's start with an example from our small creature database, whose conceptual s
 
 |
 
-.. image:: ../08TinyDB/smallCreatureDB_LDS.png
+.. image:: ../img/smallCreatureDB_LDS.png
     :width: 600px
     :align: center
     :alt: Creature database conceptual schema

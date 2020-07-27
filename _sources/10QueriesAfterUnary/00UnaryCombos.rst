@@ -223,7 +223,7 @@ Try creating the precedence charts for queries in Exercises 1-9. Exercise 10 is 
 
 |
 
-.. image:: ../08TinyDB/smallCreatureDB_LDS.png
+.. image:: ../img/smallCreatureDB_LDS.png
     :width: 600px
     :align: center
     :alt: Creature database conceptual schema
