@@ -103,7 +103,7 @@ Now here is the SQL implementation for this query. Note that we create an interm
 Exercise
 ~~~~~~~~
 
-This exercise is a bit trickier and is trying to help you develop further mastery. It is understandable and reasonable if it seems harder and takes a bit more time to think it through. Pull out your copy of :download:`the Small Creature Database Schema<smallCreatureDB_LDS.pdf>` to inspire you. 
+This exercise is a bit trickier and is trying to help you develop further mastery. It is understandable and reasonable if it seems harder and takes a bit more time to think it through. Pull out your copy of :download:`the Small Creature Database Schema<../img/smallCreatureDB_LDS.pdf>` to inspire you. 
 
 I always am referring to a database's schema to look for the shapes that lead to particular types of queries. Note how the query example on this page is related to the chicken-feet in shape from Creature to Aspiration to Skill on the schema, and the result from the previous page was about the Creature-Skill pair that can be made from the chicken feet in shape between Creature, Town, and Skill. With this in mind, try this:
 

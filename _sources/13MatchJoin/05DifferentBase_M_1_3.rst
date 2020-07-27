@@ -117,7 +117,7 @@ Use the logic above and in the previous sections to practice developing charts f
 
     3. Find each Aspiration with its skill data where the aspiredProficiency is equal to the maxProficiency of that skill.
 
-For these next queries, let's branch out to other relations. Pull out your copy of :download:`the Small Creature Database Schema<smallCreatureDB_LDS.pdf>` to work on these. Practice the steps for decision making with these queries, as was used in the logic described above:
+For these next queries, let's branch out to other relations. Pull out your copy of :download:`the Small Creature Database Schema<../img/smallCreatureDB_LDS.pdf>` to work on these. Practice the steps for decision making with these queries, as was used in the logic described above:
 
 1. These are all different bases for the two input relations.
 2. Is it a M-1 relationship, and if so, which relation is the many end?
