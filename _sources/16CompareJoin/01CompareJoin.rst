@@ -21,6 +21,7 @@ The slightly unsatisfactory aspect of this example is that the result relation c
 .. activecode:: cr1_cr2_times
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS non_person_creature;
    CREATE TABLE non_person_creature AS
@@ -53,6 +54,7 @@ Here is some SQL where we are projecting to get simply the pairs of creatureId v
 .. activecode:: cr1_cr2_times_2
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS non_person_creature;
    CREATE TABLE non_person_creature AS
@@ -70,6 +72,7 @@ When you run this, note all of the pairs an where they fall in the matrix visual
 .. activecode:: cr1_cr2_times_3
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS non_person_creature;
    CREATE TABLE non_person_creature AS
@@ -101,6 +104,7 @@ Here is the SQL for this query:
 .. activecode:: cr1_cr2_unordered
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    SELECT C1.creatureId C1_creatureId,
           C1.creatureName C1_creatureName,
@@ -161,6 +165,7 @@ Here is some SQL code for the second query:
 .. activecode:: asp_contrib_not_same_role
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    -- Find each creature who aspires to contribute and
    -- contributed the same skillCode to a team where
@@ -180,6 +185,7 @@ Here is a place for you to try the first query above for practice.
 .. activecode:: ach_skill_not_same_town
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    -- Find each same-SkillCode, but not same test_townId as origin_townId,
    --  (achievement with its skill data)

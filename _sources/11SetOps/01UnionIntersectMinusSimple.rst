@@ -57,6 +57,7 @@ The SQL for this query is:
         .. activecode:: gargling_or_4x100relay_achieveing_creature
            :language: sql
            :include: achievement_create_set, 4x100relay_creature, gargling_creature
+           :showlastsql:
 
            DROP TABLE IF EXISTS garglingOr4x100RelayCreature;
 
@@ -74,6 +75,7 @@ The SQL for this query is:
         .. activecode:: gargling_creature
            :language: sql
            :include: achievement_create_set
+           :showlastsql:
 
            DROP TABLE IF EXISTS garglingCreature;
 
@@ -87,6 +89,7 @@ The SQL for this query is:
        .. activecode:: 4x100relay_creature
           :language: sql
           :include: achievement_create_set
+          :showlastsql:
 
           DROP TABLE IF EXISTS relay4x100Creature;
 
@@ -244,6 +247,7 @@ The SQL for this query uses the data and intermediate relations from the Union e
 .. activecode:: gargling_and_4x100relay_achieveing_creature
    :language: sql
    :include: achievement_create_set, 4x100relay_creature, gargling_creature
+   :showlastsql:
 
    DROP TABLE IF EXISTS garglingAnd4x100RelayCreature;
 
@@ -281,6 +285,7 @@ The SQL for this query uses the data and intermediate relations from the Union e
 .. activecode:: gargling_ButNot_4x100relay_achieveing_creature
    :language: sql
    :include: achievement_create_set, 4x100relay_creature, gargling_creature
+   :showlastsql:
 
    DROP TABLE IF EXISTS garglingButNot4x100RelayCreature;
 
@@ -314,6 +319,7 @@ The SQL for this query again uses the data and intermediate relations from the U
 .. activecode:: relay4x100_ButNot_gargling_achieveing_creature
   :language: sql
   :include: achievement_create_set, 4x100relay_creature, gargling_creature
+  :showlastsql:
 
   DROP TABLE IF EXISTS Relay4x100ButNotgarglingCreature;
 

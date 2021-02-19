@@ -62,6 +62,7 @@ Corresponding SQL:
       .. activecode:: creature_project_1
          :language: sql
          :include: creature_create_project
+         :showlastsql:
 
          SELECT creatureId, creatureName
          FROM creature;
@@ -124,6 +125,7 @@ Corresponding SQL:
       .. activecode:: achievement_project_elapsed
          :language: sql
          :include: achievement_create_project
+         :showlastsql:
 
          SELECT achId, skillCode, proficiency,
                 julianday('now') - julianday(achDate) AS 

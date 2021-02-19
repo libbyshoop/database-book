@@ -81,6 +81,7 @@ SQL for the Match Join:
 .. activecode:: skill_be_MJ
    :language: sql
    :include: skill_be_create2
+   :showlastsql:
 
    SELECT S.*, TS.teamSize
    FROM skill S, teamSkill TS

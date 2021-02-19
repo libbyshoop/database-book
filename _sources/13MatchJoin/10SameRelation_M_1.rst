@@ -42,6 +42,7 @@ In the example below, I chose to make the query look similar to the times from t
         .. activecode:: creature_reflexive_MJ
            :language: sql
            :include: creature_create_MJ_reflexive
+           :showlastsql:
 
             SELECT C1.creatureId AS C1_creatureId,
                    C1.creatureName AS C1_creatureName,
@@ -60,6 +61,7 @@ In the example below, I chose to make the query look similar to the times from t
         .. activecode:: creature_reflexive_MJ_short
            :language: sql
            :include: creature_create_MJ_reflexive
+           :showlastsql:
 
             SELECT C1.*,
                    C2.creatureName AS idol_creatureName,

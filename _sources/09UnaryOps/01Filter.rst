@@ -66,6 +66,7 @@ Now let's see what the SQL will look like for this. You can look at the second t
       .. activecode:: person_creature
          :language: sql
          :include: creature_create_filter
+         :showlastsql:
 
          SELECT *
          FROM creature
@@ -120,6 +121,7 @@ Corresponding SQL:
 .. activecode:: non_person_creature
    :language: sql
    :include: creature_create_filter
+   :showlastsql:
 
    SELECT *
    FROM creature
@@ -163,6 +165,7 @@ Corresponding SQL:
 .. activecode:: london_person_creature
    :language: sql
    :include: creature_create_filter
+   :showlastsql:
 
    SELECT *
    FROM creature
@@ -192,6 +195,7 @@ Corresponding SQL:
       .. activecode:: above3_and_earlier_than_August2018_achievement
          :language: sql
          :include: achievement_create_filter
+         :showlastsql:
 
          SELECT *
          FROM achievement

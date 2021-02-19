@@ -55,6 +55,7 @@ Now here is the SQL implementation for this query. Note that we create an interm
       .. activecode:: same_aspired_town_cr_sk_pair
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         DROP TABLE IF EXISTS sameTownCreatureSkillPair;
 
@@ -79,6 +80,7 @@ Now here is the SQL implementation for this query. Note that we create an interm
       .. activecode:: same_aspired_town_cr_sk_pair_inner
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         DROP TABLE IF EXISTS sameTownCreatureSkillPair;
 

@@ -65,6 +65,7 @@ We will start with a compact, yet somewhat complex version of the SQL code. Run 
 .. activecode:: survivor
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    drop table if exists skillCode_of_survivor_Skill;
 
@@ -140,6 +141,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
       .. activecode:: survivor_input
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- First create the PATTERN relation (B) of survivor skill
         drop table if exists skillCode_of_survivor_Skill;
@@ -165,6 +167,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
       .. activecode:: survivor_times
         :language: sql
         :include: all_creature_create, survivor_input
+        :showlastsql:
 
         --------------------------------------------------------
         -- The times
@@ -189,6 +192,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
       .. activecode:: survivor_missing
         :language: sql
         :include: all_creature_create, survivor_input, survivor_times
+        :showlastsql:
 
         --------------------------------------------------------
         -- The minus to get missing survivor skills
@@ -225,6 +229,7 @@ Next we can look at a translation of the above chart into a long version of SQL 
       .. activecode:: survivor_at_least
         :language: sql
         :include: all_creature_create, survivor_input, survivor_times, survivor_missing
+        :showlastsql:
 
         --------------------------------------------------------
         -- The second minus at the bottom of the chart
@@ -317,6 +322,7 @@ Now let's go through the complex SQL for this sophisticated example. First, we n
 .. activecode:: THR_Skill
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    drop table if exists ThreeLeggedRaceSkill;
    -- 'the pattern' to look for
@@ -330,6 +336,7 @@ Now the at least divide as we presented before:
 .. activecode:: THR_Skill_divide
   :language: sql
   :include: all_creature_create, THR_Skill
+  :showlastsql:
 
   SELECT DISTINCT creatureId
   FROM Achievement AS IN1
@@ -347,6 +354,7 @@ And next the 'exactly' three-legged race, no more no less.
 .. activecode:: THR_Skill_divide_exact
   :language: sql
   :include: all_creature_create, THR_Skill
+  :showlastsql:
 
     SELECT IN1.creatureId
       FROM Achievement AS IN1
@@ -405,6 +413,7 @@ Use this code block to complete the query from the generic template above by fil
 .. activecode:: exactly_PK_debate
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS PK_debate;
    -- 'the pattern' to look for

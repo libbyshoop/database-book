@@ -53,6 +53,7 @@ The SQL query examples change in two ways: we eliminate one more column in the r
       .. activecode:: ach_skill_MJ_D_M
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- same test town as origin town Achievement with its Skill data
                     -- reduce by removing B.skillCode, B.origin_townId
@@ -68,6 +69,7 @@ The SQL query examples change in two ways: we eliminate one more column in the r
       .. activecode:: ach_skill_MJ_D_M_inner
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- same test town as origin town Achievement with its Skill data
                     -- reduce by removing B.skillCode, B.origin_townId

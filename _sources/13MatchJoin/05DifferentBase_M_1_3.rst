@@ -51,6 +51,7 @@ Next let's look at the SQL, which might be looking familiar by now if you have s
       .. activecode:: asp_cr_MJ_S_E
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- Aspiration with its Creature data
                     -- reduce by removing B.creatureId
@@ -66,6 +67,7 @@ Next let's look at the SQL, which might be looking familiar by now if you have s
       .. activecode:: asp_cr_MJ_S_E_inner
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- Aspiration with its Creature data
                     -- reduce by removing B.creatureId, B.origin_townId
@@ -81,6 +83,7 @@ Next let's look at the SQL, which might be looking familiar by now if you have s
       .. activecode:: asp_cr_MJ_S_E_natural
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- Aspiration with its Creature data
                     -- reduce by removing B.creatureId, B.origin_townId

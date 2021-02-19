@@ -43,6 +43,7 @@ Note how this is an ordered creature pair.
         .. activecode:: creature_town_MJ
            :language: sql
            :include: creature_create_MJ_town
+           :showlastsql:
 
            SELECT C1.creatureId AS C1_creatureId,
                   C1.creatureName AS C1_creatureName,

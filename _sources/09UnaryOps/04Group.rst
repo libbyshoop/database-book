@@ -57,6 +57,7 @@ Corresponding SQL:
         .. activecode:: creature_ach_count
            :language: sql
            :include: achievement_create_group
+           :showlastsql:
 
            SELECT creatureId,
                   count(distinct skillCode) AS achievedSkillCount
@@ -206,6 +207,7 @@ Corresponding SQL:
 .. activecode:: ach_cr_skill_count
    :language: sql
    :include: achievement_create_group
+   :showlastsql:
 
    SELECT creatureId, skillCode,
           count(*) AS numberOfTimesSkillAchieved
@@ -238,6 +240,7 @@ Corresponding SQL:
 .. activecode:: ach_max_proficiency
    :language: sql
    :include: achievement_create_group
+   :showlastsql:
 
    SELECT max(proficiency) AS maximumAchievedProficiency
    FROM achievement;
@@ -261,6 +264,7 @@ Precedence Chart:
 .. activecode:: ach_proficiency_stats
    :language: sql
    :include: achievement_create_group
+   :showlastsql:
 
    SELECT max(proficiency) AS maximumAchievedProficiency
    FROM achievement;
@@ -334,6 +338,7 @@ There are two ways in which a *bad group* can arise.
      .. activecode:: creature_group_idol
         :language: sql
         :include: creature_create_group
+        :showlastsql:
 
         SELECT idol_creatureId, count(creatureId) AS idoledByCreatureCount
         FROM creature
@@ -375,6 +380,7 @@ There are two ways in which a *bad group* can arise.
 .. activecode:: creature_group_bad_carry
    :language: sql
    :include: creature_create_group
+   :showlastsql:
 
    SELECT creatureType, reside_townId, count(creatureId)
    FROM creature
@@ -423,6 +429,7 @@ Once you have a chart, try some SQL for 7 - 9 above. Here is what the Skill rela
     .. activecode:: skill_group
        :language: sql
        :include: skill_create_group
+       :showlastsql:
 
        SELECT
        FROM skill
@@ -467,6 +474,7 @@ Once you have a chart, try some SQL for 7 - 9 above. Here is what the Skill rela
     .. activecode:: skill_group_bad
        :language: sql
        :include: skill_create_group
+       :showlastsql:
 
          SELECT min(maxProficiency), skillDescription
          FROM skill

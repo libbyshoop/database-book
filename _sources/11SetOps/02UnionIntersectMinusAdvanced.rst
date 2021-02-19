@@ -44,6 +44,7 @@ The SQL to create and keep the result relation from the above Reduce operation i
         .. activecode:: Show_AchievedSkillInTownWithProficiency
            :language: sql
            :include: achievement_create_set2, AchievedSkillInTownWithProficiency
+           :showlastsql:
 
            SELECT * FROM AchievedSkillInTownWithProficiency;
 
@@ -53,6 +54,7 @@ The SQL to create and keep the result relation from the above Reduce operation i
         .. activecode:: AchievedSkillInTownWithProficiency
            :language: sql
            :include: achievement_create_set2
+           :showlastsql:
 
            DROP TABLE IF EXISTS AchievedSkillInTownWithProficiency;
 
@@ -273,6 +275,7 @@ When this Intersection is performed, each row is treated as one instance in each
 .. activecode:: All_column_intersection
    :language: sql
    :include: achievement_create_set2, aspiration_create_set2, AchievedSkillInTownWithProficiency
+   :showlastsql:
 
    SELECT creatureId, skillCode, proficiency, test_townId
    FROM AchievedSkillInTownWithProficiency
@@ -297,6 +300,7 @@ Here is SQL for this query:
 .. activecode:: 2_column_intersection
   :language: sql
   :include: achievement_create_set2, aspiration_create_set2, AchievedSkillInTownWithProficiency
+  :showlastsql:
 
   SELECT creatureId, skillCode
   FROM AchievedSkillInTownWithProficiency
@@ -361,6 +365,7 @@ Once you have a chart, then use the code area below to try the SQL.
       .. activecode:: set_adv_exercises
           :language: sql
           :include: set_adv_creature_create
+          :showlastsql:
           :enabledownload: 
 
           -- 1. Find each creatureId and skillCode of Creature 

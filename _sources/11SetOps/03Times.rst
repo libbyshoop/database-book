@@ -53,6 +53,7 @@ The SQL to complete the times is also quite simple:
       .. activecode:: creature_skill_times
          :language: sql
          :include: creature_skill_create_times
+         :showlastsql:
 
          SELECT creature.*, skill.*
          FROM creature, skill;
@@ -62,6 +63,7 @@ The SQL to complete the times is also quite simple:
       .. activecode:: creature_skill_times_save
          :language: sql
          :include: creature_skill_create_times
+         :showlastsql:
 
          DROP TABLE IF EXISTS Creature_Skill_Pair;
 
@@ -74,6 +76,7 @@ The SQL to complete the times is also quite simple:
       .. activecode:: creature_skill_pair_count
          :language: sql
          :include: creature_skill_create_times, creature_skill_times_save
+         :showlastsql:
 
          SELECT count(*)
          FROM Creature_Skill_Pair;
@@ -171,6 +174,7 @@ Since there are 13 creatures, the result has 13 * 13 rows, or 169 rows, includin
       .. activecode:: creature_creature_times
          :language: sql
          :include: creature_skill_create_times
+         :showlastsql:
 
           SELECT C1.creatureId AS C1_creatureId,
                  C1.creatureName AS C1_creatureName,
@@ -189,6 +193,7 @@ Since there are 13 creatures, the result has 13 * 13 rows, or 169 rows, includin
       .. activecode:: creature_creature_times_save
          :language: sql
          :include: creature_skill_create_times
+         :showlastsql:
 
            DROP TABLE IF EXISTS Creature_Creature_Pair;
 
@@ -210,6 +215,7 @@ Since there are 13 creatures, the result has 13 * 13 rows, or 169 rows, includin
       .. activecode:: creature_creature_pair_count
          :language: sql
          :include: creature_skill_create_times, creature_creature_times_save
+         :showlastsql:
 
            SELECT count(*)
            FROM Creature_Creature_Pair;

@@ -52,6 +52,7 @@ Now here is the SQL implementation for this query.
       .. activecode:: same_town_cr_sk_pair
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- same reside_townId as origin_townId Creature-Skill Pair
                     -- reduce by removing B.townId
@@ -66,6 +67,7 @@ Now here is the SQL implementation for this query.
       .. activecode:: same_town_cr_sk_pair_inner
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- same reside_townId as origin_townId Creature-Skill Pair
                     -- reduce by removing B.townId

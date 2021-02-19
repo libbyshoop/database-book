@@ -60,6 +60,7 @@ Let's examine the SQL for this one, so that you can see that we can combine the 
         .. activecode:: london_skill
            :language: sql
            :include: skill_create_group
+           :showlastsql:
 
            SELECT distinct skillDescription
            FROM Skill
@@ -98,6 +99,7 @@ We would do a bad group if we simply grouped over origin_townId and counted skil
         .. activecode:: skill_count_per_town
            :language: sql
            :include: skill_create_group
+           :showlastsql:
 
            SELECT origin_townId,
                   count(skillCode) AS SkillCount
@@ -147,6 +149,7 @@ Corresponding SQL:
         .. activecode:: creature_count_most_skills
            :language: sql
            :include: achievement_create_filter
+           :showlastsql:
 
            DROP TABLE IF EXISTS creatureAchievedSkillCount;
 
@@ -189,6 +192,7 @@ Earlier we filtered first to avoid a problem with NULL values. Here is an exampl
         .. activecode:: creature_count_skills_ge_2
            :language: sql
            :include: achievement_create_filter
+           :showlastsql:
 
            DROP TABLE IF EXISTS creatureAchievedSkillCount;
 
@@ -332,6 +336,7 @@ Once you have the charts for the above exercises (and **NOT bEFORE**), you can t
       .. activecode:: combo_exercises
           :language: sql
           :include: all_creature_create
+          :showlastsql:
           :enabledownload: 
 
           -- 1. Find each non-null achDate of Achievements 

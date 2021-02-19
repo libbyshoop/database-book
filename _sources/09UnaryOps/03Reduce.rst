@@ -66,6 +66,7 @@ Corresponding SQL:
      .. activecode:: creature_reduce_1
         :language: sql
         :include: creature_create_reduce
+        :showlastsql:
 
         SELECT distinct creatureType
         FROM creature;
@@ -75,6 +76,7 @@ Corresponding SQL:
      .. activecode:: creature_reduce_2
         :language: sql
         :include: creature_create_reduce
+        :showlastsql:
 
         SELECT creatureType
         FROM creature;
@@ -187,6 +189,7 @@ English query:
      .. activecode:: town_reduce_bad_1
         :language: sql
         :include: town_create_reduce
+        :showlastsql:
 
         SELECT distinct State, Country
         FROM town;

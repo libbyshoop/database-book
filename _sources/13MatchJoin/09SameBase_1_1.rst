@@ -55,6 +55,7 @@ The SQL for this chart then becomes:
       .. activecode:: ach_aspired_cr_sk_pair
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         DROP TABLE IF EXISTS achievingCreatureSkillPair;
 
@@ -76,6 +77,7 @@ The SQL for this chart then becomes:
       .. activecode:: ach_aspired_cr_sk_pair_inner
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         DROP TABLE IF EXISTS achievingCreatureSkillPair;
 

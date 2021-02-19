@@ -62,6 +62,7 @@ Once we have this new relation, now we can use Compare Join to match achievement
 .. activecode:: swim_category_compare
    :language: sql
    :include: all_creature_create, swim_category
+   :showlastsql:
 
    SELECT distinct achievement.creatureId, swim_category.category
    FROM achievement, swim_category
@@ -76,6 +77,7 @@ In this case, there was only one creature who swims, and the proficiency he happ
 .. activecode:: gargling_category
   :language: sql
   :include: all_creature_create
+  :showlastsql:
 
   DROP TABLE IF EXISTS gargling_category;
 
@@ -97,6 +99,7 @@ Now here is the Compare Join between achievement and this new gargling_category,
 .. activecode:: gargling_category_compare
   :language: sql
   :include: all_creature_create, gargling_category
+  :showlastsql:
 
   SELECT distinct achievement.creatureId, gargling_category.category
   FROM achievement, gargling_category
@@ -110,6 +113,7 @@ What we have now is each gargling creature and the category their proficiency sc
 .. activecode:: gargling_category_compare_good_date
   :language: sql
   :include: all_creature_create, gargling_category
+  :showlastsql:
 
   SELECT distinct achievement.creatureId,
                   gargling_category.category, achievement.achDate
@@ -126,6 +130,7 @@ Here is SQL for a **table** of the creatureId, skillCode, proficiency, and achDa
 .. activecode:: gargling_ach
   :language: sql
   :include: all_creature_create
+  :showlastsql:
 
   SELECT creatureId, skillCode, proficiency, achDate
   FROM   achievement
@@ -136,6 +141,7 @@ We can go one step further with the category relation and ask specifically about
 .. activecode:: gargling_category_compare_good
   :language: sql
   :include: all_creature_create, gargling_category
+  :showlastsql:
 
   SELECT distinct achievement.creatureId,
                   gargling_category.category, achievement.achDate
@@ -186,6 +192,7 @@ Here is a space where you can try to develop the SQL queries, with a start on th
 .. activecode:: category_compare_ex
   :language: sql
   :include: all_creature_create
+  :showlastsql:
 
   DROP TABLE IF EXISTS swim_category;
 

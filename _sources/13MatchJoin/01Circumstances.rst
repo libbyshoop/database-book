@@ -162,6 +162,7 @@ As you can see, the origin town of skill whose skillCode is 'PK' is the reside t
       .. activecode:: creature_skill_times_MJ
          :language: sql
          :include: creature_skill_create_times_MJ
+         :showlastsql:
 
          SELECT creature.*, skill.*
          FROM creature, skill
@@ -173,6 +174,7 @@ As you can see, the origin town of skill whose skillCode is 'PK' is the reside t
       .. activecode:: creature_skill_MJ
          :language: sql
          :include: creature_skill_create_times_MJ
+         :showlastsql:
 
          SELECT creature.*, S.skillCode, S.skillDescription,
                 S.maxProficiency, S.minProficiency

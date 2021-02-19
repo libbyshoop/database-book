@@ -62,6 +62,7 @@ The third tab shows a syntax that works in only this special case of match join,
       .. activecode:: ach_skill_MJ_D_E
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- Achievement with its Skill data
                     -- reduce by removing B.skillCode
@@ -78,6 +79,7 @@ The third tab shows a syntax that works in only this special case of match join,
       .. activecode:: ach_skill_InnerJ_D_E
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- Achievement with its Skill data
                     -- reduce by removing B.skillCode
@@ -94,6 +96,7 @@ The third tab shows a syntax that works in only this special case of match join,
       .. activecode:: ach_skill_NaturalJ_D_E
         :language: sql
         :include: all_creature_create
+        :showlastsql:
 
         -- Achievement with its Skill data
         SELECT *

@@ -17,6 +17,7 @@ What this means is that there can be, and very often are in most databases, inst
 .. activecode:: creature_ach_nj
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS CreatureNJAchievement;
 
@@ -70,6 +71,7 @@ Now let's look at the SQL code in action. First, create the result table:
 .. activecode:: creature_ach_oj
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS CreatureLOJAchievement;
 
@@ -86,6 +88,7 @@ Now display what is in the result table:
 .. activecode:: creature_ach_oj_display
   :language: sql
   :include: all_creature_create, creature_ach_oj
+  :showlastsql:
 
   select * from CreatureLOJAchievement
   ORDER BY creatureId;
@@ -95,6 +98,7 @@ Note how Carlis is now in this result table. This table can now be used to count
 .. activecode:: creature_ach_oj_count
   :language: sql
   :include: all_creature_create, creature_ach_oj
+  :showlastsql:
 
   SELECT creatureId, count(skillCode)
   FROM CreatureLOJAchievement
@@ -107,6 +111,7 @@ Suppose we want distinct skill code counts per creature, not counting every time
 .. activecode:: creature_ach_oj_count_distinct
   :language: sql
   :include: all_creature_create, creature_ach_oj
+  :showlastsql:
 
   SELECT creatureId, count( distinct skillCode)
   FROM CreatureLOJAchievement
@@ -137,6 +142,7 @@ Here is the SQL code to create the result table:
 .. activecode:: creature_ach_oj_w
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    DROP TABLE IF EXISTS CreatureLOJAchievement_w;
 
@@ -155,6 +161,7 @@ And to display the result table:
 .. activecode:: creature_ach_oj_w_display
    :language: sql
    :include: all_creature_create, creature_ach_oj_w
+   :showlastsql:
 
    SELECT * 
    FROM CreatureLOJAchievement_w
@@ -169,6 +176,7 @@ Here is how we get this result: Group over creatureId and reside_townId and coun
 .. activecode:: creature_ach_oj_count_w
   :language: sql
   :include: all_creature_create, creature_ach_oj_w
+  :showlastsql:
 
   SELECT creatureId, reside_townId, count(skillCode) AS skillcount
   FROM CreatureLOJAchievement_w
@@ -243,6 +251,7 @@ Study the following example and note what columns are kept from the two separate
 .. activecode:: creature_ach_skill_oj
    :language: sql
    :include: all_creature_create
+   :showlastsql:
 
    -- This version is possible in SQLite, using 
    -- only LEFT OUTER JOIN and UNION ALL

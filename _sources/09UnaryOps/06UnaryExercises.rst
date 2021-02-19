@@ -597,6 +597,7 @@ Choose Show to reveal a possible way to name the above result.
             .. activecode:: ex_ach_bad_group
                 :language: sql
                 :include: achievement_create_filter
+                :showlastsql:
 
                 SELECT creatureId, test_townId, count(skillCode)
                 FROM achievement
@@ -661,6 +662,7 @@ For this interesting query, it would be good for you to practice the SQL version
       .. activecode:: ach_practice_group
          :language: sql
          :include: achievement_create_filter
+         :showlastsql:
 
          SELECT *
          FROM achievement;

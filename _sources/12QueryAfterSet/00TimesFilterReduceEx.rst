@@ -37,6 +37,7 @@ In the following SQL code tabs, the creation of the intermediate relations is in
       .. activecode:: Show_Skill_Prof_Difference
          :language: sql
          :include: achievement_create_filter, after_set_intermediate
+         :showlastsql:
 
          SELECT *
          FROM AchSkillByCreatureDifferenceFromMax;
@@ -46,6 +47,7 @@ In the following SQL code tabs, the creation of the intermediate relations is in
      .. activecode:: after_set_intermediate
         :language: sql
         :include: achievement_create_project
+        :showlastsql:
         :enabledownload:
 
         -- top left side of chart
